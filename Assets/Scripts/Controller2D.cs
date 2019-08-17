@@ -5,6 +5,9 @@ public class Controller2D : RaycastController {
 	
 	float maxClimbAngle = 80;
 	float maxDescendAngle = 80;
+	[HideInInspector]
+	public int jumpCount=0;
+	public int maxJumpCount=1;
 	
 	public CollisionInfo collisions;
 	[HideInInspector]
@@ -44,6 +47,7 @@ public class Controller2D : RaycastController {
 
 		if (standingOnPlatform) {
 			collisions.below = true;
+			jumpCount=0;
 		}
 
 		return moveAmount;
@@ -150,6 +154,7 @@ public class Controller2D : RaycastController {
 
 				collisions.below = directionY == -1;
 				collisions.above = directionY == 1;
+				if(collisions.below)jumpCount=0;
 			}
 		}
 

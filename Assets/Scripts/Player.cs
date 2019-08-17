@@ -4,6 +4,9 @@ using System.Collections;
 [RequireComponent (typeof (Controller2D))]
 public class Player : MonoBehaviour {
 
+
+	int jumpCount=0;
+	public int maxJumpCount=1;
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
@@ -56,6 +59,7 @@ public class Player : MonoBehaviour {
 
 	public void OnJumpInputDown() {
 		if (wallSliding) {
+			controller.jumpCount=0;
 			if (wallDirX == directionalInput.x) {
 				velocity.x = -wallDirX * wallJumpClimb.x;
 				velocity.y = wallJumpClimb.y;
@@ -69,8 +73,14 @@ public class Player : MonoBehaviour {
 				velocity.y = wallLeap.y;
 			}
 		}
-		if (controller.collisions.below) {
+		// if (controller.collisions.below) {
+		// 	velocity.y = maxJumpVelocity;
+		// }
+		if (controller.jumpCount < controller.maxJumpCount) {
+			Debug.Log(controller.jumpCount);
 			velocity.y = maxJumpVelocity;
+			controller.jumpCount++;
+			Debug.Log(controller.jumpCount);
 		}
 	}
 
