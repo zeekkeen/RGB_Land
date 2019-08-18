@@ -12,13 +12,18 @@ public class PlayerAttack : MonoBehaviour
     // public float attackRange;
     public Vector2 attackRange;
     public int damage;
+
+    // void Start ()
+    // {
+    //     //camAnim=Camera.main.GetComponent<Animator>();
+    // }
     void Update()
     {
         if(timeBtwAttack<=0)
         {
             if(Input.GetKey(KeyCode.J))
             {
-                camAnim.SetTrigger("shake");
+                //camAnim.SetTrigger("shake");
                 playerAnim.SetTrigger("attack");
                 //Collider2D[] enemiesToDamage=Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemies);
                 Collider2D[] enemiesToDamage=Physics2D.OverlapBoxAll(attackPos.position,attackRange,0,whatIsEnemies);

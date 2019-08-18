@@ -11,13 +11,12 @@ public class Enemy : MonoBehaviour
     public float StartDazedTime = 0.6f;
     public GameObject bloodEffect,deathEffect;
     public GameObject bloodSplash,corpse;
-    Animator anim,camAnim;
+    Animator anim;
     RipplePostProcessor camRipple;
     void Start()
     {
         anim=GetComponent<Animator>();
         anim.SetBool("isRunning",true);
-        camAnim=Camera.main.GetComponent<Animator>();
         camRipple=Camera.main.GetComponent<RipplePostProcessor>();
     }
 

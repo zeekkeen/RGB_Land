@@ -34,6 +34,10 @@ public class Player : MonoBehaviour {
 	bool wallSliding;
 	int wallDirX;
 	bool facingRight=true;
+	float dashTime=0f;
+	public float startDashTime=0.1f,dashSpeed=7f;
+	bool dash=false;
+	public GameObject dashEffect;
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -46,8 +50,19 @@ public class Player : MonoBehaviour {
 	void Update() {
 		CalculateVelocity ();
 		HandleWallSliding ();
-
+		if(!dash)
 		controller.Move (velocity * Time.deltaTime, directionalInput);
+		else if(dash)
+		{
+			controller.Move (new Vector3(Time.deltaTime*dashSpeed*((facingRight)?1:-1),0,0), directionalInput);
+			dashTime-=Time.deltaTime;
+			if(dashTime<=0)
+			{
+				dashTime=0;
+				dash=false;
+				Instantiate(dashEffect,transform.position,Quaternion.identity);
+			}
+		}
 
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
@@ -80,10 +95,8 @@ public class Player : MonoBehaviour {
 		// 	velocity.y = maxJumpVelocity;
 		// }
 		if (controller.jumpCount < controller.maxJumpCount) {
-			Debug.Log(controller.jumpCount);
 			velocity.y = maxJumpVelocity;
 			controller.jumpCount++;
-			Debug.Log(controller.jumpCount);
 		}
 	}
 
@@ -91,6 +104,12 @@ public class Player : MonoBehaviour {
 		if (velocity.y > minJumpVelocity) {
 			velocity.y = minJumpVelocity;
 		}
+	}
+
+	public void OnDashInputDown() {
+		dash=true;
+		dashTime=startDashTime;
+		Instantiate(dashEffect,transform.position,Quaternion.identity);
 	}
 		
 
