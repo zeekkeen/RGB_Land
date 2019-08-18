@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
 	Vector2 directionalInput;
 	bool wallSliding;
 	int wallDirX;
+	bool facingRight=true;
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -55,6 +56,8 @@ public class Player : MonoBehaviour {
 
 	public void SetDirectionalInput (Vector2 input) {
 		directionalInput = input;
+		if(!facingRight&&directionalInput.x>0)flip();
+		else if(facingRight&&directionalInput.x<0)flip();
 	}
 
 	public void OnJumpInputDown() {
@@ -124,5 +127,12 @@ public class Player : MonoBehaviour {
 		float targetVelocityX = directionalInput.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
 		velocity.y += gravity * Time.deltaTime;
+	}
+
+	void flip(){
+		facingRight=!facingRight;
+		Vector3 scaler=transform.localScale;
+		scaler.x*=-1;
+		transform.localScale=scaler;
 	}
 }
