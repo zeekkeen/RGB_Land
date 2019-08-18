@@ -14,23 +14,23 @@ public class PlayerAttack : MonoBehaviour
     public int damage;
     public GameObject proyectile;
 
-    // void Start ()
-    // {
-    //     //camAnim=Camera.main.GetComponent<Animator>();
-    // }
+    void Start ()
+    {
+        camAnim=Camera.main.GetComponent<Animator>();
+    }
     void Update()
     {
         if(timeBtwMeleeAttack<=0)
         {
             if(Input.GetKey(KeyCode.J))
             {
-                //camAnim.SetTrigger("shake");
                 playerAnim.SetTrigger("attack");
                 //Collider2D[] enemiesToDamage=Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemies);
                 Collider2D[] enemiesToDamage=Physics2D.OverlapBoxAll(attackPos.position,attackRange,0,whatIsEnemies);
                 for(int i=0;i<enemiesToDamage.Length;i++)
                 {
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                    camAnim.SetTrigger("shake");
                 }
                 timeBtwMeleeAttack=startTimeBtwMeleeAttack;
             }
