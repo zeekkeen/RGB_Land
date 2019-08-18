@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    float timeBtwAttack;
-    public float startTimeBtwAttack=0.3f;
+    float timeBtwMeleeAttack,timeBtwRangedAttack;
+    public float startTimeBtwMeleeAttack=0.3f,startTimeBtwRangedAttack=0.3f;
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public Animator camAnim,playerAnim;
     // public float attackRange;
     public Vector2 attackRange;
     public int damage;
+    public GameObject proyectile;
 
     // void Start ()
     // {
@@ -19,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     // }
     void Update()
     {
-        if(timeBtwAttack<=0)
+        if(timeBtwMeleeAttack<=0)
         {
             if(Input.GetKey(KeyCode.J))
             {
@@ -31,11 +32,24 @@ public class PlayerAttack : MonoBehaviour
                 {
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
-            timeBtwAttack=startTimeBtwAttack;
+                timeBtwMeleeAttack=startTimeBtwMeleeAttack;
             }
         }else
         {
-            timeBtwAttack-=Time.deltaTime;
+            timeBtwMeleeAttack-=Time.deltaTime;
+        }
+        if(timeBtwRangedAttack<=0)
+        {
+            if(Input.GetKey(KeyCode.L))
+            {
+                playerAnim.SetTrigger("attack");
+                GameObject instance=(GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
+                if(transform.localScale.x<0)instance.transform.localScale=new Vector3(-1*instance.transform.localScale.x,instance.transform.localScale.y,instance.transform.localScale.z);
+                timeBtwRangedAttack=startTimeBtwRangedAttack;
+            }
+        }else
+        {
+            timeBtwRangedAttack-=Time.deltaTime;
         }
     }
 

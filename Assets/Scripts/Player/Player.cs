@@ -38,10 +38,11 @@ public class Player : MonoBehaviour {
 	public float startDashTime=0.1f,dashSpeed=7f;
 	bool dash=false;
 	public GameObject dashEffect;
+	Animator anim;
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
-
+		anim=GetComponent<Animator>();
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
@@ -51,7 +52,11 @@ public class Player : MonoBehaviour {
 		CalculateVelocity ();
 		HandleWallSliding ();
 		if(!dash)
-		controller.Move (velocity * Time.deltaTime, directionalInput);
+		{
+			if(velocity.x!=0 && controller.collisions.below) anim.SetBool("isRunning",true);
+			if(controller.playerInput.x==0 || !controller.collisions.below)anim.SetBool("isRunning",false);
+			controller.Move (velocity * Time.deltaTime, directionalInput);
+		}
 		else if(dash)
 		{
 			controller.Move (new Vector3(Time.deltaTime*dashSpeed*((facingRight)?1:-1),0,0), directionalInput);
@@ -63,9 +68,9 @@ public class Player : MonoBehaviour {
 				Instantiate(dashEffect,transform.position,Quaternion.identity);
 			}
 		}
-
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
+			anim.SetTrigger("Landed");
 		}
 	}
 
@@ -97,6 +102,7 @@ public class Player : MonoBehaviour {
 		if (controller.jumpCount < controller.maxJumpCount) {
 			velocity.y = maxJumpVelocity;
 			controller.jumpCount++;
+			anim.SetTrigger("Jump");
 		}
 	}
 
