@@ -78,6 +78,7 @@ public class Controller2D : RaycastController {
 				}
 
 				otherCollider = hit.collider;
+				collisions.hitGO=hit.collider.gameObject;
 			
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
@@ -218,7 +219,7 @@ public class Controller2D : RaycastController {
 	public struct CollisionInfo {
 		public bool above, below;
 		public bool left, right;
-
+		public GameObject hitGO;
 		public bool climbingSlope;
 		public bool descendingSlope;
 		public float slopeAngle, slopeAngleOld;
@@ -231,6 +232,7 @@ public class Controller2D : RaycastController {
 			left = right = false;
 			climbingSlope = false;
 			descendingSlope = false;
+			hitGO=null;
 
 			slopeAngleOld = slopeAngle;
 			slopeAngle = 0;
