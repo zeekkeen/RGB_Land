@@ -35,11 +35,12 @@ public class Player : MonoBehaviour {
 	public float startDashTime=0.1f,dashSpeed=7f,timeBtwTrail=0,startTimeBtwTrail=0.5f;
 	bool dash=false;
 	public GameObject dashEffect,dustEffect;
-	Animator anim;
+	Animator anim,camAnim;
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
 		anim=GetComponentInChildren<Animator>();
+		camAnim = Camera.main.GetComponent<Animator>();
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
@@ -82,6 +83,7 @@ public class Player : MonoBehaviour {
 		if (controller.collisions.below && !Landed) {
 			Landed=true;
 			anim.SetTrigger("Landed");
+			camAnim.SetTrigger("shake");
 			Instantiate(dustEffect,transform.position,Quaternion.identity);
 		}
 	}
@@ -119,6 +121,7 @@ public class Player : MonoBehaviour {
 			if (controller.jumpCount==1)
 			{
 				Instantiate(dustEffect,transform.position,Quaternion.identity);
+				camAnim.SetTrigger("shake");
 			}
 		}
 	}
