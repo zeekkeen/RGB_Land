@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     void Start ()
     {
         camAnim=Camera.main.GetComponent<Animator>();
+        playerAnim=GetComponentInChildren<Animator>();
     }
     void Update()
     {
