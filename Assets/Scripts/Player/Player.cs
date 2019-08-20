@@ -30,11 +30,11 @@ public class Player : MonoBehaviour {
 	Vector2 directionalInput;
 	bool wallSliding;
 	int wallDirX;
-	bool facingRight=true;
+	bool facingRight=true,Landed=false;
 	float dashTime=0f;
-	public float startDashTime=0.1f,dashSpeed=7f;
+	public float startDashTime=0.1f,dashSpeed=7f,timeBtwTrail=0,startTimeBtwTrail=0.5f;
 	bool dash=false;
-	public GameObject dashEffect;
+	public GameObject dashEffect,dustEffect;
 	Animator anim;
 
 	void Start() {
@@ -50,9 +50,20 @@ public class Player : MonoBehaviour {
 		HandleWallSliding ();
 		if(!dash)
 		{
-			if(velocity.x!=0 && controller.collisions.below) anim.SetBool("isRunning",true);
+			if(velocity.x!=0 && controller.collisions.below)anim.SetBool("isRunning",true);
 			if(controller.playerInput.x==0 || !controller.collisions.below)anim.SetBool("isRunning",false);
 			controller.Move (velocity * Time.deltaTime, directionalInput);
+			if (directionalInput.x!=0 || directionalInput.y!=0)
+			{
+				if (timeBtwTrail<=0)
+				{
+					Instantiate(dustEffect,transform.position-Vector3.down*(-0.5f),Quaternion.identity);
+					timeBtwTrail=startTimeBtwTrail;
+				}else
+				{
+					timeBtwTrail-=Time.deltaTime;
+				}
+			}
 		}
 		else if(dash)
 		{
@@ -67,7 +78,11 @@ public class Player : MonoBehaviour {
 		}
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
+		}
+		if (controller.collisions.below && !Landed) {
+			Landed=true;
 			anim.SetTrigger("Landed");
+			Instantiate(dustEffect,transform.position,Quaternion.identity);
 		}
 	}
 
@@ -97,9 +112,14 @@ public class Player : MonoBehaviour {
 		// 	velocity.y = maxJumpVelocity;
 		// }
 		if (controller.jumpCount < controller.maxJumpCount) {
+			Landed=false;
 			velocity.y = maxJumpVelocity;
 			controller.jumpCount++;
 			anim.SetTrigger("Jump");
+			if (controller.jumpCount==1)
+			{
+				Instantiate(dustEffect,transform.position,Quaternion.identity);
+			}
 		}
 	}
 
