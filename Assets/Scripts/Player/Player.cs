@@ -121,7 +121,7 @@ public class Player : MonoBehaviour {
 			if (controller.jumpCount==1)
 			{
 				Instantiate(dustEffect,transform.position,Quaternion.identity);
-				camAnim.SetTrigger("shake");
+				//camAnim.SetTrigger("shake");
 			}
 		}
 	}

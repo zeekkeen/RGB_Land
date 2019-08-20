@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     public float startTimeBtwMeleeAttack=0.3f,startTimeBtwRangedAttack=0.3f;
     public Transform attackPos;
     public LayerMask whatIsEnemies;
-    public Animator camAnim,playerAnim;
+    public Animator playerAnim;
     // public float attackRange;
     public Vector2 attackRange;
     public int damage;
@@ -16,7 +16,6 @@ public class PlayerAttack : MonoBehaviour
 
     void Start ()
     {
-        camAnim=Camera.main.GetComponent<Animator>();
         playerAnim=GetComponentInChildren<Animator>();
     }
     void Update()
@@ -31,7 +30,6 @@ public class PlayerAttack : MonoBehaviour
                 for(int i=0;i<enemiesToDamage.Length;i++)
                 {
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                    camAnim.SetTrigger("shake");
                 }
                 timeBtwMeleeAttack=startTimeBtwMeleeAttack;
             }

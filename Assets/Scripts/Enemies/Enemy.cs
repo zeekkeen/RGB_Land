@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public float StartDazedTime = 0.6f;
     public GameObject bloodEffect,deathEffect;
     public GameObject bloodSplash,corpse;
-    Animator anim;
+    Animator anim,camAnim;
     RipplePostProcessor camRipple;
     ////
 
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
 	public GameObject dashEffect,groundDetection;
     void Start()
     {
-        //anim=GetComponent<Animator>();
+        camAnim=Camera.main.GetComponent<Animator>();
 		anim=GetComponentInChildren<Animator>();
         anim.SetBool("isRunning",true);
         camRipple=Camera.main.GetComponent<RipplePostProcessor>();
@@ -200,6 +200,7 @@ public class Enemy : MonoBehaviour
     }
     public void Dead()
     {
+		camAnim.SetTrigger("shake");
         camRipple.RippleEffect();
         Instantiate(corpse,transform.position,Quaternion.identity);
         Instantiate(bloodSplash,transform.position,Quaternion.identity);
