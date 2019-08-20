@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 8f511ee0594152040892a9c1b868a90f
+guid: e50c77483c5b2db4ab70ba1a442cdfaf
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -417394512215300655
+    second: blue_little_bug_0
+  - first:
+      213: 1022899585246084586
+    second: blue_little_bug_1
+  - first:
+      213: -5755337727851800805
+    second: blue_little_bug_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +117,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: blue_little_bug_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 500
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fff60574b9655b43bf7a9459b0ba7c0
+      internalID: -417394512215300655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_little_bug_1
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 0
+        width: 500
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27a80fa096d69e84e8d86159b8252fdc
+      internalID: 1022899585246084586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_little_bug_2
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 8
+        width: 500
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1f85e121c55f34a91c0775c378e791
+      internalID: -5755337727851800805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

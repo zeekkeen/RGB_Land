@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent (typeof (BoxCollider2D))]
 public class Enemy : MonoBehaviour
 {
-    public int health;
+    public SpriteRenderer lifeRender;
+    public int health = 0,maxHealth=0;
     public float speed;
     float dazedTime;
     public float StartDazedTime = 0.6f;
@@ -52,12 +53,13 @@ public class Enemy : MonoBehaviour
 		anim=GetComponentInChildren<Animator>();
         anim.SetBool("isRunning",true);
         camRipple=Camera.main.GetComponent<RipplePostProcessor>();
-
+		maxHealth=health;
         controller = GetComponent<Controller2D> ();
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
         directionalInput=new Vector2(1,0);
+		moveSpeed=Random.Range(2,5);
     }
 
 	void Update() {
@@ -196,6 +198,7 @@ public class Enemy : MonoBehaviour
         Instantiate(bloodEffect,transform.position,Quaternion.identity);
         dazedTime=StartDazedTime;
         health-=damage;
+		ChangeColor1();
         Debug.Log("damague taken!!");
     }
     public void Dead()
@@ -206,5 +209,12 @@ public class Enemy : MonoBehaviour
         Instantiate(bloodSplash,transform.position,Quaternion.identity);
         Instantiate(deathEffect,transform.position,Quaternion.identity);
         Destroy(gameObject);
+    }
+
+	public void ChangeColor1(){
+        float alpha,percentOfHealth;
+        percentOfHealth = (health*100) / maxHealth;
+        alpha = percentOfHealth / 100;
+        lifeRender.color = new Color(lifeRender.color.r, lifeRender.color.g, lifeRender.color.b, alpha);
     }
 }
