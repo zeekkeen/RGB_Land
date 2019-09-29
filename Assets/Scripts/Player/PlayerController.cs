@@ -22,16 +22,19 @@ public class PlayerController : MonoBehaviour
     float jumpTimeCounter;
     public float jumpTime;
 
-    //dash
     public float dashSpeed, startDashTime;
     float dashTime;
     bool dash=false;
-    public GameObject dashEffect;//,dustEffect;
+    public GameObject dashEffect,dustEffect;
+    Animator anim,camAnim;
+    bool landed=false;
     
     void Start()
     {
         rb=GetComponent<Rigidbody2D>();
         extraJumps = extraJumpsValue;
+        anim=GetComponentInChildren<Animator>();
+		camAnim = Camera.main.GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -46,7 +49,10 @@ public class PlayerController : MonoBehaviour
                 flip();
             else if(facingRight && horizontalInput < 0)
                 flip();
-            
+            if(horizontalInput != 0)
+                anim.SetBool("isRunning",true);
+            else 
+                anim.SetBool("isRunning",false);
             RaycastHit2D hitInfo = Physics2D.Raycast(transform.position,Vector2.up,distance,whatIsLadder);
             if (hitInfo.collider != null)
             {
@@ -69,8 +75,14 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update() {
-        if (isGrounded)
+        if (isGrounded && !landed)
+        {
+            landed=true;
             extraJumps = extraJumpsValue;
+            anim.SetTrigger("Landed");
+			camAnim.SetTrigger("shake");
+			Instantiate(dustEffect,transform.position,Quaternion.identity);
+        }
         if(!dash)
 		{
             if (Input.GetKeyDown(KeyCode.X))
@@ -81,6 +93,13 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
             {
+                anim.SetTrigger("Jump");
+                landed=false;
+                if (extraJumps == 1)
+                {
+                    Instantiate(dustEffect,transform.position,Quaternion.identity);
+                    camAnim.SetTrigger("shake");
+                }
                 isJumping=true;
                 jumpTimeCounter=jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
