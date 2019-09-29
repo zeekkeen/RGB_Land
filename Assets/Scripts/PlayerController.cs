@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
 
     bool facingRigth=true;
-    bool isGrounded;
+    bool isGrounded,isJumping;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround, whatIsLadder;
@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public int extraJumpsValue;
     public float distance;
     bool isClimbing;
+    float jumpTimeCounter;
+    public float jumpTime;
     
     void Start()
     {
@@ -62,10 +64,27 @@ public class PlayerController : MonoBehaviour
             extraJumps = extraJumpsValue;
         if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
         {
+            isJumping=true;
+            jumpTimeCounter=jumpTime;
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
         }else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded)
         rb.velocity = Vector2.up * jumpForce;
+        if (Input.GetKey(KeyCode.Space) && isJumping)
+        {
+            if(jumpTimeCounter > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter-=Time.deltaTime;
+            }else
+            {
+                isJumping=false;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping=false;
+        }
     }
     void flip()
     {
