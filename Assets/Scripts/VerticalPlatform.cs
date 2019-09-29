@@ -17,7 +17,7 @@ public class VerticalPlatform : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.DownArrow))
         {
-            waitTime=0.5f;
+            waitTime=0.1f;
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
@@ -25,7 +25,7 @@ public class VerticalPlatform : MonoBehaviour
             if(waitTime<=0)
             {
                 effector.rotationalOffset=180f;
-                waitTime=0.5f;
+                waitTime=0.1f;
             }else
                 waitTime-=Time.deltaTime;
         }

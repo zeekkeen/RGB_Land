@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    float moveInput;
+    float horizontalInput,verticalInput;
 
     Rigidbody2D rb;
 
@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     public Transform groundCheck;
     public float checkRadius;
-    public LayerMask whatIsGround;
+    public LayerMask whatIsGround, whatIsLadder;
     public int extraJumps;
     public int extraJumpsValue;
+    public float distance;
+    bool isClimbing;
     
     void Start()
     {
@@ -27,23 +29,42 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         isGrounded=Physics2D.OverlapCircle(groundCheck.position,checkRadius,whatIsGround);
-        moveInput=Input.GetAxis("Horizontal");
-        rb.velocity=new Vector2(moveInput*speed,rb.velocity.y);
+        horizontalInput=Input.GetAxis("Horizontal");
+        rb.velocity=new Vector2(horizontalInput * speed, rb.velocity.y);
 
-        if(!facingRigth && moveInput > 0)
+        if(!facingRigth && horizontalInput > 0)
             flip();
-        else if(facingRigth && moveInput < 0)
+        else if(facingRigth && horizontalInput < 0)
             flip();
+        
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position,Vector2.up,distance,whatIsLadder);
+        if (hitInfo.collider != null)
+        {
+            if(Input.GetKeyDown(KeyCode.UpArrow))
+                isClimbing=true;
+        }else
+        {
+            if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            isClimbing=false;
+        }
+        if (isClimbing && hitInfo.collider != null)
+        {
+            verticalInput=Input.GetAxisRaw("Vertical");
+            rb.velocity=new Vector2(rb.velocity.x,verticalInput * speed);
+            rb.gravityScale=0;
+        }else
+            rb.gravityScale=5;
+        
     }
 
     void Update() {
         if (isGrounded)
             extraJumps = extraJumpsValue;
-        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
-        }else if(Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && isGrounded)
+        }else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded)
         rb.velocity = Vector2.up * jumpForce;
     }
     void flip()
