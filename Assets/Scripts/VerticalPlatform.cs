@@ -30,7 +30,7 @@ public class VerticalPlatform : MonoBehaviour
                 waitTime-=Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space))
         {
             effector.rotationalOffset=0;
         }

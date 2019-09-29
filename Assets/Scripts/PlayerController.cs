@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
     bool isClimbing;
     float jumpTimeCounter;
     public float jumpTime;
+
+    //dash
+    public float dashSpeed, startDashTime;
+    float dashTime;
+    int direction=0;
     
     void Start()
     {
@@ -85,6 +90,28 @@ public class PlayerController : MonoBehaviour
         {
             isJumping=false;
         }
+
+        //dash
+        if(Input.GetKeyDown(KeyCode.X))
+            if(facingRigth)
+                direction = 1;
+            else
+                direction = -1;
+        if (direction != 0)
+        {
+            if(dashTime <= 0)
+            {
+                direction = 0;
+                dashTime=startDashTime;
+                rb.velocity=Vector2.zero;
+            }
+            else
+                dashTime -= Time.deltaTime;
+        }
+        if (direction == 1)
+            rb.velocity = Vector2.right*dashSpeed;
+        else if (direction == -1)
+            rb.velocity = Vector2.right*dashSpeed;
     }
     void flip()
     {
