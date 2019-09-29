@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
 
-    bool facingRigth=true;
+    bool facingRight=true;
     bool isGrounded,isJumping;
     public Transform groundCheck;
     public float checkRadius;
@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
     //dash
     public float dashSpeed, startDashTime;
     float dashTime;
-    int direction=0;
+    bool dash=false;
+    public GameObject dashEffect;//,dustEffect;
     
     void Start()
     {
@@ -35,87 +36,89 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        isGrounded=Physics2D.OverlapCircle(groundCheck.position,checkRadius,whatIsGround);
-        horizontalInput=Input.GetAxis("Horizontal");
-        rb.velocity=new Vector2(horizontalInput * speed, rb.velocity.y);
+        if(!dash)
+        {
+            isGrounded=Physics2D.OverlapCircle(groundCheck.position,checkRadius,whatIsGround);
+            horizontalInput=Input.GetAxis("Horizontal");
+            rb.velocity=new Vector2(horizontalInput * speed, rb.velocity.y);
 
-        if(!facingRigth && horizontalInput > 0)
-            flip();
-        else if(facingRigth && horizontalInput < 0)
-            flip();
-        
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position,Vector2.up,distance,whatIsLadder);
-        if (hitInfo.collider != null)
-        {
-            if(Input.GetKeyDown(KeyCode.UpArrow))
-                isClimbing=true;
-        }else
-        {
-            if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-            isClimbing=false;
+            if(!facingRight && horizontalInput > 0)
+                flip();
+            else if(facingRight && horizontalInput < 0)
+                flip();
+            
+            RaycastHit2D hitInfo = Physics2D.Raycast(transform.position,Vector2.up,distance,whatIsLadder);
+            if (hitInfo.collider != null)
+            {
+                if(Input.GetKeyDown(KeyCode.UpArrow))
+                    isClimbing=true;
+            }else
+            {
+                if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+                isClimbing=false;
+            }
+            if (isClimbing && hitInfo.collider != null)
+            {
+                verticalInput=Input.GetAxisRaw("Vertical");
+                rb.velocity=new Vector2(rb.velocity.x,verticalInput * speed);
+                rb.gravityScale=0;
+            }else
+                rb.gravityScale=5;
         }
-        if (isClimbing && hitInfo.collider != null)
-        {
-            verticalInput=Input.GetAxisRaw("Vertical");
-            rb.velocity=new Vector2(rb.velocity.x,verticalInput * speed);
-            rb.gravityScale=0;
-        }else
-            rb.gravityScale=5;
         
     }
 
     void Update() {
         if (isGrounded)
             extraJumps = extraJumpsValue;
-        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
-        {
-            isJumping=true;
-            jumpTimeCounter=jumpTime;
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-        }else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded)
-        rb.velocity = Vector2.up * jumpForce;
-        if (Input.GetKey(KeyCode.Space) && isJumping)
-        {
-            if(jumpTimeCounter > 0)
+        if(!dash)
+		{
+            if (Input.GetKeyDown(KeyCode.X))
             {
+                dash=true;
+                dashTime=startDashTime;
+                Instantiate(dashEffect,transform.position,Quaternion.identity);
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
+            {
+                isJumping=true;
+                jumpTimeCounter=jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
-                jumpTimeCounter-=Time.deltaTime;
-            }else
+                extraJumps--;
+            }else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded)
+            rb.velocity = Vector2.up * jumpForce;
+            if (Input.GetKey(KeyCode.Space) && isJumping)
+            {
+                if(jumpTimeCounter > 0)
+                {
+                    rb.velocity = Vector2.up * jumpForce;
+                    jumpTimeCounter-=Time.deltaTime;
+                }else
+                {
+                    isJumping=false;
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 isJumping=false;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isJumping=false;
-        }
-
-        //dash
-        if(Input.GetKeyDown(KeyCode.X))
-            if(facingRigth)
-                direction = 1;
-            else
-                direction = -1;
-        if (direction != 0)
-        {
-            if(dashTime <= 0)
-            {
-                direction = 0;
-                dashTime=startDashTime;
-                rb.velocity=Vector2.zero;
-            }
-            else
-                dashTime -= Time.deltaTime;
-        }
-        if (direction == 1)
-            rb.velocity = Vector2.right*dashSpeed;
-        else if (direction == -1)
-            rb.velocity = Vector2.right*dashSpeed;
+        else if(dash)
+		{
+            rb.velocity = ((facingRight)?Vector2.right*dashSpeed:Vector2.left*dashSpeed);
+			dashTime-=Time.deltaTime;
+			if(dashTime<=0)
+			{
+				dashTime=0;
+                rb.velocity = Vector2.zero;
+				dash=false;
+				Instantiate(dashEffect,transform.position,Quaternion.identity);
+			}
+		}
     }
     void flip()
     {
-        facingRigth=!facingRigth;
+        facingRight=!facingRight;
         Vector3 scaler =transform.localScale;
         scaler.x*=-1;
         transform.localScale=scaler;
