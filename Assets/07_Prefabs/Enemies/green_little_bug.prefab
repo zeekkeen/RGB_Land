@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1652885730645451285}
   m_Layer: 11
-  m_Name: GroundDetection
+  m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 6886179641182488253}
   - component: {fileID: 3323727215810203239}
   - component: {fileID: 5553442399116806432}
+  - component: {fileID: 5470956526870059029}
   m_Layer: 11
   m_Name: green_little_bug
   m_TagString: Enemy
@@ -228,13 +229,29 @@ MonoBehaviour:
   health: 100
   speed: 20
   StartDazedTime: 0.6
-  bloodEffect: {fileID: 0}
-  deathEffect: {fileID: 0}
-  bloodSplash: {fileID: 0}
-  corpse: {fileID: 0}
+  bloodEffect: {fileID: 8990843590016243783, guid: 2cad2fc23e4109d49b5bf38ea0aa8447,
+    type: 3}
+  deathEffect: {fileID: 8990843590016243783, guid: 88184e34f0f288d46a9829df3385a504,
+    type: 3}
+  bloodSplash: {fileID: 3600589744553738000, guid: a79736cca9d1a2a4e8a1659386cdea56,
+    type: 3}
+  corpse: {fileID: 5065116810720009504, guid: 344d09fc829d5494395e7733717428e9, type: 3}
   startDashTime: 0.1
   dashSpeed: 7
   distance: 0
   dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
     type: 3}
   groundDetection: {fileID: 4831412159549910582}
+--- !u!114 &5470956526870059029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886179641182488248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc3677fe56e90e4fac5dc099ba235e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 8990843590016243783, guid: 2cad2fc23e4109d49b5bf38ea0aa8447, type: 3}

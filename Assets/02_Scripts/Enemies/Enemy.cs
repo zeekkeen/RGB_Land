@@ -47,6 +47,8 @@ public class Enemy : MonoBehaviour
         dazedTime=StartDazedTime;
         health-=damage;
         Debug.Log("damague taken!!");
+		if(health <= 0)
+			Dead();
     }
     public void Dead()
     {
