@@ -45,7 +45,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 playerAnim.SetTrigger("attack");
                 GameObject instance=(GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
-                if(transform.localScale.x<0)instance.transform.localScale=new Vector3(-1*instance.transform.localScale.x,instance.transform.localScale.y,instance.transform.localScale.z);
+                // if(transform.rotation.y == 0)
+                //     instance.transform.localScale=new Vector3(-1*instance.transform.localScale.x,instance.transform.localScale.y,instance.transform.localScale.z);
                 timeBtwRangedAttack=startTimeBtwRangedAttack;
             }
         }else

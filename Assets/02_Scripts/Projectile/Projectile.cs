@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
 	}
 
 	void Update() {
-        if(transform.localScale.x>0)
+        if(transform.rotation.y == 0)
 			rb.velocity = new Vector2(1 * speed * Time.deltaTime, rb.velocity.y);
         else 
 			rb.velocity = new Vector2(-1 * speed * Time.deltaTime, rb.velocity.y);

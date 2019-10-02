@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
 
-    bool facingRight=true;
+    public bool facingRight=true;
     bool isGrounded,isJumping;
     public Transform groundCheck;
     public float checkRadius;
@@ -136,6 +136,12 @@ public class PlayerController : MonoBehaviour
 		}
     }
     void flip()
+    {
+        facingRight=!facingRight;
+        transform.Rotate(0,facingRight?-180:180,0);
+    }
+
+    void flip2()
     {
         facingRight=!facingRight;
         Vector3 scaler =transform.localScale;
