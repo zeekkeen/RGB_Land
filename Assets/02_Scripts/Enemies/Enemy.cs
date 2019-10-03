@@ -17,9 +17,10 @@ public class Enemy : MonoBehaviour
     RipplePostProcessor camRipple;
 	bool facingRight=true;
 	float dashTime=0f;
-	public float startDashTime=0.1f,dashSpeed=7f,distance;
+	public float startDashTime=0.1f,dashSpeed=7f,distance=5f;
 	bool dash=false;
-	public GameObject dashEffect,groundDetection;
+	public GameObject dashEffect,groundDetection,noGroundDetection;
+    public LayerMask groundLayer;
 
 	Rigidbody2D rb;
     void Start(){
@@ -39,7 +40,7 @@ public class Enemy : MonoBehaviour
             speed=0;
             dazedTime-=Time.deltaTime;
         }
-        RaycastHit2D groundInfo=Physics2D.Raycast(groundDetection.transform.position,Vector2.down,distance);
+        RaycastHit2D groundInfo = Physics2D.Raycast(noGroundDetection.transform.position,Vector2.down,distance,groundLayer);
         if (!groundInfo.collider)
             flip();
 		rb.velocity = ((facingRight)?Vector2.right*speed:Vector2.left*speed);
