@@ -79,8 +79,8 @@ public class PlayerController : MonoBehaviour
         {
             landed=true;
             extraJumps = extraJumpsValue;
-            anim.SetTrigger("Landed");
-			camAnim.SetTrigger("shake");
+                anim.SetTrigger("Landed");
+			    camAnim.SetTrigger("shake");
 			Instantiate(dustEffect,transform.position,Quaternion.identity);
         }
         if(!dash)
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
                 if (extraJumps == 1)
                 {
                     Instantiate(dustEffect,transform.position,Quaternion.identity);
-                    camAnim.SetTrigger("shake");
+                    //camAnim.SetTrigger("shake");
                 }
                 isJumping=true;
                 jumpTimeCounter=jumpTime;
