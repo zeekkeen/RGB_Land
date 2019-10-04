@@ -17,10 +17,14 @@ public class Projectile : MonoBehaviour
 	}
 
 	void Update() {
-        if(transform.rotation.y == 0)
+        if(transform.rotation.y == 0 && transform.rotation.z == 0)
 			rb.velocity = new Vector2(1 * speed * Time.deltaTime, rb.velocity.y);
-        else 
+        else if(transform.rotation.y != 0 && transform.rotation.z == 0)
 			rb.velocity = new Vector2(-1 * speed * Time.deltaTime, rb.velocity.y);
+		else if(transform.rotation.z > 0 && transform.rotation.y == 0)
+			rb.velocity = new Vector2(rb.velocity.x, 1 * speed * Time.deltaTime);
+		else 
+			rb.velocity = new Vector2(rb.velocity.x, -1 * speed * Time.deltaTime);
 		moveTime-=Time.deltaTime;
 		if(moveTime<=0)
 		{
@@ -31,11 +35,10 @@ public class Projectile : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other) 
 	{
-		if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Enemy"))
-            {
+		if (other.gameObject.CompareTag("Enemy") ){//|| other.gameObject.CompareTag("Ground")){
                 other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-        		DestroyProjectil();
             }
+        		DestroyProjectil();
 	}
 
     void DestroyProjectil()

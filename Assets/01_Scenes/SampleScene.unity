@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 207553484}
   m_Layer: 8
   m_Name: PisoRocas
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,6 +374,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5553442399116806432, guid: df1078fdab492284c85b535198bb5f24,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df1078fdab492284c85b535198bb5f24, type: 3}
 --- !u!1 &297550445
@@ -388,7 +393,7 @@ GameObject:
   - component: {fileID: 297550447}
   m_Layer: 8
   m_Name: PisoNormal
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -607,6 +612,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_GravityScale
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553442399116806432, guid: 59d9a0a620b32ff499265883cd2d9a40,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 2304
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59d9a0a620b32ff499265883cd2d9a40, type: 3}
@@ -1874,7 +1884,7 @@ GameObject:
   - component: {fileID: 906643539}
   m_Layer: 8
   m_Name: EsquinaRocas
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,6 +3134,7 @@ MonoBehaviour:
   damage: 50
   proyectile: {fileID: 3781503640603159667, guid: 30ca579c431638c4d933085b556e44c8,
     type: 3}
+  direction: 0
 --- !u!1001 &1208655439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3340,6 +3351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553442399116806432, guid: a3032204868bba346ad3bec0bef5ee33,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 2304
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3032204868bba346ad3bec0bef5ee33, type: 3}
@@ -3615,7 +3631,7 @@ GameObject:
   - component: {fileID: 1603803830}
   m_Layer: 8
   m_Name: PisoNormal (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3695,7 +3711,7 @@ GameObject:
   - component: {fileID: 1608902507}
   m_Layer: 8
   m_Name: PisoRocas (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4032,7 +4048,7 @@ GameObject:
   - component: {fileID: 1755541709}
   m_Layer: 8
   m_Name: EsquinaRocas (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
