@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     public int extraJumpsValue;
     public float distance;
     bool isClimbing;
-    float jumpTimeCounter;
-    public float jumpTime;
+    // float jumpTimeCounter;
+    // public float jumpTime;
 
     public float dashSpeed, startDashTime;
     float dashTime;
@@ -29,21 +29,19 @@ public class PlayerController : MonoBehaviour
     Animator anim,camAnim;
     bool landed=false;
     
-    void Start()
-    {
+    void Start(){
         rb=GetComponent<Rigidbody2D>();
         extraJumps = extraJumpsValue;
         anim=GetComponentInChildren<Animator>();
 		camAnim = Camera.main.GetComponent<Animator>();
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate(){
         if(!dash)
         {
-            isGrounded=Physics2D.OverlapCircle(groundCheck.position,checkRadius,whatIsGround);
-            horizontalInput=Input.GetAxis("Horizontal");
-            rb.velocity=new Vector2(horizontalInput * speed, rb.velocity.y);
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position,checkRadius,whatIsGround);
+            horizontalInput = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
 
             if(!facingRight && horizontalInput > 0)
                 flip();
@@ -66,7 +64,7 @@ public class PlayerController : MonoBehaviour
             if (isClimbing && hitInfo.collider != null)
             {
                 verticalInput=Input.GetAxisRaw("Vertical");
-                rb.velocity=new Vector2(rb.velocity.x,verticalInput * speed);
+                rb.velocity = new Vector2(rb.velocity.x,verticalInput * speed);
                 rb.gravityScale=0;
             }else
                 rb.gravityScale=5;
@@ -75,18 +73,18 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update() {
-        if (isGrounded && !landed)
-        {
-            landed=true;
-            extraJumps = extraJumpsValue;
+        RaycastHit2D groundInfo = Physics2D.Raycast(transform.position, Vector2.down, 0.7f,whatIsGround);
+        if (groundInfo.collider && rb.velocity.y < 0 && !isGrounded){
                 anim.SetTrigger("Landed");
 			    camAnim.SetTrigger("shake");
+            }
+        if (isGrounded && !landed){
+            landed=true;
+            extraJumps = extraJumpsValue;
 			Instantiate(dustEffect,transform.position,Quaternion.identity);
         }
-        if(!dash)
-		{
-            if (Input.GetKeyDown(KeyCode.X))
-            {
+        if(!dash){
+            if (Input.GetKeyDown(KeyCode.X)){
                 dash=true;
                 dashTime=startDashTime;
                 Instantiate(dashEffect,transform.position,Quaternion.identity);
@@ -94,29 +92,29 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
             {
                 anim.SetTrigger("Jump");
-                landed=false;
-                if (extraJumps == 1)
+                landed = false;
+                if (extraJumps == 1 && !isJumping)
                 {
                     Instantiate(dustEffect,transform.position,Quaternion.identity);
                     //camAnim.SetTrigger("shake");
                 }
                 isJumping=true;
-                jumpTimeCounter=jumpTime;
+                // jumpTimeCounter=jumpTime;
                 rb.velocity = Vector2.up * jumpForce;
                 extraJumps--;
-            }else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded)
-            rb.velocity = Vector2.up * jumpForce;
-            if (Input.GetKey(KeyCode.Space) && isJumping)
-            {
-                if(jumpTimeCounter > 0)
-                {
-                    rb.velocity = Vector2.up * jumpForce;
-                    jumpTimeCounter-=Time.deltaTime;
-                }else
-                {
-                    isJumping=false;
-                }
-            }
+            }//else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded)
+            //rb.velocity = Vector2.up * jumpForce;
+            // if (Input.GetKey(KeyCode.Space) && isJumping)
+            // {
+            //     if(jumpTimeCounter > 0)
+            //     {
+            //         rb.velocity = Vector2.up * jumpForce;
+            //         jumpTimeCounter-=Time.deltaTime;
+            //     }else
+            //     {
+            //         isJumping=false;
+            //     }
+            // }
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 isJumping=false;
@@ -135,17 +133,15 @@ public class PlayerController : MonoBehaviour
 			}
 		}
     }
-    void flip()
-    {
+    void flip(){
         facingRight=!facingRight;
         transform.Rotate(0,facingRight?-180:180,0);
     }
 
-    void flip2()
-    {
-        facingRight=!facingRight;
-        Vector3 scaler =transform.localScale;
-        scaler.x*=-1;
-        transform.localScale=scaler;
-    }
+    // void flip2(){
+    //     facingRight=!facingRight;
+    //     Vector3 scaler =transform.localScale;
+    //     scaler.x*=-1;
+    //     transform.localScale=scaler;
+    // }
 }
