@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
                         enemiesToDamage=Physics2D.OverlapBoxAll(attackPos.position,attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
-                            enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                            enemiesToDamage[i].GetComponent<Enemy1>().TakeDamage(damage);
                             //camAnim.SetTrigger("shake");
                         }
                             break;
@@ -49,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
                         enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
-                            enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                            enemiesToDamage[i].GetComponent<Enemy1>().TakeDamage(damage);
                             //camAnim.SetTrigger("shake");
                         }
                             break;
@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
                         enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
-                            enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                            enemiesToDamage[i].GetComponent<Enemy1>().TakeDamage(damage);
                             //camAnim.SetTrigger("shake");
                         }
                             break;
