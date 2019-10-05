@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
                             enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                            camAnim.SetTrigger("shake");
+                            //camAnim.SetTrigger("shake");
                         }
                             break;
                     case Direction.top:
@@ -50,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
                             enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                            camAnim.SetTrigger("shake");
+                            //camAnim.SetTrigger("shake");
                         }
                             break;
                     case Direction.down:
@@ -58,7 +58,7 @@ public class PlayerAttack : MonoBehaviour
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
                             enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                            camAnim.SetTrigger("shake");
+                            //camAnim.SetTrigger("shake");
                         }
                             break;
                 }
