@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_LasserBeam
+  m_Shader: {fileID: -6465566751694194690, guid: 21a2a4109fa94234ba370c185bdd55ef,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_B9EF1914:
+        m_Texture: {fileID: 2800000, guid: 55703ad29164b56409b819ad3f959675, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CECC9F12:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_6B611EB1: 2
+    - Vector1_790A9EEA: 0
+    - Vector1_B29E4F53: 0.05
+    - Vector1_DFBC50E1: 0
+    m_Colors:
+    - Color_7A0F7EE2: {r: 3.508356, g: 0.61805236, b: 0.61805236, a: 1}
+    - Vector2_3C3D3A2F: {r: -0.5, g: 0, b: 0, a: 0}
+    - Vector2_756799A4: {r: -1, g: 0, b: 0, a: 0}
