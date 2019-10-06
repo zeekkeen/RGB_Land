@@ -2,18 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
-{
-    float timeBtwMeleeAttack,timeBtwRangedAttack;
-    public float startTimeBtwMeleeAttack=0.3f,startTimeBtwRangedAttack=0.3f;
+public class PlayerAttack : MonoBehaviour{
+
+    Rigidbody2D rb;
+    float timeBtwMeleeAttack,timeBtwPowerUse;
+    public float startTimeBtwMeleeAttack=0.3f,startTimeBtwPowerUse=0.3f;
     public Transform attackPos;
     public LayerMask whatIsEnemies;
-    public Animator camAnim,playerAnim;
+    Animator camAnim,playerAnim;
     // public float attackRange;
     public Vector2 attackRange;
     public int damage;
     public GameObject proyectile;
-    public Direction direction;
+    public Direction attackDirection, dashDirection;
+    public ActivePower activePower;
+    float dashTime;
+    bool dash = false, facingRight = true;
+    public float dashSpeed, startDashTime;
+    public GameObject dashEffect;
 
     public enum Direction{
         top,
@@ -21,24 +27,46 @@ public class PlayerAttack : MonoBehaviour
         side
     }
 
+    public enum ActivePower{
+        rangedAttack,
+        dash,
+        colorControll,
+        none
+    }
+
     void Start (){
+        rb=GetComponent<Rigidbody2D>();
         camAnim=Camera.main.GetComponent<Animator>();
         playerAnim=GetComponentInChildren<Animator>();
-        direction = Direction.side;
+        attackDirection = Direction.side;
+        dashDirection = Direction.side;
+        activePower = 0;
     }
+
     void Update(){
-        if(Input.GetKey(KeyCode.UpArrow))
-            direction = Direction.top;
-        if(Input.GetKey(KeyCode.DownArrow))
-            direction = Direction.down;
-        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
-            direction = Direction.side;
+        float moveInput = Input.GetAxisRaw("Vertical");
+        if(moveInput == 0)
+            attackDirection = Direction.side;
+        if(moveInput < 0)
+            attackDirection = Direction.down;
+        else if(moveInput > 0)
+            attackDirection = Direction.top;
+
+        if(!dash){
+            if(moveInput == 0)
+                dashDirection = Direction.side;
+            if(moveInput < 0)
+                dashDirection = Direction.down;
+            else if(moveInput > 0)
+                dashDirection = Direction.top;
+        }
+
         if(timeBtwMeleeAttack <= 0){
-            if(Input.GetKey(KeyCode.J)){
+            if(Input.GetKeyDown(KeyCode.X)){
                 Collider2D[] enemiesToDamage;
-                switch(direction){
+                switch(attackDirection){
                     case Direction.side:
-                        enemiesToDamage=Physics2D.OverlapBoxAll(attackPos.position,attackRange,0,whatIsEnemies);
+                        enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
                             enemiesToDamage[i].GetComponent<Enemy1>().TakeDamage(damage);
@@ -62,56 +90,87 @@ public class PlayerAttack : MonoBehaviour
                         }
                             break;
                 }
-                direction = Direction.side;
-                // playerAnim.SetTrigger("attack");
-                // //Collider2D[] enemiesToDamage=Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemies);
-                // //Collider2D[] enemiesToDamage=Physics2D.OverlapBoxAll(attackPos.position,attackRange,0,whatIsEnemies);
-                // for(int i=0;i<enemiesToDamage.Length;i++)
-                // {
-                //     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                //     camAnim.SetTrigger("shake");
-                // }
                 timeBtwMeleeAttack = startTimeBtwMeleeAttack;
+                rb.velocity = Vector2.zero;
             }
         }else
         {
             timeBtwMeleeAttack-=Time.deltaTime;
         }
-        if(timeBtwRangedAttack<=0)
+        if(timeBtwPowerUse <= 0)
         {
-            if(Input.GetKey(KeyCode.L)){
-                GameObject instance;
-                switch(direction){
-                    case Direction.side:
-                        instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
-                        playerAnim.SetTrigger("attack");
-                            break;
-                    case Direction.top:
-                        instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0),Quaternion.Euler(0,0,90));
-                        playerAnim.SetTrigger("attack");
-                            break;
-                    case Direction.down:
-                        instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0),Quaternion.Euler(0,0,-90));
-                        playerAnim.SetTrigger("attack");
-                            break;
+            if(Input.GetKeyDown(KeyCode.C)){
+                switch (activePower){
+                    case ActivePower.rangedAttack:
+                        GameObject instance;
+                        switch(attackDirection){
+                            case Direction.side:
+                                instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
+                                playerAnim.SetTrigger("attack");
+                                    break;
+                            case Direction.top:
+                                instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0),Quaternion.Euler(0,0,90));
+                                playerAnim.SetTrigger("attack");
+                                    break;
+                            case Direction.down:
+                                instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0),Quaternion.Euler(0,0,-90));
+                                playerAnim.SetTrigger("attack");
+                                    break;
+                        }
+                        rb.velocity = Vector2.zero;
+                        break;
+                    case ActivePower.dash:
+                        dashTime = startDashTime;
+                        dash = true;
+                        break;
+                    case ActivePower.colorControll:
+                        break;
                 }
-                direction = Direction.side;
-                // GameObject instance=(GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
-                // if(transform.rotation.y == 0)
-                //     instance.transform.localScale=new Vector3(-1*instance.transform.localScale.x,instance.transform.localScale.y,instance.transform.localScale.z);
-                timeBtwRangedAttack=startTimeBtwRangedAttack;
+                
+                timeBtwPowerUse = startTimeBtwPowerUse;
             }
         }else
         {
-            timeBtwRangedAttack-=Time.deltaTime;
+            timeBtwPowerUse-=Time.deltaTime;
         }
+        
+        if(Input.GetAxisRaw("Horizontal") > 0)
+            facingRight = true;
+        else if(Input.GetAxisRaw("Horizontal") < 0)
+            facingRight = false;
+
+        if(dash){
+            if(dashDirection == Direction.side)
+                rb.velocity = ((facingRight)?Vector2.right*dashSpeed:Vector2.left*dashSpeed);
+            else if(dashDirection == Direction.top)
+                rb.velocity = (Vector2.up * dashSpeed);
+            else if(dashDirection == Direction.down)
+                rb.velocity = (Vector2.down * dashSpeed);
+
+			dashTime -= Time.deltaTime;
+			if(dashTime <= 0){
+				dashTime = 0;
+                //rb.velocity = Vector2.zero;
+				dash = false;
+				Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
+			}
+		}
+        if(Input.GetKeyDown(KeyCode.Z))
+            NextPower();
+    }
+
+    void NextPower(){
+        activePower ++;
+        if(activePower == ActivePower.none)
+            activePower = ActivePower.rangedAttack;
     }
 
     void OnDrawGizmosSelected()
     {
-        //Gizmos.color=Color.green;Gizmos.DrawWireSphere(attackPos.position,attackRange);
+        Gizmos.color=Color.green;
+        //Gizmos.DrawWireSphere(attackPos.position,attackRange);
         // Gizmos.DrawWireCube(attackPos.position,new Vector3(attackRange.x,attackRange.y,1));
-        switch(direction){
+        switch(attackDirection){
                     case Direction.side:
                         Gizmos.DrawWireCube(attackPos.position,new Vector3(attackRange.x,attackRange.y,1));
                             break;

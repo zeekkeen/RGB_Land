@@ -4,10 +4,10 @@ using UnityEngine;
 
 [RequireComponent (typeof (CapsuleCollider2D))]
 [RequireComponent (typeof (Rigidbody2D))]
-public class PlayerController : MonoBehaviour{
+public class Controller2D : MonoBehaviour{
     
-    Rigidbody2D rb;
-    Animator anim;
+    public Rigidbody2D rb;
+    public Animator anim;
     public float moveSpeed, jumpForce;
     public Transform groundPos;
     public bool isGrounded;
