@@ -18,8 +18,8 @@ public class Controller2D : MonoBehaviour{
     public GameObject dustEffect;
 
     void Start(){
-        rb=GetComponent<Rigidbody2D>();
-        anim=GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update(){

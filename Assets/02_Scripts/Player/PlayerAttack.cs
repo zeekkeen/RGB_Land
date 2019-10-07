@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour{
     bool dash = false, facingRight = true;
     public float dashSpeed, startDashTime;
     public GameObject dashEffect;
+    public CrystalController crystal;
 
     public enum Direction{
         top,
@@ -41,6 +42,7 @@ public class PlayerAttack : MonoBehaviour{
         attackDirection = Direction.side;
         dashDirection = Direction.side;
         activePower = 0;
+        crystal = GameObject.FindGameObjectWithTag("Crystal").GetComponent<CrystalController>();
     }
 
     void Update(){
@@ -124,6 +126,7 @@ public class PlayerAttack : MonoBehaviour{
                         dash = true;
                         break;
                     case ActivePower.colorControll:
+                        crystal.ColorSearch();
                         break;
                 }
                 
