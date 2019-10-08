@@ -24,32 +24,30 @@ public class ColorObject : MonoBehaviour{
     void Update(){
         if(changeColor){
             if(painted){
-                    timeToPaint -= Time.deltaTime;
-                    if(timeToPaint <= 0){
-                        changeColor = false;
-                        painted = false;
-                        timeToPaint = 0;
-                    }
+                timeToPaint += Time.deltaTime;
+                if(timeToPaint >= 1){
+                    changeColor = false;
+                    painted = false;
+                    timeToPaint = 1;
+                }
             }else{
-                
-                    timeToPaint += Time.deltaTime;
-                    if(timeToPaint >= 1){
-                        changeColor = false;
-                        painted = true;
-                        timeToPaint = 1;
-                    }
-                
+                timeToPaint -= Time.deltaTime;
+                if(timeToPaint <= 0){
+                    changeColor = false;
+                    painted = true;
+                    timeToPaint = 0;
+                }
             }
             foreach (SpriteRenderer element in colorRender){
                 switch (typeOfColor){
                     case TypeOfColor.red:
-                        element.color = new Color(timeToPaint, element.color.g, element.color.b, 1);
+                        element.color = new Color(element.color.r, timeToPaint, timeToPaint);
                         break;
                     case TypeOfColor.green:
-                        element.color = new Color(element.color.r, timeToPaint, element.color.b, 1);
+                        element.color = new Color(timeToPaint, element.color.g, timeToPaint);
                         break;
                     case TypeOfColor.blue:
-                        element.color = new Color(element.color.r, element.color.g, timeToPaint, 1);
+                        element.color = new Color(timeToPaint, timeToPaint, element.color.b);
                         break;
                 }
             }

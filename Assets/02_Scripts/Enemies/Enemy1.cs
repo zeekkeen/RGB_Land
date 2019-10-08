@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof (CircleCollider2D))]
 [RequireComponent (typeof (Rigidbody2D))]
-public class Enemy1 : MonoBehaviour
-{
+public class Enemy1 : MonoBehaviour{
+
+    public TypeOfColor typeOfColor;
+    public enum TypeOfColor{
+        red,
+        green,
+        blue
+    }
+
     public List <SpriteRenderer> lifeRender = new List<SpriteRenderer>{};
     public int health = 0,maxHealth=0;
     public float speed;
@@ -48,9 +54,10 @@ public class Enemy1 : MonoBehaviour
 
 	void flip(){
 		facingRight=!facingRight;
-		Vector3 scaler=transform.localScale;
-		scaler.x*=-1;
-		transform.localScale=scaler;
+        if(!facingRight)
+            transform.eulerAngles = new Vector3(0,0,0);
+        else
+            transform.eulerAngles = new Vector3(0,180,0);
 	}
 
     public void TakeDamage(int damage){
@@ -71,11 +78,28 @@ public class Enemy1 : MonoBehaviour
     }
 
     public void ChangeColor1(){
+        float colored, percentOfHealth;
+        percentOfHealth = (health*100) / maxHealth;
+        colored = 1 - (percentOfHealth / 100);
+        foreach (SpriteRenderer element in lifeRender){
+            switch (typeOfColor){
+                    case TypeOfColor.red:
+                        element.color = new Color(element.color.r, colored, colored);
+                        break;
+                    case TypeOfColor.green:
+                        element.color = new Color(colored, element.color.g, colored);
+                        break;
+                    case TypeOfColor.blue:
+                        element.color = new Color(colored, colored, element.color.b);
+                        break;
+                }
+        }
+    }
+    public void ChangeColor2(){
         float alpha,percentOfHealth;
         percentOfHealth = (health*100) / maxHealth;
         alpha = percentOfHealth / 100;
-        foreach (SpriteRenderer element in lifeRender)
-        {
+        foreach (SpriteRenderer element in lifeRender){
             element.color = new Color(element.color.r, element.color.g, element.color.b, alpha);
         }
         // lifeRender.color = new Color(lifeRender.color.r, lifeRender.color.g, lifeRender.color.b, alpha);
