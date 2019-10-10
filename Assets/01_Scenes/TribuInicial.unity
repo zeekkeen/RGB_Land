@@ -2476,6 +2476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 306431708}
   - component: {fileID: 306431707}
+  - component: {fileID: 306431709}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2511,6 +2512,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306431709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306431706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb9be880ac9c5947836ca4c0f578723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 69d9d8f4bc4cf7743bb272d538dce8b6, type: 2}
 --- !u!1001 &313489024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10184,18 +10198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82988d761a6457d45a6fb1dd93364c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 20
-  groundPos: {fileID: 1114784522}
-  isGrounded: 0
-  checkRadius: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  jumpTime: 2
-  jumpTimeCounter: 2
-  isJumping: 0
-  doubleJump: 0
+  groundPos: {fileID: 1114784522}
   dustEffect: {fileID: 8990843590016243783, guid: 042ccd6704186b945baa508c21dfb8f6,
     type: 3}
 --- !u!4 &1200790707
@@ -10275,21 +10281,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1529672d32aab7d48868349899db6dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwMeleeAttack: 0.3
-  startTimeBtwPowerUse: 0.3
   attackPos: {fileID: 1310941400}
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 1024
-  attackRange: {x: 2, y: 2}
-  damage: 50
   proyectile: {fileID: 3781503640603159667, guid: 30ca579c431638c4d933085b556e44c8,
     type: 3}
   attackDirection: 2
   dashDirection: 2
-  activePower: 0
-  dashSpeed: 50
-  startDashTime: 0.1
   dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
     type: 3}
   crystal: {fileID: 0}
@@ -12213,6 +12212,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1827271407}
     m_Modifications:
+    - target: {fileID: 5553442399116806432, guid: a3032204868bba346ad3bec0bef5ee33,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
     - target: {fileID: 6982692990369671826, guid: 41be8b1c1bcf5e64db5cf99fab99547d,
         type: 3}
       propertyPath: m_Name
@@ -12272,11 +12276,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5553442399116806432, guid: a3032204868bba346ad3bec0bef5ee33,
-        type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 2304
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41be8b1c1bcf5e64db5cf99fab99547d, type: 3}
@@ -13560,6 +13559,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1827271407}
     m_Modifications:
+    - target: {fileID: 5553442399116806432, guid: a3032204868bba346ad3bec0bef5ee33,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
     - target: {fileID: 6982692990369671826, guid: 41be8b1c1bcf5e64db5cf99fab99547d,
         type: 3}
       propertyPath: m_Name
@@ -13619,11 +13623,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5553442399116806432, guid: a3032204868bba346ad3bec0bef5ee33,
-        type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 2304
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41be8b1c1bcf5e64db5cf99fab99547d, type: 3}
@@ -20983,7 +20982,7 @@ MonoBehaviour:
   m_SpriteMesh: {fileID: 11400000, guid: 02082aed429744242ad9cf35f9f8d02a, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 3}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_BoneTransforms:
@@ -21537,7 +21536,7 @@ MonoBehaviour:
   m_SpriteMesh: {fileID: 11400000, guid: d1ddc9b1e731f494b99c9f5af4b554ae, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 3}
   m_SortingLayerID: 0
   m_SortingOrder: 5
   m_BoneTransforms:
@@ -21791,7 +21790,7 @@ MonoBehaviour:
   m_SpriteMesh: {fileID: 11400000, guid: 06d07d99bf856c64a96d40a67c131c6e, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 3}
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_BoneTransforms:
@@ -21907,7 +21906,7 @@ MonoBehaviour:
   m_SpriteMesh: {fileID: 11400000, guid: 730cd85e31ca38a43941c6a87fd50ef2, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 3}
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_BoneTransforms:
@@ -23258,7 +23257,7 @@ MonoBehaviour:
   m_SpriteMesh: {fileID: 11400000, guid: 3ebc6b796bce2154581f488e84fb28f7, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 3}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_BoneTransforms:

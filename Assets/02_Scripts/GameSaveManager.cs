@@ -27,7 +27,7 @@ public class GameSaveManager : MonoBehaviour{
             Directory.CreateDirectory(Application.persistentDataPath + "/game_save/character_data");
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/game_save/character_data/character_save.txt");
-        var json = JsonUtility.ToJson(character);
+        var json = JsonUtility.ToJson(GameManager.instance.playerData);
         bf.Serialize(file,json);
         file.Close();
     }
@@ -38,7 +38,7 @@ public class GameSaveManager : MonoBehaviour{
         BinaryFormatter bf = new BinaryFormatter();
         if(File.Exists(Application.persistentDataPath + "/game_save/character_data/character_save.txt")){
             FileStream file = File.Create(Application.persistentDataPath + "/game_save/character_data/character_save.txt");
-            JsonUtility.FromJsonOverwrite((string) bf.Deserialize(file), character);
+            JsonUtility.FromJsonOverwrite((string) bf.Deserialize(file), GameManager.instance.playerData);
             file.Close();
         }
     }
