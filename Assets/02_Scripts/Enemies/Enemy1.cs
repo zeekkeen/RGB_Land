@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof (Rigidbody2D))]
-public class Enemy1 : MonoBehaviour{
+public class Enemy1 : MonoBehaviour ,ITakeDamage{
 
     public TypeOfColor typeOfColor;
     public enum TypeOfColor{

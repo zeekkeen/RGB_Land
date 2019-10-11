@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int damage=10;
+    public int damage = 10;
     public GameObject destroyEffect;
 	Rigidbody2D rb;
 	bool facingRight=true;
@@ -33,12 +33,11 @@ public class Projectile : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D other) 
-	{
-		if (other.gameObject.CompareTag("Enemy") ){//|| other.gameObject.CompareTag("Ground")){
-                other.gameObject.GetComponent<Enemy1>().TakeDamage(damage);
-            }
-        		DestroyProjectil();
+	private void OnTriggerEnter2D(Collider2D other) {
+		ITakeDamage takeDamage = other.gameObject.GetComponent<ITakeDamage>();
+		if(takeDamage != null)
+			takeDamage.TakeDamage(damage);
+		DestroyProjectil();
 	}
 
     void DestroyProjectil()

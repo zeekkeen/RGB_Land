@@ -15,24 +15,24 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   damage: 50
-  moveSpeed: 5
+  moveSpeed: 7
   attackSpeed: 0.3
   isGrounded: 1
   checkRadius: 1
   jumpForce: 20
   jumpTime: 2
-  jumpTimeCounter: 2
+  jumpTimeCounter: 1.983098
   isJumping: 0
   doubleJump: 0
   dash: 0
   stealAndGiveColor: 0
   rangedAttack: 0
-  timeBtwMeleeAttack: -0.024927385
-  timeBtwPowerUse: -0.010278447
+  timeBtwMeleeAttack: -0.004114451
+  timeBtwPowerUse: -0.00054499693
   startTimeBtwMeleeAttack: 0.3
   startTimeBtwPowerUse: 1
   attackRange: {x: 2, y: 2}
-  activePower: 1
+  activePower: 0
   dashTime: 0
   dashSpeed: 50
   startDashTime: 0.1

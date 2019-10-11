@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class ColorObject : MonoBehaviour{
     GameObject crystal;
-    public bool painted = true, changeColor = false;
+    public bool painted, changeColor;
     public Gradient gradient;
     public TypeOfColor typeOfColor = TypeOfColor.red;
     public float timeToPaint = 1f;
+     public GameObject particlesTrail;
+     public List <SpriteRenderer> colorRender = new List<SpriteRenderer>{};
     public enum TypeOfColor{
         red,
         green,
         blue
     }
-     public GameObject particlesTrail;
-     public List <SpriteRenderer> colorRender = new List<SpriteRenderer>{};
 
     void Start(){
         crystal = GameObject.FindGameObjectWithTag("Crystal");
+        foreach (SpriteRenderer element in colorRender){
+                switch (typeOfColor){
+                    case TypeOfColor.red:
+                        element.color = new Color(1, 0, 0);
+                        break;
+                    case TypeOfColor.green:
+                        element.color = new Color(0, 1, 0);
+                        break;
+                    case TypeOfColor.blue:
+                        element.color = new Color(0, 0, 1);
+                        break;
+                }
+        }
+        painted = true;
+        changeColor = false;
     }
 
     // Update is called once per frame

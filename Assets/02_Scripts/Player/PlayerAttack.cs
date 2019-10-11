@@ -56,7 +56,10 @@ public class PlayerAttack : MonoBehaviour{
                         enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerData.playerStats.attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
-                            enemiesToDamage[i].GetComponent<Enemy1>().TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                            ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                            if(takeDamage != null)
+                                takeDamage.TakeDamage(GameManager.instance.playerData.playerStats.damage);
                             //camAnim.SetTrigger("shake");
                         }
                             break;
@@ -64,7 +67,10 @@ public class PlayerAttack : MonoBehaviour{
                         enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerData.playerStats.attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
-                            enemiesToDamage[i].GetComponent<Enemy1>().TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                            ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                            if(takeDamage != null)
+                                takeDamage.TakeDamage(GameManager.instance.playerData.playerStats.damage);
                             //camAnim.SetTrigger("shake");
                         }
                             break;
@@ -72,7 +78,10 @@ public class PlayerAttack : MonoBehaviour{
                         enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerData.playerStats.attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
-                            enemiesToDamage[i].GetComponent<Enemy1>().TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                            ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                            if(takeDamage != null)
+                                takeDamage.TakeDamage(GameManager.instance.playerData.playerStats.damage);
                             //camAnim.SetTrigger("shake");
                         }
                             break;
@@ -82,13 +91,13 @@ public class PlayerAttack : MonoBehaviour{
             }
         }else
         {
-            GameManager.instance.playerData.playerStats.timeBtwMeleeAttack-=Time.deltaTime;
+            GameManager.instance.playerData.playerStats.timeBtwMeleeAttack -= Time.deltaTime;
         }
         if(GameManager.instance.playerData.playerStats.timeBtwPowerUse <= 0)
         {
             if(Input.GetKeyDown(KeyCode.C)){
                 switch (GameManager.instance.playerData.playerStats.activePower){
-                    case 0: //ActivePower.rangedAttack:
+                    case ActivePower.rangedAttack:
                         GameObject instance;
                         switch(attackDirection){
                             case Direction.side:
@@ -96,21 +105,21 @@ public class PlayerAttack : MonoBehaviour{
                                 playerAnim.SetTrigger("attack");
                                     break;
                             case Direction.top:
-                                instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0),Quaternion.Euler(0,0,90));
+                                instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
                                 playerAnim.SetTrigger("attack");
                                     break;
                             case Direction.down:
-                                instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0),Quaternion.Euler(0,0,-90));
+                                instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
                                 playerAnim.SetTrigger("attack");
                                     break;
                         }
                         rb.velocity = Vector2.zero;
                         break;
-                    case 1: //ActivePower.dash:
+                    case ActivePower.dash:
                         GameManager.instance.playerData.playerStats.dashTime = GameManager.instance.playerData.playerStats.startDashTime;
                         dashing = true;
                         break;
-                    case 2: //ActivePower.colorControll:
+                    case ActivePower.colorControll:
                         crystal.ColorSearch();
                         break;
                 }
@@ -149,8 +158,8 @@ public class PlayerAttack : MonoBehaviour{
 
     void NextPower(){
         GameManager.instance.playerData.playerStats.activePower ++;
-        if(GameManager.instance.playerData.playerStats.activePower == 3)
-            GameManager.instance.playerData.playerStats.activePower = 0;
+        if(GameManager.instance.playerData.playerStats.activePower == ActivePower.none)
+            GameManager.instance.playerData.playerStats.activePower = ActivePower.rangedAttack;
     }
 
     void OnDrawGizmosSelected(){
