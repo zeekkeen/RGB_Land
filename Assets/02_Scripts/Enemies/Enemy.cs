@@ -13,31 +13,31 @@ public class Enemy : MonoBehaviour ,ITakeDamage{
     Animator anim;
     RipplePostProcessor camRipple;
 	bool facingRight = false;
-	public GameObject dashEffect,groundDetection,noGroundDetection;
+	public GameObject dashEffect, groundDetection, noGroundDetection;
     public LayerMask groundLayer;
-
 	Rigidbody2D rb;
+    
     void Start(){
         enemyStats.maxHealth = enemyStats.currentHealth;
         //anim=GetComponent<Animator>();
-		anim=GetComponentInChildren<Animator>();
+		anim = GetComponentInChildren<Animator>();
         //anim.SetBool("isRunning",true);
-		rb=GetComponent<Rigidbody2D>();
-        camRipple=Camera.main.GetComponent<RipplePostProcessor>();
+		rb = GetComponent<Rigidbody2D>();
+        camRipple = Camera.main.GetComponent<RipplePostProcessor>();
 
     }
 
 	void Update() {
-        if(enemyStats.dazedTime<=0)
-            enemyStats.moveSpeed=5;
+        if(enemyStats.dazedTime <= 0)
+            enemyStats.moveSpeed = 5;
         else{
-            enemyStats.moveSpeed=0;
-            enemyStats.dazedTime-=Time.deltaTime;
+            enemyStats.moveSpeed = 0;
+            enemyStats.dazedTime -= Time.deltaTime;
         }
         RaycastHit2D groundInfo = Physics2D.Raycast(noGroundDetection.transform.position, Vector2.down, enemyStats.distance, groundLayer);
         if (!groundInfo.collider)
             flip();
-		rb.velocity = ((facingRight)?Vector2.right * enemyStats.moveSpeed:Vector2.left * enemyStats.moveSpeed);
+		rb.velocity = ((facingRight) ? Vector2.right * enemyStats.moveSpeed:Vector2.left * enemyStats.moveSpeed);
 	}
 
 	void flip(){
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour ,ITakeDamage{
 	}
 
     public void TakeDamage(int damage){
-        Instantiate(bloodEffect,transform.position,Quaternion.identity);
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
         enemyStats.dazedTime = enemyStats.StartDazedTime;
         enemyStats.currentHealth -= damage;
         ChangeColor1();
@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour ,ITakeDamage{
         }
     }
     public void ChangeColor2(){
-        float alpha,percentOfHealth;
+        float alpha, percentOfHealth;
         percentOfHealth = (enemyStats.currentHealth*100) / enemyStats.maxHealth;
         alpha = percentOfHealth / 100;
         foreach (SpriteRenderer element in lifeRender){
