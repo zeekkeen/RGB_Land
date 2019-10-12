@@ -170,12 +170,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6886179641182488252}
-  - component: {fileID: 3814988553005965261}
   - component: {fileID: 6886179641182488253}
   - component: {fileID: 3323727215810203239}
   - component: {fileID: 5470956526870059029}
   - component: {fileID: 2789419124741602713}
   - component: {fileID: 6147933758383095900}
+  - component: {fileID: 7245052261706425537}
   m_Layer: 10
   m_Name: new_enemi
   m_TagString: Enemy
@@ -200,42 +200,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3814988553005965261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6886179641182488248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 027442a7f42b52f42a4649a19e7fca1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeOfColor: 0
-  lifeRender:
-  - {fileID: 4069870868397187928}
-  health: 100
-  maxHealth: 0
-  speed: 5
-  StartDazedTime: 0.6
-  bloodEffect: {fileID: 8990843590016243783, guid: eb64606bb32c81346a95f58cc1dbc928,
-    type: 3}
-  deathEffect: {fileID: 8990843590016243783, guid: 28e11d86aa7b42445a0421ccb3a10a2e,
-    type: 3}
-  bloodSplash: {fileID: 3600589744553738000, guid: f5d400b3978cfa944b0cdd624bbf5342,
-    type: 3}
-  corpse: {fileID: 5065116810720009504, guid: aa3d033cf5e08714588b7e301ce4e603, type: 3}
-  startDashTime: 0.1
-  dashSpeed: 7
-  distance: 5
-  dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
-    type: 3}
-  groundDetection: {fileID: 4831412159549910582}
-  noGroundDetection: {fileID: 6886179640814798777}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!95 &6886179641182488253
 Animator:
   serializedVersion: 3
@@ -325,3 +289,33 @@ CapsuleCollider2D:
   m_Offset: {x: -0.09619254, y: 2.800271}
   m_Size: {x: 1.8894473, y: 5.617241}
   m_Direction: 0
+--- !u!114 &7245052261706425537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886179641182488248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d2c8dc6987ded4596975081bb4a376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statsTemplate: {fileID: 11400000, guid: 1e3516781ffca3845a2617e3e23b9f24, type: 2}
+  enemyStats: {fileID: 0}
+  lifeRender:
+  - {fileID: 4069870868397187928}
+  bloodEffect: {fileID: 8990843590016243783, guid: 525c2761dcc52d14cbdea923a3570530,
+    type: 3}
+  deathEffect: {fileID: 8990843590016243783, guid: 4d6efcb4bbdde9749ab7b55108ac09f5,
+    type: 3}
+  bloodSplash: {fileID: 3600589744553738000, guid: ab1ec05465749ba4ca8bbd8a63e09e44,
+    type: 3}
+  corpse: {fileID: 5065116810720009504, guid: 344d09fc829d5494395e7733717428e9, type: 3}
+  dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
+    type: 3}
+  groundDetection: {fileID: 4831412159549910582}
+  noGroundDetection: {fileID: 6886179640814798777}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256

@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent (typeof (Rigidbody2D))]
 public class Enemy : MonoBehaviour ,ITakeDamage{
 
+    public EnemyStats_SO statsTemplate;
     public EnemyStats_SO enemyStats;
     public List <SpriteRenderer> lifeRender = new List<SpriteRenderer>{};
     public GameObject bloodEffect, deathEffect;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour ,ITakeDamage{
 	Rigidbody2D rb;
     
     void Start(){
+        enemyStats = Instantiate(statsTemplate);
         enemyStats.maxHealth = enemyStats.currentHealth;
         //anim=GetComponent<Animator>();
 		anim = GetComponentInChildren<Animator>();
