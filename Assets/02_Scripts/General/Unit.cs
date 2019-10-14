@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using Panda;
 
 
-public class Unit: MonoBehaviour{
+public class Unit: MonoBehaviour, ITakeDamage{
 
     public EnemyStats_SO statsTemplate;
     public EnemyStats_SO enemyStats;
+    public TypeOfColor unitTypeOfColor;
     public List <SpriteRenderer> lifeRender = new List<SpriteRenderer>{};
     public GameObject bloodEffect, deathEffect;
     public GameObject bloodSplash, corpse;
+    public float previousHealth;
     Animator anim;
     RipplePostProcessor camRipple;
 	public bool facingRigth = true;
@@ -21,6 +23,7 @@ public class Unit: MonoBehaviour{
     void Start(){
         enemyStats = Instantiate(statsTemplate);
         enemyStats.maxHealth = enemyStats.currentHealth;
+        previousHealth = enemyStats.currentHealth;
         //anim=GetComponent<Animator>();
 		anim = GetComponentInChildren<Animator>();
         //anim.SetBool("isRunning",true);
@@ -28,16 +31,23 @@ public class Unit: MonoBehaviour{
         camRipple = Camera.main.GetComponent<RipplePostProcessor>();
     }
 
-    // void Update()
-    // {
-    //     if( (Time.time - lastReloadTime) * reloadRate >= 1.0f )
-    //     {
-    //         ammo++;
-    //         if (ammo > startAmmo) ammo = startAmmo;
-    //         lastReloadTime = Time.time;
-    //     }
-
-    // }
+    void Update(){
+        if(enemyStats.dazedTime <= 0)
+            enemyStats.moveSpeed = 5;
+        else{
+            enemyStats.moveSpeed = 0;
+            enemyStats.dazedTime -= Time.deltaTime;
+        }
+    }
+    public void TakeDamage(int damage){
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        enemyStats.dazedTime = enemyStats.StartDazedTime;
+        enemyStats.currentHealth -= damage;
+        // ChangeColor1();
+        // Debug.Log("damague taken!!");
+		// if(enemyStats.currentHealth <= 0)
+		// 	Dead();
+    }
 
     #region navigation tasks
 
@@ -77,6 +87,58 @@ public class Unit: MonoBehaviour{
             transform.rotation = Quaternion.Euler(0,0,0);
         else 
             transform.rotation = Quaternion.Euler(0,180,0);
+        return true;
+    }
+
+    [Task]
+    public bool IsHealthLessThanPrevious(){
+        if(enemyStats.currentHealth < previousHealth){
+            enemyStats.dazedTime = enemyStats.StartDazedTime;
+            previousHealth = enemyStats.currentHealth;
+            return true;
+        }
+        else 
+            return false;
+    }
+
+    [Task]
+    public bool ChangeColor1(){
+        float colored, percentOfHealth;
+        rb.velocity = Vector2.zero;
+        percentOfHealth = (enemyStats.currentHealth * 100) / enemyStats.maxHealth;
+        colored = 1 - (percentOfHealth / 100);
+        foreach (SpriteRenderer element in lifeRender){
+            switch (unitTypeOfColor){
+                    case TypeOfColor.red:
+                        element.color = new Color(element.color.r, colored, colored);
+                        break;
+                    case TypeOfColor.green:
+                        element.color = new Color(colored, element.color.g, colored);
+                        break;
+                    case TypeOfColor.blue:
+                        element.color = new Color(colored, colored, element.color.b);
+                        break;
+                }
+        }
+        return true;
+    }
+
+    [Task]
+    public bool IsNoHealth(){
+        if(enemyStats.currentHealth <= 0)
+            return true;
+        else 
+            return false;
+    }
+
+    [Task]
+    public bool Dead(){
+        camRipple.RippleEffect();
+        Instantiate(corpse,transform.position, Quaternion.identity);
+        Instantiate(bloodSplash, transform.position, Quaternion.identity);
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+
         return true;
     }
 

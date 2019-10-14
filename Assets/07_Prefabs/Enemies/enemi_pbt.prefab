@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 5874035684554368283}
   - component: {fileID: 4331977165425116860}
   m_Layer: 10
-  m_Name: enemi_pb
+  m_Name: enemi_pbt
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,7 +304,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsTemplate: {fileID: 11400000, guid: 1e3516781ffca3845a2617e3e23b9f24, type: 2}
   enemyStats: {fileID: 0}
-  lifeRender: []
+  unitTypeOfColor: 2
+  lifeRender:
+  - {fileID: 4069870868397187928}
   bloodEffect: {fileID: 8990843590016243783, guid: d5cd413b3b4f1a249aba2851a6430d0a,
     type: 3}
   deathEffect: {fileID: 8990843590016243783, guid: d08aa58738e9bd644a350b20a6e02a89,
@@ -312,6 +314,7 @@ MonoBehaviour:
   bloodSplash: {fileID: 3600589744553738000, guid: 165586814447d96408d0e8aaab80e3fe,
     type: 3}
   corpse: {fileID: 5065116810720009504, guid: 344d09fc829d5494395e7733717428e9, type: 3}
+  previousHealth: 0
   facingRigth: 1
   dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
     type: 3}
