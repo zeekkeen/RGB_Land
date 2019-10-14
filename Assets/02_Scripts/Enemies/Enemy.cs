@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour ,ITakeDamage{
         //anim.SetBool("isRunning",true);
 		rb = GetComponent<Rigidbody2D>();
         camRipple = Camera.main.GetComponent<RipplePostProcessor>();
-
     }
 
 	void Update() {
