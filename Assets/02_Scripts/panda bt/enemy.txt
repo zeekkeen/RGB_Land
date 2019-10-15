@@ -7,14 +7,26 @@ tree("Root")
 
 tree("BeAlive")
 	fallback
+		while not EnemyDetected
+			tree("Patrol")
+		tree("Attack")
+
+tree("Patrol")
+	fallback
 		while 
 			not NoGroundDetected
 			repeat
 				Move
 		Flip
 
+tree("Attack")
+	fallback
+		while not EnemyClose
+			Move
+		while not Reload
+			Attack
+
 tree("Die")
-	//Die by exploding if no more HP.
 	sequence
 		IsNoHealth
 		Dead

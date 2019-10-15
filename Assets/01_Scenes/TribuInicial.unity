@@ -102381,7 +102381,7 @@ GameObject:
   - component: {fileID: 1200790711}
   - component: {fileID: 1200790713}
   - component: {fileID: 1200790714}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -102669,6 +102669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874035684554368283, guid: 802bf4b6b52818744b191325b9e37192,
+        type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 8192
       objectReference: {fileID: 0}
     - target: {fileID: 4069870868397187928, guid: 802bf4b6b52818744b191325b9e37192,
         type: 3}

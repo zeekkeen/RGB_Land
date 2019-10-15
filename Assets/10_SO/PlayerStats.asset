@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 100
+  currentHealth: 0
   damage: 50
   moveSpeed: 7
   attackSpeed: 0.3
@@ -21,7 +21,7 @@ MonoBehaviour:
   checkRadius: 1
   jumpForce: 20
   jumpTime: 2
-  jumpTimeCounter: 1.983098
+  jumpTimeCounter: 1.9777473
   isJumping: 0
   doubleJump: 0
   dash: 0

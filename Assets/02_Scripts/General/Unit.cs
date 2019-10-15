@@ -17,7 +17,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
     RipplePostProcessor camRipple;
 	public bool facingRigth = true;
 	public GameObject dashEffect, groundDetection, noGroundDetection;
-    public LayerMask groundLayer;
+    public LayerMask groundLayer, playerLayer;
 	Rigidbody2D rb;
 
     void Start(){
@@ -71,11 +71,59 @@ public class Unit: MonoBehaviour, ITakeDamage{
     }
 
     [Task]
+    public bool Reload()
+    {
+        enemyStats.attackSpeedTimer -= Time.deltaTime;
+        if(enemyStats.attackSpeedTimer <= 0)
+            return false;
+        else 
+            return true;
+    }
+
+    [Task]
     public bool NoGroundDetected()
     {
         RaycastHit2D groundInfo = Physics2D.Raycast(noGroundDetection.transform.position, Vector2.down, enemyStats.distance, groundLayer);
         if (!groundInfo.collider)
             return true;
+        else 
+            return false;
+    }
+
+    [Task]
+    public bool EnemyDetected()
+    {
+        RaycastHit2D colliderInfo = Physics2D.Raycast(transform.position, (facingRigth ? Vector2.right : Vector2.left), enemyStats.visionDistance, playerLayer);
+        if (colliderInfo.collider)
+            return true;
+        else 
+            return false;
+    }
+
+    [Task]
+    public bool EnemyClose()
+    {
+        RaycastHit2D colliderInfo = Physics2D.Raycast(transform.position, (facingRigth ? Vector2.right : Vector2.left), enemyStats.attackRange, playerLayer);
+        if (colliderInfo.collider)
+            return true;
+        else 
+            return false;
+    }
+
+    [Task]
+    public bool Attack()
+    {
+        Collider2D[] enemiesToDamage;
+        enemiesToDamage = Physics2D.OverlapBoxAll(noGroundDetection.transform.position,new Vector2(enemyStats.attackRange, enemyStats.attackRange),0,playerLayer);
+        if (enemiesToDamage != null){
+            for(int i=0;i<enemiesToDamage.Length;i++){
+                            ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                            if(takeDamage != null)
+                                takeDamage.TakeDamage(enemyStats.damage);
+                        }
+            enemyStats.attackSpeedTimer = enemyStats.attackSpeed;
+            return true;
+        }
         else 
             return false;
     }

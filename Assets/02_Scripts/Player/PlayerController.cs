@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent (typeof (CapsuleCollider2D))]
 [RequireComponent (typeof (Rigidbody2D))]
-public class PlayerController : MonoBehaviour{
+public class PlayerController : MonoBehaviour, ITakeDamage{
         
     public LayerMask whatIsGround;
     Rigidbody2D rb;
@@ -68,6 +68,13 @@ public class PlayerController : MonoBehaviour{
             transform.eulerAngles = new Vector3(0,180,0);
         else if(moveInput > 0)
             transform.eulerAngles = new Vector3(0,0,0);
+    }
+
+    public void TakeDamage(int damage){
+        Instantiate(dustEffect, transform.position, Quaternion.identity);
+        GameManager.instance.playerData.playerStats.currentHealth -= damage;
+        if(GameManager.instance.playerData.playerStats.currentHealth <= 0)
+            Destroy(this.gameObject);
     }
 
 }
