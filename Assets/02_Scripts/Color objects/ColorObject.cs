@@ -7,7 +7,7 @@ public class ColorObject : MonoBehaviour{
     public bool painted, changeColor;
     public Gradient gradient;
     public TypeOfColor typeOfColor = TypeOfColor.red;
-    public float timeToPaint = 1f;
+    public float timeToPaint = 0f;
      public GameObject particlesTrail;
      public List <SpriteRenderer> colorRender = new List<SpriteRenderer>{};
     public enum TypeOfColor{
@@ -31,7 +31,10 @@ public class ColorObject : MonoBehaviour{
                         break;
                 }
         }
-        painted = true;
+        if(painted)
+            timeToPaint = 0;
+        else 
+            timeToPaint = 1f;
         changeColor = false;
     }
 
@@ -56,13 +59,13 @@ public class ColorObject : MonoBehaviour{
             foreach (SpriteRenderer element in colorRender){
                 switch (typeOfColor){
                     case TypeOfColor.red:
-                        element.color = new Color(element.color.r, timeToPaint, timeToPaint);
+                        element.color = new Color(1, timeToPaint, timeToPaint);
                         break;
                     case TypeOfColor.green:
-                        element.color = new Color(timeToPaint, element.color.g, timeToPaint);
+                        element.color = new Color(timeToPaint, 1, timeToPaint);
                         break;
                     case TypeOfColor.blue:
-                        element.color = new Color(timeToPaint, timeToPaint, element.color.b);
+                        element.color = new Color(timeToPaint, timeToPaint, 1);
                         break;
                 }
             }

@@ -7,10 +7,15 @@ public class TrailMovement : MonoBehaviour{
     public float speed;
     public Transform objetive;
     public bool started = false;
+    public float lifeTime;
 
     void Update(){
-        if(started)
+        if(started){
             transform.position = Vector2.MoveTowards(transform.position,objetive.position, speed * Time.deltaTime);
+            lifeTime -= Time.deltaTime;
+            if(lifeTime <= 0)
+                Destroy(this.gameObject);
+        }
     }
 
     public void StartMovement(Transform obj, Gradient col){
