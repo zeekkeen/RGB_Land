@@ -93,22 +93,25 @@ public class PlayerAttack : MonoBehaviour{
         {
             GameManager.instance.playerData.playerStats.timeBtwMeleeAttack -= Time.deltaTime;
         }
-        if(GameManager.instance.playerData.playerStats.timeBtwPowerUse <= 0)
-        {
+        if(GameManager.instance.playerData.playerStats.timeBtwPowerUse <= 0){
+            crystal.PowerActivated(false);
             if(Input.GetKeyDown(KeyCode.C)){
                 switch (GameManager.instance.playerData.playerStats.activePower){
                     case ActivePower.rangedAttack:
                         GameObject instance;
                         switch(attackDirection){
                             case Direction.side:
+                                crystal.PowerActivated(true);
                                 instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
                                 playerAnim.SetTrigger("attack");
                                     break;
                             case Direction.top:
+                                crystal.PowerActivated(true);
                                 instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
                                 playerAnim.SetTrigger("attack");
                                     break;
                             case Direction.down:
+                                crystal.PowerActivated(true);
                                 instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
                                 playerAnim.SetTrigger("attack");
                                     break;
@@ -120,6 +123,7 @@ public class PlayerAttack : MonoBehaviour{
                         dashing = true;
                         break;
                     case ActivePower.colorControll:
+                        crystal.PowerActivated(true);
                         crystal.ColorSearch();
                         break;
                 }

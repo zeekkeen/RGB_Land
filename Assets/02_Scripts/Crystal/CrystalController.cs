@@ -8,16 +8,23 @@ public class CrystalController : MonoBehaviour{
     public float moveSpeed = 5f, rotationTimer = 0, rotationTime = 2.5f;
     bool movingRight = false;
     SpriteRenderer gemRenderer;
-    public GameObject startPosition;
+    public GameObject startPosition, startPosition2;
     public Vector2 attackRange = new Vector2(7,7);
     public LayerMask whatIsColorObject;
+    PlayerController playerController;
+    Animator anim;
     void Start(){
         gemRenderer = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void Update(){
-        //RotateAround();
-        transform.position = Vector2.MoveTowards(transform.position,(GameObject.FindGameObjectWithTag("Player").transform.rotation.y > 0 ? (new Vector3(startPosition.transform.position.x + 50f,startPosition.transform.position.y,startPosition.transform.position.z)) : startPosition.transform.position) , moveSpeed * Time.deltaTime);
+        if(playerController.rb.velocity != Vector2.zero)
+            moveSpeed = 10f;
+        else 
+            moveSpeed = 5f;
+        transform.position = Vector2.MoveTowards(transform.position,(playerController.facingRight ? startPosition.transform.position : startPosition2.transform.position) , moveSpeed * Time.deltaTime);
     }
 
     void RotateAround(){
@@ -43,15 +50,17 @@ public class CrystalController : MonoBehaviour{
             for(int i=0;i<colorObjects.Length;i++){
                 colorObjects[i].GetComponent<ColorObject>().SwitchColor();
             }
-            
     }
 
-    void OnDrawGizmosSelected(){
-        Gizmos.color = Color.yellow;
-        //Gizmos.DrawWireSphere(attackPos.position,attackRange);
-        // Gizmos.DrawWireCube(attackPos.position,new Vector3(attackRange.x,attackRange.y,1));
-        Gizmos.DrawWireCube(transform.position,new Vector3(attackRange.x,attackRange.y,1));
+    public void PowerActivated(bool state){
+        anim.SetBool("PowerActivated", state);
     }
+    // void OnDrawGizmosSelected(){
+    //     Gizmos.color = Color.yellow;
+    //     //Gizmos.DrawWireSphere(attackPos.position,attackRange);
+    //     // Gizmos.DrawWireCube(attackPos.position,new Vector3(attackRange.x,attackRange.y,1));
+    //     Gizmos.DrawWireCube(transform.position,new Vector3(attackRange.x,attackRange.y,1));
+    // }
 
     #region navigation tasks
     

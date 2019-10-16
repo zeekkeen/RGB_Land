@@ -7,10 +7,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, ITakeDamage{
         
     public LayerMask whatIsGround;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     Animator anim;
     public Transform groundPos;
     public GameObject dustEffect;
+    public bool facingRight = true;
 
     void Start(){
         rb=GetComponent<Rigidbody2D>();
@@ -64,10 +65,14 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
         else 
             anim.SetBool("IsRunning",true);
 
-        if(moveInput < 0)
+        if(moveInput < 0){
             transform.eulerAngles = new Vector3(0,180,0);
-        else if(moveInput > 0)
+            facingRight = false;
+        }
+        else if(moveInput > 0){
             transform.eulerAngles = new Vector3(0,0,0);
+            facingRight = true;
+        }
     }
 
     public void TakeDamage(int damage){
