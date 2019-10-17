@@ -102875,6 +102875,11 @@ PrefabInstance:
       propertyPath: playerLayer.m_Bits
       value: 8192
       objectReference: {fileID: 0}
+    - target: {fileID: 5874035684554368283, guid: 802bf4b6b52818744b191325b9e37192,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4069870868397187928, guid: 802bf4b6b52818744b191325b9e37192,
         type: 3}
       propertyPath: m_Color.g

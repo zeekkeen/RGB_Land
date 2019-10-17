@@ -19,6 +19,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
 	public GameObject dashEffect, groundDetection, noGroundDetection;
     public LayerMask groundLayer, playerLayer;
 	Rigidbody2D rb;
+    public float attackRange = 2f;
 
     void Start(){
         enemyStats = Instantiate(statsTemplate);
@@ -29,6 +30,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
         //anim.SetBool("isRunning",true);
 		rb = GetComponent<Rigidbody2D>();
         camRipple = Camera.main.GetComponent<RipplePostProcessor>();
+        enemyStats.attackRange = attackRange;
     }
 
     void Update(){

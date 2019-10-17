@@ -13,6 +13,8 @@ public class CrystalController : MonoBehaviour{
     public LayerMask whatIsColorObject;
     PlayerController playerController;
     Animator anim;
+    bool powerActivated = false;
+
     void Start(){
         gemRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
@@ -20,11 +22,16 @@ public class CrystalController : MonoBehaviour{
     }
 
     void Update(){
-        if(playerController.rb.velocity != Vector2.zero)
-            moveSpeed = 10f;
-        else 
-            moveSpeed = 5f;
-        transform.position = Vector2.MoveTowards(transform.position,(playerController.facingRight ? startPosition.transform.position : startPosition2.transform.position) , moveSpeed * Time.deltaTime);
+        if(playerController != null){
+            if(playerController.rb.velocity != Vector2.zero)
+                moveSpeed = 10f;
+            else 
+                moveSpeed = 5f;
+            if(!powerActivated)
+                transform.position = Vector2.MoveTowards(transform.position,(playerController.facingRight ? startPosition.transform.position : startPosition2.transform.position) , moveSpeed * Time.deltaTime);
+            else 
+                transform.position = Vector2.MoveTowards(transform.position,startPosition.transform.position, moveSpeed * 3 * Time.deltaTime);
+        }
     }
 
     void RotateAround(){
@@ -44,6 +51,7 @@ public class CrystalController : MonoBehaviour{
     }
 
     public void ColorSearch(){
+        transform.position = startPosition.transform.position;
         Collider2D[] colorObjects;
         colorObjects = Physics2D.OverlapBoxAll(startPosition.transform.position,attackRange,0,whatIsColorObject);
         if(colorObjects != null)
@@ -53,6 +61,7 @@ public class CrystalController : MonoBehaviour{
     }
 
     public void PowerActivated(bool state){
+        powerActivated = state;
         anim.SetBool("PowerActivated", state);
     }
     // void OnDrawGizmosSelected(){
