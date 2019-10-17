@@ -28,6 +28,12 @@ public class MainMenuManagger : MonoBehaviour{
             continueButton.SetActive(true);
         else
             continueButton.SetActive(false);
+        if (PlayerPrefs.GetInt("gameSlot", -1) != -1) //el -1 es el valor por defecto que nos da si no encontra nada
+            GameSaveManager.instance.gameSlot = PlayerPrefs.GetInt("gameSlot");
+        // if (PlayerPrefs.GetInt("sound", -1) != -1) 
+        //     GameSaveManager.instance.gameSlot = PlayerPrefs.GetInt("sound");
+        // if (PlayerPrefs.GetInt("effects", -1) != -1) 
+        //     GameSaveManager.instance.gameSlot = PlayerPrefs.GetInt("effects");
     }
 
     // void Update(){
@@ -43,7 +49,7 @@ public class MainMenuManagger : MonoBehaviour{
     }
 
     public void Continue(){
-
+        GameSaveManager.instance.LoadGameSlot();
     }
 
     public void NewGame(){
@@ -52,6 +58,13 @@ public class MainMenuManagger : MonoBehaviour{
         loadGamePanel.SetActive(false);
         optionsPanel.SetActive(false);
         exitPanel.SetActive(false);
+    }
+
+    public void NewGameSlot(int n){
+        GameManager.instance.RestartValues();
+        GameSaveManager.instance.LoadGameSlot(n);
+        PlayerPrefs.SetInt("gameSlot", n);
+        SceneManager.LoadScene("TribuInicial");
     }
 
     public void LoadGame(){
@@ -85,11 +98,9 @@ public class MainMenuManagger : MonoBehaviour{
             Back();
     }
 
-    public void SaveSlot( int n){
-        
-    }
-
     public void LoadSlot( int n){
+        GameSaveManager.instance.LoadGameSlot(n);
+        PlayerPrefs.SetInt("gameSlot", n);
         SceneManager.LoadScene("TribuInicial");
     }
 

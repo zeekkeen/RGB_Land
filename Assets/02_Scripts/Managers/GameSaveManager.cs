@@ -21,6 +21,52 @@ public class GameSaveManager : MonoBehaviour{
         return Directory.Exists(Application.persistentDataPath + "game_save");
     }
 
+    public void SaveGameSlot(){
+        if(!IsSaveFile())
+            Directory.CreateDirectory(Application.persistentDataPath + "/game_save");
+        if(!Directory.Exists(Application.persistentDataPath + "/game_save/character_data"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/game_save/character_data");
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/game_save/character_data/slot_"+gameSlot+".txt");
+        var json = JsonUtility.ToJson(GameManager.instance.playerData);
+        bf.Serialize(file,json);
+        file.Close();
+    }
+
+    public void LoadGameSlot(){
+        if(!Directory.Exists(Application.persistentDataPath + "/game_save/character_data"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/game_save/character_data");
+        BinaryFormatter bf = new BinaryFormatter();
+        if(File.Exists(Application.persistentDataPath + "/game_save/character_data/character_save.txt")){
+            FileStream file = File.Create(Application.persistentDataPath + "/game_save/character_data/slot_"+gameSlot+".txt");
+            JsonUtility.FromJsonOverwrite((string) bf.Deserialize(file), GameManager.instance.playerData);
+            file.Close();
+        }
+    }
+
+    public void SaveGameSlot(int slot){
+        if(!IsSaveFile())
+            Directory.CreateDirectory(Application.persistentDataPath + "/game_save");
+        if(!Directory.Exists(Application.persistentDataPath + "/game_save/character_data"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/game_save/character_data");
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/game_save/character_data/slot_"+slot+".txt");
+        var json = JsonUtility.ToJson(GameManager.instance.playerData);
+        bf.Serialize(file,json);
+        file.Close();
+    }
+
+    public void LoadGameSlot(int slot){
+        if(!Directory.Exists(Application.persistentDataPath + "/game_save/character_data"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/game_save/character_data");
+        BinaryFormatter bf = new BinaryFormatter();
+        if(File.Exists(Application.persistentDataPath + "/game_save/character_data/character_save.txt")){
+            FileStream file = File.Create(Application.persistentDataPath + "/game_save/character_data/slot_"+slot+".txt");
+            JsonUtility.FromJsonOverwrite((string) bf.Deserialize(file), GameManager.instance.playerData);
+            file.Close();
+        }
+    }
+
     public void SaveGame(){
         if(!IsSaveFile())
             Directory.CreateDirectory(Application.persistentDataPath + "/game_save");

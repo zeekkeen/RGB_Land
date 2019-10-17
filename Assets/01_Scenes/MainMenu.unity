@@ -2634,7 +2634,7 @@ PrefabInstance:
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SaveSlot
+      value: NewGameSlot
       objectReference: {fileID: 0}
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
@@ -2962,7 +2962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -221.1, y: -261.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087816558
@@ -3259,7 +3259,7 @@ PrefabInstance:
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SaveSlot
+      value: NewGameSlot
       objectReference: {fileID: 0}
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
@@ -4793,7 +4793,7 @@ PrefabInstance:
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SaveSlot
+      value: NewGameSlot
       objectReference: {fileID: 0}
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}

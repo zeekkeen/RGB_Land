@@ -14,4 +14,9 @@ public class GameManager : MonoBehaviour{
             Destroy(this);
         DontDestroyOnLoad(this);
     }
+
+    public void RestartValues(){
+        playerData.playerStats = Instantiate(playerData.playerInitialStats);
+        playerData.lastPosition = playerData.initialPosition;
+    }
 }
