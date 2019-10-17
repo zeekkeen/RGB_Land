@@ -103850,12 +103850,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 4950084206788066117}
+  m_RootBone: {fileID: 9211170140469739337}
   m_BoneTransforms:
   - {fileID: 9165278008294830209}
   - {fileID: 6109454293714079932}
   - {fileID: 7068897222310696288}
   - {fileID: 4950084206788066117}
+  - {fileID: 9211170140469739337}
   m_Bounds:
     m_Center: {x: -0.06596249, y: 0.49716082, z: 0}
     m_Extent: {x: 0.484004, y: 0.27072695, z: 0}
@@ -107651,14 +107652,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3004644956458517357}
-  m_LocalRotation: {x: 0, y: -0, z: -0.9999313, w: 0.011726306}
+  m_LocalRotation: {x: -0, y: -0, z: -0.90865904, w: 0.41753912}
   m_LocalPosition: {x: -0.04244183, y: -0.296988, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
   m_Children:
   - {fileID: 6109454293714079932}
   m_Father: {fileID: 9211170140469739337}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -130.641}
 --- !u!114 &7110987638359776239
 MonoBehaviour:
   m_ObjectHideFlags: 0
