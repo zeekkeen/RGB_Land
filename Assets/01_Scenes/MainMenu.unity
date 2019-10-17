@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 0}
         m_MethodName: ExitCompleted
         m_Mode: 6
         m_Arguments:
@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: ChangeIdiom
         m_Mode: 3
         m_Arguments:
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
@@ -1577,7 +1577,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1943062366}
+      objectReference: {fileID: 1307562642}
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1762,7 +1762,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
@@ -2352,7 +2352,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
@@ -2630,7 +2630,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1943062366}
+      objectReference: {fileID: 1307562642}
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2865,7 +2865,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1943062366}
+      objectReference: {fileID: 1307562642}
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3255,7 +3255,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1943062366}
+      objectReference: {fileID: 1307562642}
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3361,7 +3361,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
@@ -3810,7 +3810,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -3948,6 +3948,7 @@ GameObject:
   - component: {fileID: 1307562641}
   - component: {fileID: 1307562640}
   - component: {fileID: 1307562639}
+  - component: {fileID: 1307562642}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4040,6 +4041,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1307562642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307562637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd4a6f8bf0117747accdb32c9338403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPanel: {fileID: 1845988067}
+  continueButton: {fileID: 37725339}
+  newGamePanel: {fileID: 1103503912}
+  loadGamePanel: {fileID: 353654949}
+  optionsPanel: {fileID: 150375958}
+  exitPanel: {fileID: 458528045}
 --- !u!1 &1456925696
 GameObject:
   m_ObjectHideFlags: 0
@@ -4158,7 +4177,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: Options
         m_Mode: 1
         m_Arguments:
@@ -4602,7 +4621,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: ChangeIdiom
         m_Mode: 3
         m_Arguments:
@@ -4789,7 +4808,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1943062366}
+      objectReference: {fileID: 1307562642}
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -5091,7 +5110,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 1307562642}
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
@@ -5152,7 +5171,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1943062364}
   - component: {fileID: 1943062363}
-  - component: {fileID: 1943062366}
   - component: {fileID: 1943062365}
   m_Layer: 0
   m_Name: Managers
@@ -5201,24 +5219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSlot: 0
---- !u!114 &1943062366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943062362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfd4a6f8bf0117747accdb32c9338403, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainPanel: {fileID: 1845988067}
-  continueButton: {fileID: 37725339}
-  newGamePanel: {fileID: 1103503912}
-  loadGamePanel: {fileID: 353654949}
-  optionsPanel: {fileID: 150375958}
-  exitPanel: {fileID: 458528045}
 --- !u!1 &2111541648
 GameObject:
   m_ObjectHideFlags: 0
@@ -5301,7 +5301,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943062366}
+      - m_Target: {fileID: 0}
         m_MethodName: ExitCompleted
         m_Mode: 6
         m_Arguments:
@@ -5488,7 +5488,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1943062366}
+      objectReference: {fileID: 1307562642}
     - target: {fileID: 8601172321097441513, guid: 123289b2e1690114b8537bc502b8bcd1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
