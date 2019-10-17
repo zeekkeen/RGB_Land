@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class GameSaveManager : MonoBehaviour{
     
     public static GameSaveManager instance;
+    public int gameSlot;
 
     void Awake() {
         if(instance == null)
