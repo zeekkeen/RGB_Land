@@ -20,47 +20,47 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
     }
 
     void Update(){
-        GameManager.instance.playerData.playerStats.isGrounded = Physics2D.OverlapCircle(groundPos.position, GameManager.instance.playerData.playerStats.checkRadius, whatIsGround);
+        GameManager.instance.playerStats.isGrounded = Physics2D.OverlapCircle(groundPos.position, GameManager.instance.playerStats.checkRadius, whatIsGround);
 
-        if(GameManager.instance.playerData.playerStats.isGrounded && Input.GetKeyDown(KeyCode.Space)){
+        if(GameManager.instance.playerStats.isGrounded && Input.GetKeyDown(KeyCode.Space)){
             anim.SetTrigger("takeOf");
-            GameManager.instance.playerData.playerStats.isJumping = true;
-            GameManager.instance.playerData.playerStats.jumpTimeCounter = GameManager.instance.playerData.playerStats.jumpTime;
-            rb.velocity = Vector2.up * GameManager.instance.playerData.playerStats.jumpForce;
+            GameManager.instance.playerStats.isJumping = true;
+            GameManager.instance.playerStats.jumpTimeCounter = GameManager.instance.playerStats.jumpTime;
+            rb.velocity = Vector2.up * GameManager.instance.playerStats.jumpForce;
             Instantiate(dustEffect,transform.position,Quaternion.identity);
         }
 
-        if(GameManager.instance.playerData.playerStats.isGrounded){
-            GameManager.instance.playerData.playerStats.doubleJump = false;
+        if(GameManager.instance.playerStats.isGrounded){
+            GameManager.instance.playerStats.doubleJump = false;
             anim.SetBool("IsJumping", false);
         }
         else
             anim.SetBool("IsJumping", true);
 
-        if(GameManager.instance.playerData.playerStats.isJumping && Input.GetKeyDown(KeyCode.Space)){
-            if(GameManager.instance.playerData.playerStats.jumpTimeCounter > 0){
-                rb.velocity = Vector2.up * GameManager.instance.playerData.playerStats.jumpForce;
+        if(GameManager.instance.playerStats.isJumping && Input.GetKeyDown(KeyCode.Space)){
+            if(GameManager.instance.playerStats.jumpTimeCounter > 0){
+                rb.velocity = Vector2.up * GameManager.instance.playerStats.jumpForce;
                 Instantiate(dustEffect,transform.position,Quaternion.identity);
-                GameManager.instance.playerData.playerStats.jumpTimeCounter -= Time.deltaTime;
+                GameManager.instance.playerStats.jumpTimeCounter -= Time.deltaTime;
             }
             else
-                GameManager.instance.playerData.playerStats.isJumping = false;
+                GameManager.instance.playerStats.isJumping = false;
         }
 
         if(Input.GetKeyUp(KeyCode.Space))
-            GameManager.instance.playerData.playerStats.isJumping = false;
+            GameManager.instance.playerStats.isJumping = false;
 
-        if(!GameManager.instance.playerData.playerStats.isGrounded && !GameManager.instance.playerData.playerStats.doubleJump && Input.GetKeyDown(KeyCode.Space)){
-            GameManager.instance.playerData.playerStats.isJumping = true;
-            GameManager.instance.playerData.playerStats.doubleJump = true;
-            GameManager.instance.playerData.playerStats.isJumping = true;
-            GameManager.instance.playerData.playerStats.jumpTimeCounter = GameManager.instance.playerData.playerStats.jumpTime;
-            rb.velocity = Vector2.up * GameManager.instance.playerData.playerStats.jumpForce;
+        if(!GameManager.instance.playerStats.isGrounded && !GameManager.instance.playerStats.doubleJump && Input.GetKeyDown(KeyCode.Space)){
+            GameManager.instance.playerStats.isJumping = true;
+            GameManager.instance.playerStats.doubleJump = true;
+            GameManager.instance.playerStats.isJumping = true;
+            GameManager.instance.playerStats.jumpTimeCounter = GameManager.instance.playerStats.jumpTime;
+            rb.velocity = Vector2.up * GameManager.instance.playerStats.jumpForce;
             Instantiate(dustEffect,transform.position,Quaternion.identity);
         }
 
         float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * GameManager.instance.playerData.playerStats.moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput * GameManager.instance.playerStats.moveSpeed, rb.velocity.y);
         if(moveInput == 0)
             anim.SetBool("IsRunning",false);
         else 
@@ -78,8 +78,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
 
     public void TakeDamage(int damage){
         Instantiate(dustEffect, transform.position, Quaternion.identity);
-        GameManager.instance.playerData.playerStats.currentHealth -= damage;
-        if(GameManager.instance.playerData.playerStats.currentHealth <= 0)
+        GameManager.instance.playerStats.currentHealth -= damage;
+        if(GameManager.instance.playerStats.currentHealth <= 0)
             Destroy(this.gameObject);
     }
 

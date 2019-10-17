@@ -26,7 +26,7 @@ public class PlayerAttack : MonoBehaviour{
         playerAnim=GetComponentInChildren<Animator>();
         attackDirection = Direction.side;
         dashDirection = Direction.side;
-        GameManager.instance.playerData.playerStats.activePower = 0;
+        GameManager.instance.playerStats.activePower = 0;
         crystal = GameObject.FindGameObjectWithTag("Crystal").GetComponent<CrystalController>();
     }
 
@@ -48,55 +48,55 @@ public class PlayerAttack : MonoBehaviour{
                 dashDirection = Direction.top;
         }
 
-        if(GameManager.instance.playerData.playerStats.timeBtwMeleeAttack <= 0){
+        if(GameManager.instance.playerStats.timeBtwMeleeAttack <= 0){
             if(Input.GetKeyDown(KeyCode.X)){
                 Collider2D[] enemiesToDamage;
                 switch(attackDirection){
                     case Direction.side:
-                        enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerData.playerStats.attackRange,0,whatIsEnemies);
+                        enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
-                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
                             ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
                             if(takeDamage != null)
-                                takeDamage.TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                                takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
                             //camAnim.SetTrigger("shake");
                         }
                             break;
                     case Direction.top:
-                        enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerData.playerStats.attackRange,0,whatIsEnemies);
+                        enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
-                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
                             ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
                             if(takeDamage != null)
-                                takeDamage.TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                                takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
                             //camAnim.SetTrigger("shake");
                         }
                             break;
                     case Direction.down:
-                        enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerData.playerStats.attackRange,0,whatIsEnemies);
+                        enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
                         playerAnim.SetTrigger("attack");
                         for(int i=0;i<enemiesToDamage.Length;i++){
-                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
                             ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
                             if(takeDamage != null)
-                                takeDamage.TakeDamage(GameManager.instance.playerData.playerStats.damage);
+                                takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
                             //camAnim.SetTrigger("shake");
                         }
                             break;
                 }
-                GameManager.instance.playerData.playerStats.timeBtwMeleeAttack = GameManager.instance.playerData.playerStats.startTimeBtwMeleeAttack;
+                GameManager.instance.playerStats.timeBtwMeleeAttack = GameManager.instance.playerStats.startTimeBtwMeleeAttack;
                 rb.velocity = Vector2.zero;
             }
         }else
         {
-            GameManager.instance.playerData.playerStats.timeBtwMeleeAttack -= Time.deltaTime;
+            GameManager.instance.playerStats.timeBtwMeleeAttack -= Time.deltaTime;
         }
-        if(GameManager.instance.playerData.playerStats.timeBtwPowerUse <= 0){
+        if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
             crystal.PowerActivated(false);
             if(Input.GetKeyDown(KeyCode.C)){
-                switch (GameManager.instance.playerData.playerStats.activePower){
+                switch (GameManager.instance.playerStats.activePower){
                     case ActivePower.rangedAttack:
                         GameObject instance;
                         switch(attackDirection){
@@ -119,7 +119,7 @@ public class PlayerAttack : MonoBehaviour{
                         rb.velocity = Vector2.zero;
                         break;
                     case ActivePower.dash:
-                        GameManager.instance.playerData.playerStats.dashTime = GameManager.instance.playerData.playerStats.startDashTime;
+                        GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
                         dashing = true;
                         break;
                     case ActivePower.colorControll:
@@ -128,11 +128,11 @@ public class PlayerAttack : MonoBehaviour{
                         break;
                 }
                 
-                GameManager.instance.playerData.playerStats.timeBtwPowerUse = GameManager.instance.playerData.playerStats.startTimeBtwPowerUse;
+                GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
             }
         }else
         {
-            GameManager.instance.playerData.playerStats.timeBtwPowerUse-=Time.deltaTime;
+            GameManager.instance.playerStats.timeBtwPowerUse-=Time.deltaTime;
         }
         
         if(Input.GetAxisRaw("Horizontal") > 0)
@@ -142,15 +142,15 @@ public class PlayerAttack : MonoBehaviour{
 
         if(dashing){
             if(dashDirection == Direction.side)
-                rb.velocity = ((facingRight)?Vector2.right * GameManager.instance.playerData.playerStats.dashSpeed:Vector2.left * GameManager.instance.playerData.playerStats.dashSpeed);
+                rb.velocity = ((facingRight)?Vector2.right * GameManager.instance.playerStats.dashSpeed:Vector2.left * GameManager.instance.playerStats.dashSpeed);
             else if(dashDirection == Direction.top)
-                rb.velocity = (Vector2.up * GameManager.instance.playerData.playerStats.dashSpeed);
+                rb.velocity = (Vector2.up * GameManager.instance.playerStats.dashSpeed);
             else if(dashDirection == Direction.down)
-                rb.velocity = (Vector2.down * GameManager.instance.playerData.playerStats.dashSpeed);
+                rb.velocity = (Vector2.down * GameManager.instance.playerStats.dashSpeed);
 
-			GameManager.instance.playerData.playerStats.dashTime -= Time.deltaTime;
-			if(GameManager.instance.playerData.playerStats.dashTime <= 0){
-				GameManager.instance.playerData.playerStats.dashTime = 0;
+			GameManager.instance.playerStats.dashTime -= Time.deltaTime;
+			if(GameManager.instance.playerStats.dashTime <= 0){
+				GameManager.instance.playerStats.dashTime = 0;
                 //rb.velocity = Vector2.zero;
 				dashing = false;
 				Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
@@ -161,9 +161,9 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     void NextPower(){
-        GameManager.instance.playerData.playerStats.activePower ++;
-        if(GameManager.instance.playerData.playerStats.activePower == ActivePower.none)
-            GameManager.instance.playerData.playerStats.activePower = ActivePower.rangedAttack;
+        GameManager.instance.playerStats.activePower ++;
+        if(GameManager.instance.playerStats.activePower == ActivePower.none)
+            GameManager.instance.playerStats.activePower = ActivePower.rangedAttack;
     }
 
     void OnDrawGizmosSelected(){
@@ -172,13 +172,13 @@ public class PlayerAttack : MonoBehaviour{
         // Gizmos.DrawWireCube(attackPos.position,new Vector3(attackRange.x,attackRange.y,1));
         switch(attackDirection){
                     case Direction.side:
-                        Gizmos.DrawWireCube(attackPos.position,new Vector3(GameManager.instance.playerData.playerStats.attackRange.x,GameManager.instance.playerData.playerStats.attackRange.y,1));
+                        Gizmos.DrawWireCube(attackPos.position,new Vector3(GameManager.instance.playerStats.attackRange.x,GameManager.instance.playerStats.attackRange.y,1));
                             break;
                     case Direction.top:
-                        Gizmos.DrawWireCube(transform.position + new Vector3(0,3f,0),new Vector3(GameManager.instance.playerData.playerStats.attackRange.x,GameManager.instance.playerData.playerStats.attackRange.y,1));
+                        Gizmos.DrawWireCube(transform.position + new Vector3(0,3f,0),new Vector3(GameManager.instance.playerStats.attackRange.x,GameManager.instance.playerStats.attackRange.y,1));
                             break;
                     case Direction.down:
-                        Gizmos.DrawWireCube(transform.position + new Vector3(0,-1.5f,0),new Vector3(GameManager.instance.playerData.playerStats.attackRange.x,GameManager.instance.playerData.playerStats.attackRange.y,1));
+                        Gizmos.DrawWireCube(transform.position + new Vector3(0,-1.5f,0),new Vector3(GameManager.instance.playerStats.attackRange.x,GameManager.instance.playerStats.attackRange.y,1));
                             break;
                 }
     }

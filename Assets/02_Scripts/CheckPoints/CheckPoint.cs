@@ -15,7 +15,7 @@ public class CheckPoint : MonoBehaviour{
         if(!active && other.tag == "Player"){
             GameManager.instance.SaveGame(transform.position);
             anim.SetBool("Active",true);
-            active = false;
+            active = true;
         }
     }
 }

@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour{
 
     public PlayerData_SO playerData;
+    public PlayerStats_SO playerStats;
+    public PlayerStats_SO playerInitialStats;
+    public Vector3 initialPosition;
     public static GameManager instance;
 
     void Awake() {
@@ -17,8 +20,8 @@ public class GameManager : MonoBehaviour{
     }
 
     public void RestartValues(){
-        playerData.playerStats = Instantiate(playerData.playerInitialStats);
-        playerData.lastPosition = playerData.initialPosition;
+        playerStats = Instantiate(playerInitialStats);
+        playerData.lastPosition = initialPosition;
     }
 
     public void SaveGame(Vector3 pos){
