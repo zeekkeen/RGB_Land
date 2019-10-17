@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
     public bool facingRight = true;
 
     void Start(){
-        rb=GetComponent<Rigidbody2D>();
-        anim=GetComponentInChildren<Animator>();
+        transform.position = GameManager.instance.playerData.lastPosition;
+        rb  = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update(){

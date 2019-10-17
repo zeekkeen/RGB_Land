@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
   playerInitialStats: {fileID: 11400000, guid: 6b02ac61882216c40b7daff8c12a9c07, type: 2}
-  lastPosition: {fileID: 0}
-  initialPosition: {fileID: 0}
+  lastPosition: {x: -70.04, y: 6.91, z: 0}
+  initialPosition: {x: -70.04, y: 6.91, z: 0}
