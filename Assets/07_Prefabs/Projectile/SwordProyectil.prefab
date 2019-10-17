@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5808337803896053609}
   - component: {fileID: 3402411984277511234}
   - component: {fileID: 890794326209915488}
+  - component: {fileID: 813970136760041219}
   m_Layer: 11
   m_Name: SwordProyectil
   m_TagString: Untagged
@@ -168,3 +169,17 @@ AreaEffector2D:
   m_ForceTarget: 0
   m_Drag: 0
   m_AngularDrag: 0
+--- !u!114 &813970136760041219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781503640603159667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6888c78aa48e484b82fcc1312d85dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimeBtwSpawns: 0.05
+  echo: {fileID: 6783182796320123233, guid: 48c9d9d17028f0242ae794faa8c62b81, type: 3}
