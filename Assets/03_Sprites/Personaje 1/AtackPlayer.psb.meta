@@ -88,8 +88,8 @@ ScriptedImporter:
   rigSpriteImportData:
   - name: ActF.2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.56093025, y: 0.79712164}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -110,8 +110,8 @@ ScriptedImporter:
     uvTransform: {x: -160, y: 77}
   - name: ActF.1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.37679845, y: 0.56062794}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -132,8 +132,8 @@ ScriptedImporter:
     uvTransform: {x: -251, y: 17}
   - name: ActF.0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.23898293, y: 0.07656305}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -154,8 +154,8 @@ ScriptedImporter:
     uvTransform: {x: -24, y: -20}
   - name: Act3.2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.8255781, y: 0.666179}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -176,8 +176,8 @@ ScriptedImporter:
     uvTransform: {x: 58, y: 80}
   - name: Atc3.1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.3899964, y: 0.6454705}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -198,8 +198,8 @@ ScriptedImporter:
     uvTransform: {x: -286, y: 126}
   - name: Atc3.0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.15783782, y: -0.19976139}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -220,8 +220,8 @@ ScriptedImporter:
     uvTransform: {x: -23, y: 17}
   - name: Atc2.2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.7405881, y: 0.33985302}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -242,8 +242,8 @@ ScriptedImporter:
     uvTransform: {x: -5, y: -86}
   - name: Act2.1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5398468, y: 0.22197047}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -264,8 +264,8 @@ ScriptedImporter:
     uvTransform: {x: -257, y: -93}
   - name: Act2.0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.10371221, y: 0.5243467}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -286,8 +286,8 @@ ScriptedImporter:
     uvTransform: {x: 24, y: 89}
   - name: Atc1.0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.022114929, y: -0.7948898}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -308,8 +308,8 @@ ScriptedImporter:
     uvTransform: {x: 19, y: -120}
   - name: Atc1.1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.29043233, y: 0.62900186}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -330,8 +330,8 @@ ScriptedImporter:
     uvTransform: {x: -335, y: 170}
   - name: Atc1.2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5756364, y: 0.7166965}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
