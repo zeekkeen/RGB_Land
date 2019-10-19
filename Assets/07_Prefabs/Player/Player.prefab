@@ -4258,8 +4258,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 256
-  rb: {fileID: 0}
+    m_Bits: 1024
+  rb: {fileID: 8212746029264478199}
+  anim: {fileID: 602072493451546429}
   groundPos: {fileID: 8212746029337919561}
   dustEffect: {fileID: 8990843590016243783, guid: 042ccd6704186b945baa508c21dfb8f6,
     type: 3}
@@ -4279,7 +4280,7 @@ MonoBehaviour:
   attackPos: {fileID: 8212746029141779355}
   whatIsEnemies:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 512
   attackAnim: {fileID: 6164804242273386982}
   proyectile: {fileID: 3781503640603159667, guid: 30ca579c431638c4d933085b556e44c8,
     type: 3}
@@ -4316,7 +4317,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 16640
+    m_Bits: 1024
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 10

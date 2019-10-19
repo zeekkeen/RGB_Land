@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour{
     Rigidbody2D rb;
     public Transform attackPos;
     public LayerMask whatIsEnemies;
-    Animator camAnim,playerAnim;
+    Animator camAnim;//,playerAnim;
     public Animator attackAnim;
     public GameObject proyectile;
     public Direction attackDirection, dashDirection;
@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour{
     void Start (){
         rb=GetComponent<Rigidbody2D>();
         camAnim=Camera.main.GetComponent<Animator>();
-        playerAnim=GetComponentInChildren<Animator>();
+        // playerAnim=GetComponentInChildren<Animator>();
         attackDirection = Direction.side;
         dashDirection = Direction.side;
         GameManager.instance.playerStats.activePower = 0;
@@ -127,6 +127,7 @@ public class PlayerAttack : MonoBehaviour{
                         break;
                     case ActivePower.dash:
                         GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
+                        Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
                         dashing = true;
                         break;
                     case ActivePower.colorControll:

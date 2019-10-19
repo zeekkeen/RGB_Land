@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3402411984277511234}
   - component: {fileID: 890794326209915488}
   - component: {fileID: 813970136760041219}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: SwordProyectil
   m_TagString: Untagged
   m_Icon: {fileID: 0}

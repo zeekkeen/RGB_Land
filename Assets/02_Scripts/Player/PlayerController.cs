@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
         
     public LayerMask whatIsGround;
     public Rigidbody2D rb;
-    Animator anim;
+    public Animator anim;
     public Transform groundPos;
     public GameObject dustEffect;
     public bool facingRight = true;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
     void Start(){
         transform.position = GameManager.instance.playerData.lastPosition;
         rb  = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
+        // anim = GetComponentInChildren<Animator>();
     }
 
     void Update(){
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
             GameManager.instance.playerStats.isJumping = false;
 
         if(!GameManager.instance.playerStats.isGrounded && !GameManager.instance.playerStats.doubleJump && Input.GetKeyDown(KeyCode.Space)){
-            GameManager.instance.playerStats.isJumping = true;
+            // GameManager.instance.playerStats.isJumping = true;
             GameManager.instance.playerStats.doubleJump = true;
             GameManager.instance.playerStats.isJumping = true;
             GameManager.instance.playerStats.jumpTimeCounter = GameManager.instance.playerStats.jumpTime;

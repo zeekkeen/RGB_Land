@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Ground
   - Crystal
-  - CrystalSprite
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,15 +15,15 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - Ladder
-  - Enemies
-  - Proyectils
-  - ColorObjects
   - Player
-  - CheckPoints
-  - 
-  - 
+  - Enemy
+  - Ground
+  - ColorObject
+  - Crystal
+  - BackGround1
+  - BackGround2
+  - BackGround3
+  - Projectile
   - 
   - 
   - 
