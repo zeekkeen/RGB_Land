@@ -176,7 +176,7 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     void OnDrawGizmosSelected(){
-        Gizmos.color=Color.green;
+        Gizmos.color = Color.green;
         //Gizmos.DrawWireSphere(attackPos.position,attackRange);
         // Gizmos.DrawWireCube(attackPos.position,new Vector3(attackRange.x,attackRange.y,1));
         switch(attackDirection){

@@ -4286,6 +4286,8 @@ MonoBehaviour:
     type: 3}
   attackDirection: 2
   dashDirection: 2
+  dashing: 0
+  facingRight: 1
   dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
     type: 3}
   crystal: {fileID: 0}
@@ -4302,8 +4304,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024057388, y: 0.96445704}
-  m_Size: {x: 0.8964577, y: 2.350563}
+  m_Offset: {x: 0.046710968, y: 1.0188007}
+  m_Size: {x: 0.81005096, y: 2.2418756}
   m_Direction: 0
 --- !u!249 &8212746029264478201
 AreaEffector2D:
@@ -4349,7 +4351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8212746029337919562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -0.15, z: 0}
+  m_LocalPosition: {x: 0.08, y: -0.085, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8212746029264478192}

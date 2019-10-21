@@ -22,6 +22,14 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
     void Update(){
         GameManager.instance.playerStats.isGrounded = Physics2D.OverlapCircle(groundPos.position, GameManager.instance.playerStats.checkRadius, whatIsGround);
 
+        if(GameManager.instance.playerStats.isGrounded){
+            rb.sharedMaterial.friction = 0.4f;
+            rb.gravityScale = 1;
+        }
+        else{
+            rb.sharedMaterial.friction = 0;
+            rb.gravityScale = 5;
+        }
         if(GameManager.instance.playerStats.isGrounded && Input.GetKeyDown(KeyCode.Space)){
             anim.SetTrigger("takeOf");
             GameManager.instance.playerStats.isJumping = true;
