@@ -24,11 +24,11 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
 
         if(GameManager.instance.playerStats.isGrounded){
             rb.sharedMaterial.friction = 0.4f;
-            rb.gravityScale = 1;
+            // rb.gravityScale = 1;
         }
         else{
             rb.sharedMaterial.friction = 0;
-            rb.gravityScale = 5;
+            // rb.gravityScale = 5;
         }
         if(GameManager.instance.playerStats.isGrounded && Input.GetKeyDown(KeyCode.Space)){
             anim.SetTrigger("takeOf");
