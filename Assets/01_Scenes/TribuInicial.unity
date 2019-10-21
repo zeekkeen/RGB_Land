@@ -129018,7 +129018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1131946365
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -156908,11 +156908,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9079897285337722381, guid: 4dcc7655579ae46458cfba50c5be697f,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemigoEsquina
-      objectReference: {fileID: 0}
     - target: {fileID: 8769057612163713420, guid: 4dcc7655579ae46458cfba50c5be697f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -156967,6 +156962,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079897285337722381, guid: 4dcc7655579ae46458cfba50c5be697f,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemigoEsquina
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dcc7655579ae46458cfba50c5be697f, type: 3}
