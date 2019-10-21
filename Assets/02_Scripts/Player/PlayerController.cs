@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
         }
 
         float moveInput = Input.GetAxisRaw("Horizontal");
+        if(!GetComponent<PlayerAttack>().dashing)
         rb.velocity = new Vector2(moveInput * GameManager.instance.playerStats.moveSpeed, rb.velocity.y);
         if(moveInput == 0)
             anim.SetBool("IsRunning",false);

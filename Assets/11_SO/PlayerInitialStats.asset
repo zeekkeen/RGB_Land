@@ -34,5 +34,5 @@ MonoBehaviour:
   attackRange: {x: 2, y: 2}
   activePower: 0
   dashTime: 0
-  dashSpeed: 50
+  dashSpeed: 70
   startDashTime: 0.1

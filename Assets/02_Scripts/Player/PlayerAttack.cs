@@ -11,7 +11,8 @@ public class PlayerAttack : MonoBehaviour{
     public Animator attackAnim;
     public GameObject proyectile;
     public Direction attackDirection, dashDirection;
-    bool dashing = false, facingRight = true;
+    [HideInInspector]
+    public bool dashing = false, facingRight = true;
     public GameObject dashEffect;
     public CrystalController crystal;
 
@@ -152,9 +153,9 @@ public class PlayerAttack : MonoBehaviour{
             if(dashDirection == Direction.side)
                 rb.velocity = ((facingRight)?Vector2.right * GameManager.instance.playerStats.dashSpeed:Vector2.left * GameManager.instance.playerStats.dashSpeed);
             else if(dashDirection == Direction.top)
-                rb.velocity = (Vector2.up * GameManager.instance.playerStats.dashSpeed);
+                rb.velocity = (Vector2.up * (GameManager.instance.playerStats.dashSpeed / 2));
             else if(dashDirection == Direction.down)
-                rb.velocity = (Vector2.down * GameManager.instance.playerStats.dashSpeed);
+                rb.velocity = (Vector2.down * (GameManager.instance.playerStats.dashSpeed / 2));
 
 			GameManager.instance.playerStats.dashTime -= Time.deltaTime;
 			if(GameManager.instance.playerStats.dashTime <= 0){
