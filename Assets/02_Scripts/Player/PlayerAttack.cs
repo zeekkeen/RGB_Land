@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour{
     Rigidbody2D rb;
     public Transform attackPos;
     public LayerMask whatIsEnemies;
-    Animator camAnim;//,playerAnim;
+    Animator camAnim, playerAnim;
     public Animator attackAnim;
     public GameObject proyectile;
     public Direction attackDirection, dashDirection;
@@ -23,9 +23,9 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     void Start (){
-        rb=GetComponent<Rigidbody2D>();
-        camAnim=Camera.main.GetComponent<Animator>();
-        // playerAnim=GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        camAnim = Camera.main.GetComponent<Animator>();
+        playerAnim = GetComponentInChildren<Animator>();
         attackDirection = Direction.side;
         dashDirection = Direction.side;
         GameManager.instance.playerStats.activePower = 0;
@@ -34,12 +34,18 @@ public class PlayerAttack : MonoBehaviour{
 
     void Update(){
         float moveInput = Input.GetAxisRaw("Vertical");
-        if(moveInput == 0)
+        if(moveInput == 0){
             attackDirection = Direction.side;
-        if(moveInput < 0)
+            playerAnim.SetInteger("Direction",0);
+        }
+        if(moveInput < 0 && !GameManager.instance.playerStats.isGrounded){
             attackDirection = Direction.down;
-        else if(moveInput > 0)
+            playerAnim.SetInteger("Direction",2);
+        }
+        else if(moveInput > 0){
             attackDirection = Direction.top;
+            playerAnim.SetInteger("Direction",1);
+        }
 
         if(!dashing){
             if(moveInput == 0)
@@ -68,7 +74,7 @@ public class PlayerAttack : MonoBehaviour{
                             break;
                     case Direction.top:
                         enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
-                        //playerAnim.SetTrigger("attack");
+                        playerAnim.SetTrigger("attack");
                         attackAnim.SetTrigger("Active");
                         for(int i=0;i<enemiesToDamage.Length;i++){
                             // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
@@ -79,8 +85,8 @@ public class PlayerAttack : MonoBehaviour{
                         }
                             break;
                     case Direction.down:
-                        enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
-                        //playerAnim.SetTrigger("attack");
+                        enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+                        playerAnim.SetTrigger("attack");
                         attackAnim.SetTrigger("Active");
                         for(int i=0;i<enemiesToDamage.Length;i++){
                             // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
@@ -114,13 +120,13 @@ public class PlayerAttack : MonoBehaviour{
                             case Direction.top:
                                 crystal.PowerActivated(true);
                                 instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
-                                //playerAnim.SetTrigger("attack");
+                                playerAnim.SetTrigger("attack");
                                 attackAnim.SetTrigger("Active");
                                     break;
                             case Direction.down:
                                 crystal.PowerActivated(true);
                                 instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
-                                //playerAnim.SetTrigger("attack");
+                                playerAnim.SetTrigger("attack");
                                 attackAnim.SetTrigger("Active");
                                     break;
                         }
