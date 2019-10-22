@@ -7,24 +7,24 @@ tree("Root")
 
 tree("BeAlive")
 	fallback
-		while not EnemyDetected
-			tree("Patrol")
+		while not EnemyInShootRange
+			tree("Idle")
 		tree("Attack")
 
-tree("Patrol")
-	fallback
-		while 
-			not NoGroundDetected
-			repeat
-				Move
-		Flip
+tree("Idle")
+	repeat
+		Idle
 
 tree("Attack")
 	fallback
-		while not EnemyClose
-			Move
-		while not Reload
-			MeleeAttack
+		while EnemyVisibleInRange
+			sequence
+				Rotate
+				while not Reload
+					RangeAttack
+			//Rotate
+		//while not Reload
+			//RangeAttack
 
 tree("Die")
 	sequence

@@ -572,14 +572,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6886179641182488252}
-  - component: {fileID: 6886179641182488253}
   - component: {fileID: 3323727215810203239}
   - component: {fileID: 5470956526870059029}
   - component: {fileID: 2789419124741602713}
   - component: {fileID: 6147933758383095900}
   - component: {fileID: 5874035684554368283}
   - component: {fileID: 4331977165425116860}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: enemi_pbt 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -603,25 +602,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6886179641182488253
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6886179641182488248}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 52d09e5e661092d41b27e942ac4ddde0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &3323727215810203239
 Rigidbody2D:
   serializedVersion: 4
@@ -719,7 +699,9 @@ MonoBehaviour:
   bloodSplash: {fileID: 3600589744553738000, guid: 165586814447d96408d0e8aaab80e3fe,
     type: 3}
   corpse: {fileID: 5065116810720009504, guid: 344d09fc829d5494395e7733717428e9, type: 3}
+  projectile: {fileID: 0}
   previousHealth: 0
+  anim: {fileID: 7348911303563912155}
   facingRigth: 1
   dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
     type: 3}

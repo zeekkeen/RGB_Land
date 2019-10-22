@@ -11,9 +11,9 @@ public class Unit: MonoBehaviour, ITakeDamage{
     public TypeOfColor unitTypeOfColor;
     public List <SpriteRenderer> lifeRender = new List<SpriteRenderer>{};
     public GameObject bloodEffect, deathEffect;
-    public GameObject bloodSplash, corpse;
+    public GameObject bloodSplash, corpse, projectile;
     public float previousHealth;
-    Animator anim;
+    public Animator anim;
     RipplePostProcessor camRipple;
 	public bool facingRigth = true;
 	public GameObject dashEffect, groundDetection, noGroundDetection;
@@ -26,7 +26,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
         enemyStats.maxHealth = enemyStats.currentHealth;
         previousHealth = enemyStats.currentHealth;
         //anim=GetComponent<Animator>();
-		anim = GetComponentInChildren<Animator>();
+		// anim = GetComponentInChildren<Animator>();
         //anim.SetBool("isRunning",true);
 		rb = GetComponent<Rigidbody2D>();
         camRipple = Camera.main.GetComponent<RipplePostProcessor>();
@@ -45,10 +45,6 @@ public class Unit: MonoBehaviour, ITakeDamage{
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
         enemyStats.dazedTime = enemyStats.StartDazedTime;
         enemyStats.currentHealth -= damage;
-        // ChangeColor1();
-        // Debug.Log("damague taken!!");
-		// if(enemyStats.currentHealth <= 0)
-		// 	Dead();
     }
 
     #region navigation tasks
@@ -66,16 +62,28 @@ public class Unit: MonoBehaviour, ITakeDamage{
     // }
     
     [Task]
-    public bool Move()
-    {
+    public bool Move(){
         rb.velocity = ((facingRigth) ? Vector2.right * enemyStats.moveSpeed : Vector2.left * enemyStats.moveSpeed);
         return true;
     }
 
     [Task]
-    public bool Reload()
-    {
+    public bool Rotate(){
+        anim.SetInteger("State", 2);
+        transform.up= Vector3.Lerp(transform.up, (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position), 5f);
+        return true;
+    }
+
+    [Task]
+    public bool Idle(){
+        anim.SetInteger("State", 0);
+        return true;
+    }
+
+    [Task]
+    public bool Reload(){
         enemyStats.attackSpeedTimer -= Time.deltaTime;
+        rb.velocity = Vector2.zero;
         if(enemyStats.attackSpeedTimer <= 0)
             return false;
         else 
@@ -83,8 +91,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
     }
 
     [Task]
-    public bool NoGroundDetected()
-    {
+    public bool NoGroundDetected(){
         RaycastHit2D groundInfo = Physics2D.Raycast(noGroundDetection.transform.position, Vector2.down, enemyStats.distance, groundLayer);
         if (!groundInfo.collider)
             return true;
@@ -93,8 +100,24 @@ public class Unit: MonoBehaviour, ITakeDamage{
     }
 
     [Task]
-    public bool EnemyDetected()
-    {
+    public bool EnemyInShootRange(){
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(player != null){
+        // float dist = Vector2.Distance(transform.position,player.transform.position);
+        Vector2 dir = player.transform.position - transform.position;
+        dir.Normalize();
+        RaycastHit2D colliderInfo = Physics2D.Raycast(transform.position, dir, enemyStats.visionDistance, playerLayer);
+        if (colliderInfo.collider){
+            if (colliderInfo.collider.gameObject.tag == "Player"){
+            anim.SetInteger("State", 1);
+            return true;
+        }
+        }}
+        return false;
+    }
+
+    [Task]
+    public bool EnemyDetected(){
         RaycastHit2D colliderInfo = Physics2D.Raycast(transform.position, (facingRigth ? Vector2.right : Vector2.left), enemyStats.visionDistance, playerLayer);
         if (colliderInfo.collider)
             return true;
@@ -103,8 +126,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
     }
 
     [Task]
-    public bool EnemyClose()
-    {
+    public bool EnemyClose(){
         RaycastHit2D colliderInfo = Physics2D.Raycast(transform.position, (facingRigth ? Vector2.right : Vector2.left), enemyStats.attackRange, playerLayer);
         if (colliderInfo.collider)
             return true;
@@ -113,8 +135,24 @@ public class Unit: MonoBehaviour, ITakeDamage{
     }
 
     [Task]
-    public bool Attack()
-    {
+    public bool EnemyVisibleInRange(){
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(player != null){
+        // float dist = Vector2.Distance(transform.position,player.transform.position);
+        Vector2 dir = player.transform.position - transform.position;
+        dir.Normalize();
+        RaycastHit2D colliderInfo = Physics2D.Raycast(transform.position, dir, enemyStats.visionDistance, playerLayer);
+        if (colliderInfo.collider){
+            if (colliderInfo.collider.gameObject.tag == "Player"){
+            anim.SetInteger("State", 3);
+            return true;
+        }
+        }}
+        return false;
+    }
+
+    [Task]
+    public bool MeleeAttack(){
         Collider2D[] enemiesToDamage;
         enemiesToDamage = Physics2D.OverlapBoxAll(noGroundDetection.transform.position,new Vector2(enemyStats.attackRange, enemyStats.attackRange),0,playerLayer);
         if (enemiesToDamage != null){
@@ -128,6 +166,15 @@ public class Unit: MonoBehaviour, ITakeDamage{
         }
         else 
             return false;
+    }
+
+    [Task]
+    public bool RangeAttack(){
+        anim.SetInteger("State", 3);
+        Instantiate(projectile,noGroundDetection.transform.position,transform.rotation);
+        // anim.SetInteger("State", 2);
+        enemyStats.attackSpeedTimer = enemyStats.attackSpeed;
+        return true;
     }
 
     [Task]

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile1 : MonoBehaviour
 {
     public int damage = 10;
     public GameObject destroyEffect;
 	Rigidbody2D rb;
-	bool facingRight=true;
+	// bool facingRight=true;
 	float moveTime=0f;
 	public float startTime=1f,speed=10f;
 
@@ -17,14 +17,7 @@ public class Projectile : MonoBehaviour
 	}
 
 	void Update() {
-        if(transform.rotation.y == 0 && transform.rotation.z == 0)
-			rb.velocity = new Vector2(1 * speed * Time.deltaTime, rb.velocity.y);
-        else if(transform.rotation.y != 0 && transform.rotation.z == 0)
-			rb.velocity = new Vector2(-1 * speed * Time.deltaTime, rb.velocity.y);
-		else if(transform.rotation.z > 0 && transform.rotation.y == 0)
-			rb.velocity = new Vector2(rb.velocity.x, 1 * speed * Time.deltaTime);
-		else 
-			rb.velocity = new Vector2(rb.velocity.x, -1 * speed * Time.deltaTime);
+		rb.velocity = transform.up * speed * Time.deltaTime;
 		moveTime-=Time.deltaTime;
 		if(moveTime<=0)
 		{
@@ -39,7 +32,6 @@ public class Projectile : MonoBehaviour
 			takeDamage.TakeDamage(damage);
 		DestroyProjectil();
 	}
-
 	private void OnCollisionEnter2D(Collision2D other) {
 		ITakeDamage takeDamage = other.gameObject.GetComponent<ITakeDamage>();
 		if(takeDamage != null)

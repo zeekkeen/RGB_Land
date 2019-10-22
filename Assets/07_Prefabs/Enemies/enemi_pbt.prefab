@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6147933758383095900}
   - component: {fileID: 5874035684554368283}
   - component: {fileID: 4331977165425116860}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: enemi_pbt
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 66560
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 10
@@ -314,7 +314,9 @@ MonoBehaviour:
   bloodSplash: {fileID: 3600589744553738000, guid: 165586814447d96408d0e8aaab80e3fe,
     type: 3}
   corpse: {fileID: 5065116810720009504, guid: 344d09fc829d5494395e7733717428e9, type: 3}
+  projectile: {fileID: 0}
   previousHealth: 0
+  anim: {fileID: 3446794386025319229}
   facingRigth: 1
   dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
     type: 3}
