@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
     }
 
     void Update(){
-        GameManager.instance.playerStats.isGrounded = Physics2D.OverlapCircle(groundPos.position, GameManager.instance.playerStats.checkRadius, whatIsGround);
+            GameManager.instance.playerStats.isGrounded = Physics2D.OverlapCircle(groundPos.position, GameManager.instance.playerStats.checkRadius, whatIsGround);
 
         if(GameManager.instance.playerStats.isGrounded){
             rb.sharedMaterial.friction = 0.4f;

@@ -18,7 +18,7 @@ MonoBehaviour:
   moveSpeed: 7
   attackSpeed: 0.3
   isGrounded: 0
-  checkRadius: 1
+  checkRadius: 0.1
   jumpForce: 20
   jumpTime: 2
   jumpTimeCounter: 1.9833336
