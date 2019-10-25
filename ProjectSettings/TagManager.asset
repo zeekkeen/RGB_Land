@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Crystal
   - Enemy
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - BackGround3
   - Projectile
   - EnemyProjectile
-  - 
+  - oclusion
   - 
   - 
   - 

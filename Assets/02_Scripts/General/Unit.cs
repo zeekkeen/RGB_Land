@@ -18,7 +18,8 @@ public class Unit: MonoBehaviour, ITakeDamage{
 	public bool facingRigth = true;
 	public GameObject dashEffect, groundDetection, noGroundDetection;
     public LayerMask groundLayer, playerLayer;
-	Rigidbody2D rb;
+    [HideInInspector]
+	public Rigidbody2D rb;
     public float attackRange = 2f;
 
     void Start(){
