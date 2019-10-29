@@ -3584,6 +3584,7 @@ GameObject:
   - component: {fileID: 6164804241628973168}
   - component: {fileID: 6164804241628973182}
   - component: {fileID: 6164804241628973183}
+  - component: {fileID: 6812938380552366771}
   m_Layer: 0
   m_Name: Ojos
   m_TagString: Untagged
@@ -3671,6 +3672,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6812938380552366771
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164804241628973169}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 199135aa8e58c7f45860f87a7e0cf20e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6164804242273386970
 GameObject:
   m_ObjectHideFlags: 0
