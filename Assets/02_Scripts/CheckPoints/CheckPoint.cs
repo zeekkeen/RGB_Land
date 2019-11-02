@@ -12,9 +12,7 @@ public class CheckPoint : MonoBehaviour{
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("entro");
         if(!active && other.gameObject.tag == "Player"){
-            Debug.Log("entro2");
             GameManager.instance.SaveGame(transform.position);
             anim.SetBool("Active",true);
             active = true;

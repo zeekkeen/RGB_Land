@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  damage: 20
+  damage: 1
   moveSpeed: 5
   attackSpeed: 1.5
+  attackSpeedTimer: 0
   dazedTime: 0.6
   StartDazedTime: 0.6
   distance: 5
+  visionDistance: 10
+  attackRange: 5
   typeOfColor: 0

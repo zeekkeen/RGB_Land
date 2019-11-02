@@ -87,7 +87,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
 
     public void TakeDamage(int damage){
         Instantiate(dustEffect, transform.position, Quaternion.identity);
-        GameManager.instance.playerStats.currentHealth -= damage;
+        GameManager.instance.playerStats.currentHealth --;//-= damage;
+        LifesManager.instance.RefreshUI();
         if(GameManager.instance.playerStats.currentHealth <= 0)
             Destroy(this.gameObject);
     }
