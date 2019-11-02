@@ -92,4 +92,17 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
             Destroy(this.gameObject);
     }
 
+    void OnCollisionStay2D(Collision2D other) {
+        if(other.gameObject.tag == "platform"){
+            transform.parent = other.transform;
+             GameManager.instance.playerStats.isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other) {
+        if(other.gameObject.tag == "platform"){
+            transform.parent = null;
+             GameManager.instance.playerStats.isGrounded = false;
+        }
+    }
 }

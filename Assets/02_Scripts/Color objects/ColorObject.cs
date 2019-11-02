@@ -76,9 +76,12 @@ public class ColorObject : MonoBehaviour{
     }
 
     public void SwitchColor(){
+        crystal = GameObject.FindGameObjectWithTag("Crystal");
         GameObject trail = (GameObject)Instantiate(particlesTrail,(painted?transform.position:crystal.transform.position),Quaternion.identity);
-        trail.GetComponent<TrailMovement>().StartMovement((painted?crystal.transform:transform),gradient);
-        changeColor = true;
+        if(trail != null){
+            trail.GetComponent<TrailMovement>().StartMovement((painted?crystal.transform:transform),gradient);
+            changeColor = true;
+        }
     }
 
     public virtual void PaintedAction(){

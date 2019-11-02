@@ -4258,7 +4258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 3072
   rb: {fileID: 8212746029264478199}
   anim: {fileID: 602072493451546429}
   groundPos: {fileID: 8212746029337919561}
