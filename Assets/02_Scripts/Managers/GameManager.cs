@@ -22,15 +22,17 @@ public class GameManager : MonoBehaviour{
     public void RestartValues(){
         playerStats = Instantiate(playerInitialStats);
         playerData.lastPosition = initialPosition;
+        playerData.lastLevel = "TribuInicial";
     }
 
-    public void SaveGame(Vector3 pos){
+    public void SaveGame(Vector3 pos, string level){
         playerData.lastPosition = pos;
+        playerData.lastLevel = level;
         GameSaveManager.instance.SaveGameSlot();
     }
 
     public void LoadGame(){
         GameSaveManager.instance.LoadGameSlot();
-        SceneManager.LoadScene("TribuInicial");
+        SceneManager.LoadScene(playerData.lastLevel);
     }
 }

@@ -16,6 +16,7 @@ public class CrystalController : MonoBehaviour{
     bool powerActivated = false;
 
     void Start(){
+        transform.position = startPosition.transform.position;
         gemRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();

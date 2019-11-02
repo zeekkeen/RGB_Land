@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   active: 0
+  destiny: TribuInicial
 --- !u!61 &6433397395451063838
 BoxCollider2D:
   m_ObjectHideFlags: 0

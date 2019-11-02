@@ -55,7 +55,7 @@ public class MainMenuManagger : MonoBehaviour{
 
     public void Continue(){
         GameSaveManager.instance.LoadGameSlot();
-        SceneManager.LoadScene("TribuInicial");
+        SceneManager.LoadScene(GameManager.instance.playerData.lastLevel);
     }
 
     public void NewGame(){
@@ -70,7 +70,7 @@ public class MainMenuManagger : MonoBehaviour{
         GameManager.instance.RestartValues();
         GameSaveManager.instance.SaveGameSlot(n);
         PlayerPrefs.SetInt("gameSlot", n);
-        SceneManager.LoadScene("TribuInicial");
+        SceneManager.LoadScene(GameManager.instance.playerData.lastLevel);
     }
 
     public void LoadGame(){
@@ -107,7 +107,7 @@ public class MainMenuManagger : MonoBehaviour{
     public void LoadSlot( int n){
         GameSaveManager.instance.LoadGameSlot(n);
         PlayerPrefs.SetInt("gameSlot", n);
-        SceneManager.LoadScene("TribuInicial");
+        SceneManager.LoadScene(GameManager.instance.playerData.lastLevel);
     }
 
     public void ChangeIdiom( int n){

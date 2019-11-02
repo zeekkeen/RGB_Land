@@ -6,6 +6,7 @@ public class CheckPoint : MonoBehaviour{
     
     public Animator anim;
     public bool active = false;
+    public string level;
 
     void Start(){
         anim = GetComponentInChildren<Animator>();
@@ -13,7 +14,7 @@ public class CheckPoint : MonoBehaviour{
 
     void OnTriggerEnter2D(Collider2D other) {
         if(!active && other.gameObject.tag == "Player"){
-            GameManager.instance.SaveGame(transform.position);
+            GameManager.instance.SaveGame(transform.position, level);
             anim.SetBool("Active",true);
             active = true;
         }

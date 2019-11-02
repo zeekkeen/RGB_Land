@@ -7,6 +7,7 @@ public class PlayerData_SO : ScriptableObject {
     // public PlayerStats_SO playerStats;
     // public PlayerStats_SO playerInitialStats;
     public Vector3 lastPosition;
+    public string lastLevel;
     // public Vector3 initialPosition;
 
 }
