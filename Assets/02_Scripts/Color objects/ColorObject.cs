@@ -18,21 +18,22 @@ public class ColorObject : MonoBehaviour{
 
     void Start(){
         crystal = GameObject.FindGameObjectWithTag("Crystal");
-        foreach (SpriteRenderer element in colorRender){
-                switch (typeOfColor){
-                    case TypeOfColor.red:
-                        element.color = new Color(1, 0, 0);
-                        break;
-                    case TypeOfColor.green:
-                        element.color = new Color(0, 1, 0);
-                        break;
-                    case TypeOfColor.blue:
-                        element.color = new Color(0, 0, 1);
-                        break;
-                }
-        }
-        if(painted)
+        if(painted){
+            foreach (SpriteRenderer element in colorRender){
+                    switch (typeOfColor){
+                        case TypeOfColor.red:
+                            element.color = new Color(1, 0, 0);
+                            break;
+                        case TypeOfColor.green:
+                            element.color = new Color(0, 1, 0);
+                            break;
+                        case TypeOfColor.blue:
+                            element.color = new Color(0, 0, 1);
+                            break;
+                    }
+            }
             timeToPaint = 0;
+        }
         else 
             timeToPaint = 1f;
         changeColor = false;
@@ -47,6 +48,7 @@ public class ColorObject : MonoBehaviour{
                     changeColor = false;
                     painted = false;
                     timeToPaint = 1;
+                    UnPaintedAction();
                 }
             }else{
                 timeToPaint -= Time.deltaTime;
@@ -54,6 +56,7 @@ public class ColorObject : MonoBehaviour{
                     changeColor = false;
                     painted = true;
                     timeToPaint = 0;
+                    PaintedAction();
                 }
             }
             foreach (SpriteRenderer element in colorRender){
@@ -76,5 +79,13 @@ public class ColorObject : MonoBehaviour{
         GameObject trail = (GameObject)Instantiate(particlesTrail,(painted?transform.position:crystal.transform.position),Quaternion.identity);
         trail.GetComponent<TrailMovement>().StartMovement((painted?crystal.transform:transform),gradient);
         changeColor = true;
+    }
+
+    public virtual void PaintedAction(){
+
+    }
+
+    public virtual void UnPaintedAction(){
+        
     }
 }

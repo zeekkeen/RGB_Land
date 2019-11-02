@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerInitialStats
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 1000
+  currentHealth: 100
   damage: 50
   moveSpeed: 7
   attackSpeed: 0.3
@@ -21,14 +21,14 @@ MonoBehaviour:
   checkRadius: 0.1
   jumpForce: 20
   jumpTime: 2
-  jumpTimeCounter: 1.9833336
+  jumpTimeCounter: 0
   isJumping: 0
   doubleJump: 0
   dash: 0
   stealAndGiveColor: 0
   rangedAttack: 0
-  timeBtwMeleeAttack: -0.00041072257
-  timeBtwPowerUse: -0.013028175
+  timeBtwMeleeAttack: 0
+  timeBtwPowerUse: 0
   startTimeBtwMeleeAttack: 0.3
   startTimeBtwPowerUse: 1
   attackRange: {x: 2, y: 2}

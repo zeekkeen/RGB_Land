@@ -298,7 +298,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 66560
+    m_Bits: 328704
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 10
@@ -360,6 +360,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  rb: {fileID: 0}
   attackRange: 4
 --- !u!114 &4331977165425116860
 MonoBehaviour:
