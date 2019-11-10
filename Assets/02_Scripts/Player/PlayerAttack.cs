@@ -22,6 +22,27 @@ public class PlayerAttack : MonoBehaviour{
         side
     }
 
+    PlayerControls inputAction;
+    Vector2 movementInput;
+
+    void Awake() {
+        inputAction = new PlayerControls();
+        inputAction.GamePlay.move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        inputAction.GamePlay.move.canceled += ctx => movementInput = Vector2.zero;
+        inputAction.GamePlay.MeleeAttack.performed += ctx => MeleeAttack();
+        inputAction.GamePlay.Power.performed += ctx => Power();
+        inputAction.GamePlay.ChangePower.performed += ctx => NextPower();
+        // inputAction.GamePlay.Jump.canceled += ctx => JumpKeyUp();
+    }
+
+    void OnEnable() {
+        inputAction.Enable();
+    }
+
+    void OnDisable() {
+        inputAction.Disable();
+    }
+
     void Start (){
         rb = GetComponent<Rigidbody2D>();
         camAnim = Camera.main.GetComponent<Animator>();
@@ -33,131 +54,130 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     void Update(){
-        float moveInput = Input.GetAxisRaw("Vertical");
-        if(moveInput == 0){
+        // float moveInput = movementInput.x;
+        // Debug.Log(movementInput.x + " : "+ movementInput.y);
+        if(movementInput.y == 0){
             attackDirection = Direction.side;
             playerAnim.SetInteger("Direction",0);
         }
-        if(moveInput < 0 && !GameManager.instance.playerStats.isGrounded){
+        if(movementInput.y < 0 && !GameManager.instance.playerStats.isGrounded){
             attackDirection = Direction.down;
             playerAnim.SetInteger("Direction",2);
         }
-        else if(moveInput > 0){
+        else if(movementInput.y > 0){
             attackDirection = Direction.top;
             playerAnim.SetInteger("Direction",1);
         }
 
         if(!dashing){
-            if(moveInput == 0)
+            if(movementInput.y == 0)
                 dashDirection = Direction.side;
-            if(moveInput < 0)
+            if(movementInput.y < 0)
                 dashDirection = Direction.down;
-            else if(moveInput > 0)
+            else if(movementInput.y > 0)
                 dashDirection = Direction.top;
         }
 
-        if(GameManager.instance.playerStats.timeBtwMeleeAttack <= 0){
-            if(Input.GetKeyDown(KeyCode.X)){
-                Collider2D[] enemiesToDamage;
-                switch(attackDirection){
-                    case Direction.side:
-                        enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
-                        //playerAnim.SetTrigger("attack");
-                        attackAnim.SetTrigger("Active");
-                        for(int i=0;i<enemiesToDamage.Length;i++){
-                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
-                            ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
-                            if(takeDamage != null)
-                                takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
-                            //camAnim.SetTrigger("shake");
-                        }
-                            break;
-                    case Direction.top:
-                        enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
-                        playerAnim.SetTrigger("attack");
-                        attackAnim.SetTrigger("Active");
-                        for(int i=0;i<enemiesToDamage.Length;i++){
-                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
-                            ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
-                            if(takeDamage != null)
-                                takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
-                            //camAnim.SetTrigger("shake");
-                        }
-                            break;
-                    case Direction.down:
-                        enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
-                        playerAnim.SetTrigger("attack");
-                        attackAnim.SetTrigger("Active");
-                        for(int i=0;i<enemiesToDamage.Length;i++){
-                            // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
-                            ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
-                            if(takeDamage != null)
-                                takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
-                            //camAnim.SetTrigger("shake");
-                        }
-                            break;
-                }
-                GameManager.instance.playerStats.timeBtwMeleeAttack = GameManager.instance.playerStats.startTimeBtwMeleeAttack;
-                rb.velocity = Vector2.zero;
-            }
-        }else
-        {
+        // if(GameManager.instance.playerStats.timeBtwMeleeAttack <= 0){
+        //     if(Input.GetKeyDown(KeyCode.X)){
+        //         Collider2D[] enemiesToDamage;
+        //         switch(attackDirection){
+        //             case Direction.side:
+        //                 enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+        //                 //playerAnim.SetTrigger("attack");
+        //                 attackAnim.SetTrigger("Active");
+        //                 for(int i=0;i<enemiesToDamage.Length;i++){
+        //                     // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
+        //                     ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+        //                     if(takeDamage != null)
+        //                         takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
+        //                     //camAnim.SetTrigger("shake");
+        //                 }
+        //                     break;
+        //             case Direction.top:
+        //                 enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+        //                 playerAnim.SetTrigger("attack");
+        //                 attackAnim.SetTrigger("Active");
+        //                 for(int i=0;i<enemiesToDamage.Length;i++){
+        //                     // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
+        //                     ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+        //                     if(takeDamage != null)
+        //                         takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
+        //                     //camAnim.SetTrigger("shake");
+        //                 }
+        //                     break;
+        //             case Direction.down:
+        //                 enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+        //                 playerAnim.SetTrigger("attack");
+        //                 attackAnim.SetTrigger("Active");
+        //                 for(int i=0;i<enemiesToDamage.Length;i++){
+        //                     // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
+        //                     ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+        //                     if(takeDamage != null)
+        //                         takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
+        //                     //camAnim.SetTrigger("shake");
+        //                 }
+        //                     break;
+        //         }
+        //         GameManager.instance.playerStats.timeBtwMeleeAttack = GameManager.instance.playerStats.startTimeBtwMeleeAttack;
+        //         rb.velocity = Vector2.zero;
+        //     }
+        // }else
+        if(GameManager.instance.playerStats.timeBtwMeleeAttack > 0){
             GameManager.instance.playerStats.timeBtwMeleeAttack -= Time.deltaTime;
         }
         if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
             crystal.PowerActivated(false);
-            if(Input.GetKeyDown(KeyCode.C)){
-                switch (GameManager.instance.playerStats.activePower){
-                    case ActivePower.rangedAttack:
-                        GameObject instance;
-                        switch(attackDirection){
-                            case Direction.side:
-                                crystal.PowerActivated(true);
-                                instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
-                                //playerAnim.SetTrigger("attack");
-                                attackAnim.SetTrigger("Active");
-                                    break;
-                            case Direction.top:
-                                crystal.PowerActivated(true);
-                                instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
-                                playerAnim.SetTrigger("attack");
-                                attackAnim.SetTrigger("Active");
-                                    break;
-                            case Direction.down:
-                                crystal.PowerActivated(true);
-                                instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
-                                playerAnim.SetTrigger("attack");
-                                attackAnim.SetTrigger("Active");
-                                    break;
-                        }
-                        rb.velocity = Vector2.zero;
-                        break;
-                    case ActivePower.dash:
-                        GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
-                        Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
-                        dashing = true;
-                        break;
-                    case ActivePower.colorControll:
-                        crystal.PowerActivated(true);
-                        crystal.ColorSearch();
-                        break;
-                }
+        //     if(Input.GetKeyDown(KeyCode.C)){
+        //         switch (GameManager.instance.playerStats.activePower){
+        //             case ActivePower.rangedAttack:
+        //                 GameObject instance;
+        //                 switch(attackDirection){
+        //                     case Direction.side:
+        //                         crystal.PowerActivated(true);
+        //                         instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
+        //                         //playerAnim.SetTrigger("attack");
+        //                         attackAnim.SetTrigger("Active");
+        //                             break;
+        //                     case Direction.top:
+        //                         crystal.PowerActivated(true);
+        //                         instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
+        //                         playerAnim.SetTrigger("attack");
+        //                         attackAnim.SetTrigger("Active");
+        //                             break;
+        //                     case Direction.down:
+        //                         crystal.PowerActivated(true);
+        //                         instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
+        //                         playerAnim.SetTrigger("attack");
+        //                         attackAnim.SetTrigger("Active");
+        //                             break;
+        //                 }
+        //                 rb.velocity = Vector2.zero;
+        //                 break;
+        //             case ActivePower.dash:
+        //                 GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
+        //                 Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
+        //                 dashing = true;
+        //                 break;
+        //             case ActivePower.colorControll:
+        //                 crystal.PowerActivated(true);
+        //                 crystal.ColorSearch();
+        //                 break;
+        //         }
                 
-                GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
-            }
+        //         GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
+        //     }
         }else
-        {
             GameManager.instance.playerStats.timeBtwPowerUse-=Time.deltaTime;
-        }
         
-        if(Input.GetAxisRaw("Horizontal") > 0)
+        if(movementInput.x > 0)
             facingRight = true;
-        else if(Input.GetAxisRaw("Horizontal") < 0)
+        else if(movementInput.x < 0)
             facingRight = false;
 
         if(dashing){
             if(dashDirection == Direction.side)
-                rb.velocity = ((facingRight)?Vector2.right * GameManager.instance.playerStats.dashSpeed:Vector2.left * GameManager.instance.playerStats.dashSpeed);
+                rb.velocity = ((facingRight) ? Vector2.right * GameManager.instance.playerStats.dashSpeed:Vector2.left * GameManager.instance.playerStats.dashSpeed);
             else if(dashDirection == Direction.top)
                 rb.velocity = (Vector2.up * (GameManager.instance.playerStats.dashSpeed / 2));
             else if(dashDirection == Direction.down)
@@ -168,11 +188,11 @@ public class PlayerAttack : MonoBehaviour{
 				GameManager.instance.playerStats.dashTime = 0;
                 //rb.velocity = Vector2.zero;
 				dashing = false;
-				Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
+				Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)), transform.position.y + 1, transform.position.z), Quaternion.identity);
 			}
 		}
-        if(Input.GetKeyDown(KeyCode.Z))
-            NextPower();
+        // if(Input.GetKeyDown(KeyCode.Z))
+        //     NextPower();
     }
 
     void NextPower(){
@@ -196,5 +216,93 @@ public class PlayerAttack : MonoBehaviour{
                         Gizmos.DrawWireCube(transform.position + new Vector3(0,-1.5f,0),new Vector3(GameManager.instance.playerStats.attackRange.x,GameManager.instance.playerStats.attackRange.y,1));
                             break;
                 }
+    }
+
+    public void MeleeAttack(){
+        if(GameManager.instance.playerStats.timeBtwMeleeAttack <= 0){
+            Collider2D[] enemiesToDamage;
+            switch(attackDirection){
+                case Direction.side:
+                    enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+                    //playerAnim.SetTrigger("attack");
+                    attackAnim.SetTrigger("Active");
+                    for(int i=0;i<enemiesToDamage.Length;i++){
+                        // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
+                        ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                        if(takeDamage != null)
+                            takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
+                        //camAnim.SetTrigger("shake");
+                    }
+                        break;
+                case Direction.top:
+                    enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+                    playerAnim.SetTrigger("attack");
+                    attackAnim.SetTrigger("Active");
+                    for(int i=0;i<enemiesToDamage.Length;i++){
+                        // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
+                        ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                        if(takeDamage != null)
+                            takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
+                        //camAnim.SetTrigger("shake");
+                    }
+                        break;
+                case Direction.down:
+                    enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+                    playerAnim.SetTrigger("attack");
+                    attackAnim.SetTrigger("Active");
+                    for(int i=0;i<enemiesToDamage.Length;i++){
+                        // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
+                        ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                        if(takeDamage != null)
+                            takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
+                        //camAnim.SetTrigger("shake");
+                    }
+                        break;
+            }
+            GameManager.instance.playerStats.timeBtwMeleeAttack = GameManager.instance.playerStats.startTimeBtwMeleeAttack;
+            rb.velocity = Vector2.zero;
+        }
+    }
+
+    public void Power(){
+        if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
+            switch (GameManager.instance.playerStats.activePower){
+                        case ActivePower.rangedAttack:
+                            GameObject instance;
+                            switch(attackDirection){
+                                case Direction.side:
+                                    crystal.PowerActivated(true);
+                                    instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
+                                    //playerAnim.SetTrigger("attack");
+                                    attackAnim.SetTrigger("Active");
+                                        break;
+                                case Direction.top:
+                                    crystal.PowerActivated(true);
+                                    instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
+                                    playerAnim.SetTrigger("attack");
+                                    attackAnim.SetTrigger("Active");
+                                        break;
+                                case Direction.down:
+                                    crystal.PowerActivated(true);
+                                    instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
+                                    playerAnim.SetTrigger("attack");
+                                    attackAnim.SetTrigger("Active");
+                                        break;
+                            }
+                            rb.velocity = Vector2.zero;
+                            break;
+                        case ActivePower.dash:
+                            GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
+                            Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
+                            dashing = true;
+                            break;
+                        case ActivePower.colorControll:
+                            crystal.PowerActivated(true);
+                            crystal.ColorSearch();
+                            break;
+                    }
+                    
+                    GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
+        }
     }
 }

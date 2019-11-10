@@ -101,7 +101,7 @@ MonoBehaviour:
   destroyEffect: {fileID: 8990843590016243783, guid: 1f42d1ee51583ad4dbd377b04a23eb03,
     type: 3}
   startTime: 1
-  speed: 700
+  speed: 1200
 --- !u!61 &-5808337803896053609
 BoxCollider2D:
   m_ObjectHideFlags: 0
