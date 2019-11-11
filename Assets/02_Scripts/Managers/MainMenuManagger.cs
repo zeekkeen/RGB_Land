@@ -13,6 +13,7 @@ public class MainMenuManagger : MonoBehaviour{
     public GameObject optionsPanel;
     public GameObject exitPanel;
     public static MainMenuManagger instance;
+    public ButtonThroughKeySelection[]  buttonsFocus;
 
     void Awake() {
         if(instance == null)
@@ -51,6 +52,7 @@ public class MainMenuManagger : MonoBehaviour{
         loadGamePanel.SetActive(false);
         optionsPanel.SetActive(false);
         exitPanel.SetActive(false);
+        buttonsFocus[0].ChangeFocus();
     }
 
     public void Continue(){
@@ -64,6 +66,7 @@ public class MainMenuManagger : MonoBehaviour{
         loadGamePanel.SetActive(false);
         optionsPanel.SetActive(false);
         exitPanel.SetActive(false);
+        buttonsFocus[1].ChangeFocus();
     }
 
     public void NewGameSlot(int n){
@@ -79,6 +82,7 @@ public class MainMenuManagger : MonoBehaviour{
         loadGamePanel.SetActive(true);
         optionsPanel.SetActive(false);
         exitPanel.SetActive(false);
+        buttonsFocus[2].ChangeFocus();
     }
 
     public void Options(){
@@ -87,6 +91,7 @@ public class MainMenuManagger : MonoBehaviour{
         loadGamePanel.SetActive(false);
         optionsPanel.SetActive(true);
         exitPanel.SetActive(false);
+        buttonsFocus[3].ChangeFocus();
     }
 
     public void Exit(){
@@ -95,6 +100,7 @@ public class MainMenuManagger : MonoBehaviour{
         loadGamePanel.SetActive(false);
         optionsPanel.SetActive(false);
         exitPanel.SetActive(true);
+        buttonsFocus[4].ChangeFocus();
     }
 
     public void ExitCompleted( bool r){
