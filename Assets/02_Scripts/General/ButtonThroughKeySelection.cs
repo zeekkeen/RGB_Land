@@ -6,21 +6,28 @@ using UnityEngine.EventSystems;
 
 public class ButtonThroughKeySelection : MonoBehaviour{
 
-    public bool active = true;
+    PlayerControls inputAction;
 
-    public void Update(){
-        if (Input.anyKeyDown && !active){
-            ChangeFocus();
-            Debug.Log("any key");
-        }
-        if (Input.GetMouseButton(0) && active){
-            active = false;
-            Debug.Log("mouse");
-        }
+    void Awake() {
+        inputAction = new PlayerControls();
+        inputAction.GamePlay.anykey.performed += ctx => ChangeFocus2();
+    }
+
+    void OnEnable() {
+        inputAction.Enable();
+    }
+
+    void OnDisable() {
+        inputAction.Disable();
     }
 
     public void ChangeFocus(){
         EventSystem.current.SetSelectedGameObject(this.gameObject);
-        active = true;
+    }
+
+    public void ChangeFocus2(){
+        if(EventSystem.current.currentSelectedGameObject == null){
+            EventSystem.current.SetSelectedGameObject(this.gameObject);
+        }
     }
 }

@@ -57,6 +57,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""anykey"",
+                    ""type"": ""Button"",
+                    ""id"": ""9da5e00b-0865-403b-b50f-b82a040e3a39"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -250,7 +258,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0b1667b4-7fc8-4586-8346-73373556b009"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -266,6 +274,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""MeleeAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc5bc211-4442-40ce-bc92-cae0b2076166"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""anykey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59b6a7e5-bbc5-426b-b8a2-b2ef837aaa96"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""anykey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -304,6 +334,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_GamePlay_ChangePower = m_GamePlay.FindAction("ChangePower", throwIfNotFound: true);
         m_GamePlay_Power = m_GamePlay.FindAction("Power", throwIfNotFound: true);
         m_GamePlay_MeleeAttack = m_GamePlay.FindAction("MeleeAttack", throwIfNotFound: true);
+        m_GamePlay_anykey = m_GamePlay.FindAction("anykey", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -358,6 +389,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_GamePlay_ChangePower;
     private readonly InputAction m_GamePlay_Power;
     private readonly InputAction m_GamePlay_MeleeAttack;
+    private readonly InputAction m_GamePlay_anykey;
     public struct GamePlayActions
     {
         private @PlayerControls m_Wrapper;
@@ -367,6 +399,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @ChangePower => m_Wrapper.m_GamePlay_ChangePower;
         public InputAction @Power => m_Wrapper.m_GamePlay_Power;
         public InputAction @MeleeAttack => m_Wrapper.m_GamePlay_MeleeAttack;
+        public InputAction @anykey => m_Wrapper.m_GamePlay_anykey;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -391,6 +424,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MeleeAttack.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMeleeAttack;
                 @MeleeAttack.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMeleeAttack;
                 @MeleeAttack.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMeleeAttack;
+                @anykey.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnAnykey;
+                @anykey.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnAnykey;
+                @anykey.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnAnykey;
             }
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -410,6 +446,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MeleeAttack.started += instance.OnMeleeAttack;
                 @MeleeAttack.performed += instance.OnMeleeAttack;
                 @MeleeAttack.canceled += instance.OnMeleeAttack;
+                @anykey.started += instance.OnAnykey;
+                @anykey.performed += instance.OnAnykey;
+                @anykey.canceled += instance.OnAnykey;
             }
         }
     }
@@ -439,5 +478,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnChangePower(InputAction.CallbackContext context);
         void OnPower(InputAction.CallbackContext context);
         void OnMeleeAttack(InputAction.CallbackContext context);
+        void OnAnykey(InputAction.CallbackContext context);
     }
 }

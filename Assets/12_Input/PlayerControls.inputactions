@@ -44,6 +44,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "anykey",
+                    "type": "Button",
+                    "id": "9da5e00b-0865-403b-b50f-b82a040e3a39",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -237,7 +245,7 @@
                 {
                     "name": "",
                     "id": "0b1667b4-7fc8-4586-8346-73373556b009",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -253,6 +261,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "MeleeAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc5bc211-4442-40ce-bc92-cae0b2076166",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "anykey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59b6a7e5-bbc5-426b-b8a2-b2ef837aaa96",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "anykey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
