@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour{
     public PlayerStats_SO playerInitialStats;
     public Vector3 initialPosition;
     public static GameManager instance;
+    public Dialog_SO[] allDialogs;
 
     void Awake() {
         if(instance == null)
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour{
     }
 
     public void RestartValues(){
+        foreach (Dialog_SO dialog in allDialogs){
+            dialog.index = -1;
+        }
         playerStats = Instantiate(playerInitialStats);
         playerData.lastPosition = initialPosition;
         playerData.lastLevel = "TribuInicial";

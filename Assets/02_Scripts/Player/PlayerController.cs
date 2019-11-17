@@ -116,6 +116,16 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
         }
     }
 
+    // void OnTriggerEnter2D(Collider2D other){
+    //     if(other.gameObject.GetComponent<ITriggerObject>() != null)
+    //         other.gameObject.GetComponent<ITriggerObject>().EnterActions();
+    // }
+
+    // void OnTriggerExit2D(Collider2D other){
+    //     if(other.gameObject.GetComponent<ITriggerObject>() != null)
+    //         other.gameObject.GetComponent<ITriggerObject>().ExitActions();
+    // }
+
     public void Jump(){
         if(GameManager.instance.playerStats.isGrounded){
             anim.SetTrigger("takeOf");

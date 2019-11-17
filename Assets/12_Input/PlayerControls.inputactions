@@ -84,6 +84,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Dialog",
+                    "type": "Button",
+                    "id": "d19caf7d-2aa2-4575-85b0-39872a805fae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -425,6 +433,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "ColorControl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9cbd9c3e-b153-49c6-8b73-149e58df4e05",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Dialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f7b31af-efa9-44a3-a0dd-bdebb4bcce6c",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Dialog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

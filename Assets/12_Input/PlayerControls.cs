@@ -97,6 +97,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dialog"",
+                    ""type"": ""Button"",
+                    ""id"": ""d19caf7d-2aa2-4575-85b0-39872a805fae"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -440,6 +448,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""ColorControl"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9cbd9c3e-b153-49c6-8b73-149e58df4e05"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Dialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f7b31af-efa9-44a3-a0dd-bdebb4bcce6c"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -481,6 +511,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_GamePlay_MoveRight = m_GamePlay.FindAction("MoveRight", throwIfNotFound: true);
         m_GamePlay_RangedAttack = m_GamePlay.FindAction("RangedAttack", throwIfNotFound: true);
         m_GamePlay_ColorControl = m_GamePlay.FindAction("ColorControl", throwIfNotFound: true);
+        m_GamePlay_Dialog = m_GamePlay.FindAction("Dialog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -540,6 +571,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_GamePlay_MoveRight;
     private readonly InputAction m_GamePlay_RangedAttack;
     private readonly InputAction m_GamePlay_ColorControl;
+    private readonly InputAction m_GamePlay_Dialog;
     public struct GamePlayActions
     {
         private @PlayerControls m_Wrapper;
@@ -554,6 +586,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @MoveRight => m_Wrapper.m_GamePlay_MoveRight;
         public InputAction @RangedAttack => m_Wrapper.m_GamePlay_RangedAttack;
         public InputAction @ColorControl => m_Wrapper.m_GamePlay_ColorControl;
+        public InputAction @Dialog => m_Wrapper.m_GamePlay_Dialog;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -593,6 +626,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ColorControl.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnColorControl;
                 @ColorControl.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnColorControl;
                 @ColorControl.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnColorControl;
+                @Dialog.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDialog;
+                @Dialog.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDialog;
+                @Dialog.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDialog;
             }
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -627,6 +663,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ColorControl.started += instance.OnColorControl;
                 @ColorControl.performed += instance.OnColorControl;
                 @ColorControl.canceled += instance.OnColorControl;
+                @Dialog.started += instance.OnDialog;
+                @Dialog.performed += instance.OnDialog;
+                @Dialog.canceled += instance.OnDialog;
             }
         }
     }
@@ -661,5 +700,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnMoveRight(InputAction.CallbackContext context);
         void OnRangedAttack(InputAction.CallbackContext context);
         void OnColorControl(InputAction.CallbackContext context);
+        void OnDialog(InputAction.CallbackContext context);
     }
 }
