@@ -12,8 +12,10 @@ public class NPC : MonoBehaviour,ITriggerObject{
     }
 
     public void ExitActions(){
-        if(NPCDialog.index != NPCDialog.sentences.Length - 1)
-            DialogSystem.instance.ClosePopUp();
+        DialogSystem.instance.ClosePopUp();
+        if(NPCDialog.index == NPCDialog.sentences.Length - 1){
+            //NPC actions 
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other){

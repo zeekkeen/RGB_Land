@@ -66,7 +66,9 @@ public class DialogSystem : MonoBehaviour{
     }
 
     public void ClosePopUp(){
-        dialogPanel.SetTrigger("change");
-        dialog = null;
+        if(dialog != null){
+            dialogPanel.SetTrigger("change");
+            dialog = null;
+        }
     }
 }
