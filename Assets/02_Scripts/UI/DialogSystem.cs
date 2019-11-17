@@ -41,16 +41,18 @@ public class DialogSystem : MonoBehaviour{
     }
 
     public void NextSentence(){
-        if(((textDisplay.text == dialog.sentences[(dialog.index == -1) ? dialog.index + 1 : dialog.index])) || dialog.index == -1){
-            if(dialog.index < dialog.sentences.Length - 1){
-                dialog.index++;
-                textDisplay.text = "";
-                StartCoroutine(Type());
+        if(dialog != null){
+            if(((textDisplay.text == dialog.sentences[(dialog.index == -1) ? dialog.index + 1 : dialog.index])) || dialog.index == -1){
+                if(dialog.index < dialog.sentences.Length - 1){
+                    dialog.index++;
+                    textDisplay.text = "";
+                    StartCoroutine(Type());
+                }else{
+                    textDisplay.text = "";
+                }
             }else{
-                textDisplay.text = "";
+                textDisplay.text = dialog.sentences[dialog.index];
             }
-        }else{
-            textDisplay.text = dialog.sentences[dialog.index];
         }
     }
 
