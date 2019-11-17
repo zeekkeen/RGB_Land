@@ -56,117 +56,38 @@ public class PlayerAttack : MonoBehaviour{
     void Update(){
         // float moveInput = movementInput.x;
         // Debug.Log(movementInput.x + " : "+ movementInput.y);
-        if(movementInput.y == 0){
-            attackDirection = Direction.side;
-            playerAnim.SetInteger("Direction",0);
-        }
-        if(movementInput.y < 0 && !GameManager.instance.playerStats.isGrounded){
+        // if(movementInput.y == 0){
+        //     attackDirection = Direction.side;
+        //     playerAnim.SetInteger("Direction",0);
+        // }
+        if(movementInput.y < -0.8f && !GameManager.instance.playerStats.isGrounded){
             attackDirection = Direction.down;
             playerAnim.SetInteger("Direction",2);
         }
-        else if(movementInput.y > 0){
+        else if(movementInput.y > 0.8f){
             attackDirection = Direction.top;
             playerAnim.SetInteger("Direction",1);
+        }else{
+            attackDirection = Direction.side;
+            playerAnim.SetInteger("Direction",0);
         }
 
         if(!dashing){
-            if(movementInput.y == 0)
-                dashDirection = Direction.side;
-            if(movementInput.y < 0)
+            // if(movementInput.y == 0)
+            //     dashDirection = Direction.side;
+            if(movementInput.y < -0.8f)
                 dashDirection = Direction.down;
-            else if(movementInput.y > 0)
+            else if(movementInput.y > 0.8f)
                 dashDirection = Direction.top;
+            else
+                dashDirection = Direction.side;
         }
-
-        // if(GameManager.instance.playerStats.timeBtwMeleeAttack <= 0){
-        //     if(Input.GetKeyDown(KeyCode.X)){
-        //         Collider2D[] enemiesToDamage;
-        //         switch(attackDirection){
-        //             case Direction.side:
-        //                 enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
-        //                 //playerAnim.SetTrigger("attack");
-        //                 attackAnim.SetTrigger("Active");
-        //                 for(int i=0;i<enemiesToDamage.Length;i++){
-        //                     // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
-        //                     ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
-        //                     if(takeDamage != null)
-        //                         takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
-        //                     //camAnim.SetTrigger("shake");
-        //                 }
-        //                     break;
-        //             case Direction.top:
-        //                 enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
-        //                 playerAnim.SetTrigger("attack");
-        //                 attackAnim.SetTrigger("Active");
-        //                 for(int i=0;i<enemiesToDamage.Length;i++){
-        //                     // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
-        //                     ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
-        //                     if(takeDamage != null)
-        //                         takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
-        //                     //camAnim.SetTrigger("shake");
-        //                 }
-        //                     break;
-        //             case Direction.down:
-        //                 enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
-        //                 playerAnim.SetTrigger("attack");
-        //                 attackAnim.SetTrigger("Active");
-        //                 for(int i=0;i<enemiesToDamage.Length;i++){
-        //                     // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
-        //                     ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
-        //                     if(takeDamage != null)
-        //                         takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
-        //                     //camAnim.SetTrigger("shake");
-        //                 }
-        //                     break;
-        //         }
-        //         GameManager.instance.playerStats.timeBtwMeleeAttack = GameManager.instance.playerStats.startTimeBtwMeleeAttack;
-        //         rb.velocity = Vector2.zero;
-        //     }
-        // }else
         if(GameManager.instance.playerStats.timeBtwMeleeAttack > 0){
             GameManager.instance.playerStats.timeBtwMeleeAttack -= Time.deltaTime;
         }
         if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
             crystal.PowerActivated(false);
-        //     if(Input.GetKeyDown(KeyCode.C)){
-        //         switch (GameManager.instance.playerStats.activePower){
-        //             case ActivePower.rangedAttack:
-        //                 GameObject instance;
-        //                 switch(attackDirection){
-        //                     case Direction.side:
-        //                         crystal.PowerActivated(true);
-        //                         instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
-        //                         //playerAnim.SetTrigger("attack");
-        //                         attackAnim.SetTrigger("Active");
-        //                             break;
-        //                     case Direction.top:
-        //                         crystal.PowerActivated(true);
-        //                         instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
-        //                         playerAnim.SetTrigger("attack");
-        //                         attackAnim.SetTrigger("Active");
-        //                             break;
-        //                     case Direction.down:
-        //                         crystal.PowerActivated(true);
-        //                         instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
-        //                         playerAnim.SetTrigger("attack");
-        //                         attackAnim.SetTrigger("Active");
-        //                             break;
-        //                 }
-        //                 rb.velocity = Vector2.zero;
-        //                 break;
-        //             case ActivePower.dash:
-        //                 GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
-        //                 Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
-        //                 dashing = true;
-        //                 break;
-        //             case ActivePower.colorControll:
-        //                 crystal.PowerActivated(true);
-        //                 crystal.ColorSearch();
-        //                 break;
-        //         }
-                
-        //         GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
-        //     }
+        
         }else
             GameManager.instance.playerStats.timeBtwPowerUse-=Time.deltaTime;
         
@@ -191,8 +112,6 @@ public class PlayerAttack : MonoBehaviour{
 				Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)), transform.position.y + 1, transform.position.z), Quaternion.identity);
 			}
 		}
-        // if(Input.GetKeyDown(KeyCode.Z))
-        //     NextPower();
     }
 
     void NextPower(){
