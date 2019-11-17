@@ -35,7 +35,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""ChangePower"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""62529b62-d53b-47ef-a8c9-4e945d06ed61"",
                     ""expectedControlType"": """",
@@ -43,7 +43,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Power"",
+                    ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""4f71c52d-633f-4650-b66c-4c4970d48564"",
                     ""expectedControlType"": """",
@@ -78,6 +78,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""MoveRight"",
                     ""type"": ""Button"",
                     ""id"": ""d610bdf0-d9c3-488f-b0dd-4974ec338359"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RangedAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""04ffeaa3-0d6f-4bc3-b6e8-91955103dbef"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ColorControl"",
+                    ""type"": ""Button"",
+                    ""id"": ""260b9976-482a-4d65-b23f-a65ec47d339e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -230,22 +246,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""84dd54b9-524b-4535-9404-caaf52ba0b14"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""ChangePower"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""225e7721-b648-45d3-8813-6858dd995f36"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""ChangePower"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -256,18 +272,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Power"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""f29b6582-40ee-45f9-ab37-806283a01efc"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Power"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -380,6 +396,50 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""MoveRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""575e605d-9495-47a8-84a7-786b760148d5"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RangedAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce276f68-40ab-41ba-9e2f-21b89e33bbd5"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""RangedAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88bc8aff-0434-43bc-a09d-8d354a958fb6"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ColorControl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f54b2e3-fc20-4379-a6e6-6056e96f5e4e"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ColorControl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -413,12 +473,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_GamePlay = asset.FindActionMap("GamePlay", throwIfNotFound: true);
         m_GamePlay_Jump = m_GamePlay.FindAction("Jump", throwIfNotFound: true);
         m_GamePlay_move = m_GamePlay.FindAction("move", throwIfNotFound: true);
-        m_GamePlay_ChangePower = m_GamePlay.FindAction("ChangePower", throwIfNotFound: true);
-        m_GamePlay_Power = m_GamePlay.FindAction("Power", throwIfNotFound: true);
+        m_GamePlay_Pause = m_GamePlay.FindAction("Pause", throwIfNotFound: true);
+        m_GamePlay_Dash = m_GamePlay.FindAction("Dash", throwIfNotFound: true);
         m_GamePlay_MeleeAttack = m_GamePlay.FindAction("MeleeAttack", throwIfNotFound: true);
         m_GamePlay_anykey = m_GamePlay.FindAction("anykey", throwIfNotFound: true);
         m_GamePlay_MoveLeft = m_GamePlay.FindAction("MoveLeft", throwIfNotFound: true);
         m_GamePlay_MoveRight = m_GamePlay.FindAction("MoveRight", throwIfNotFound: true);
+        m_GamePlay_RangedAttack = m_GamePlay.FindAction("RangedAttack", throwIfNotFound: true);
+        m_GamePlay_ColorControl = m_GamePlay.FindAction("ColorControl", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -470,24 +532,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IGamePlayActions m_GamePlayActionsCallbackInterface;
     private readonly InputAction m_GamePlay_Jump;
     private readonly InputAction m_GamePlay_move;
-    private readonly InputAction m_GamePlay_ChangePower;
-    private readonly InputAction m_GamePlay_Power;
+    private readonly InputAction m_GamePlay_Pause;
+    private readonly InputAction m_GamePlay_Dash;
     private readonly InputAction m_GamePlay_MeleeAttack;
     private readonly InputAction m_GamePlay_anykey;
     private readonly InputAction m_GamePlay_MoveLeft;
     private readonly InputAction m_GamePlay_MoveRight;
+    private readonly InputAction m_GamePlay_RangedAttack;
+    private readonly InputAction m_GamePlay_ColorControl;
     public struct GamePlayActions
     {
         private @PlayerControls m_Wrapper;
         public GamePlayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_GamePlay_Jump;
         public InputAction @move => m_Wrapper.m_GamePlay_move;
-        public InputAction @ChangePower => m_Wrapper.m_GamePlay_ChangePower;
-        public InputAction @Power => m_Wrapper.m_GamePlay_Power;
+        public InputAction @Pause => m_Wrapper.m_GamePlay_Pause;
+        public InputAction @Dash => m_Wrapper.m_GamePlay_Dash;
         public InputAction @MeleeAttack => m_Wrapper.m_GamePlay_MeleeAttack;
         public InputAction @anykey => m_Wrapper.m_GamePlay_anykey;
         public InputAction @MoveLeft => m_Wrapper.m_GamePlay_MoveLeft;
         public InputAction @MoveRight => m_Wrapper.m_GamePlay_MoveRight;
+        public InputAction @RangedAttack => m_Wrapper.m_GamePlay_RangedAttack;
+        public InputAction @ColorControl => m_Wrapper.m_GamePlay_ColorControl;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -503,12 +569,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @move.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMove;
                 @move.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMove;
                 @move.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMove;
-                @ChangePower.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnChangePower;
-                @ChangePower.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnChangePower;
-                @ChangePower.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnChangePower;
-                @Power.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPower;
-                @Power.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPower;
-                @Power.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPower;
+                @Pause.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPause;
+                @Dash.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDash;
                 @MeleeAttack.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMeleeAttack;
                 @MeleeAttack.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMeleeAttack;
                 @MeleeAttack.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMeleeAttack;
@@ -521,6 +587,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MoveRight.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveRight;
                 @MoveRight.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveRight;
                 @MoveRight.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveRight;
+                @RangedAttack.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnRangedAttack;
+                @RangedAttack.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnRangedAttack;
+                @RangedAttack.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnRangedAttack;
+                @ColorControl.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnColorControl;
+                @ColorControl.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnColorControl;
+                @ColorControl.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnColorControl;
             }
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -531,12 +603,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @move.started += instance.OnMove;
                 @move.performed += instance.OnMove;
                 @move.canceled += instance.OnMove;
-                @ChangePower.started += instance.OnChangePower;
-                @ChangePower.performed += instance.OnChangePower;
-                @ChangePower.canceled += instance.OnChangePower;
-                @Power.started += instance.OnPower;
-                @Power.performed += instance.OnPower;
-                @Power.canceled += instance.OnPower;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
                 @MeleeAttack.started += instance.OnMeleeAttack;
                 @MeleeAttack.performed += instance.OnMeleeAttack;
                 @MeleeAttack.canceled += instance.OnMeleeAttack;
@@ -549,6 +621,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MoveRight.started += instance.OnMoveRight;
                 @MoveRight.performed += instance.OnMoveRight;
                 @MoveRight.canceled += instance.OnMoveRight;
+                @RangedAttack.started += instance.OnRangedAttack;
+                @RangedAttack.performed += instance.OnRangedAttack;
+                @RangedAttack.canceled += instance.OnRangedAttack;
+                @ColorControl.started += instance.OnColorControl;
+                @ColorControl.performed += instance.OnColorControl;
+                @ColorControl.canceled += instance.OnColorControl;
             }
         }
     }
@@ -575,11 +653,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
-        void OnChangePower(InputAction.CallbackContext context);
-        void OnPower(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
         void OnMeleeAttack(InputAction.CallbackContext context);
         void OnAnykey(InputAction.CallbackContext context);
         void OnMoveLeft(InputAction.CallbackContext context);
         void OnMoveRight(InputAction.CallbackContext context);
+        void OnRangedAttack(InputAction.CallbackContext context);
+        void OnColorControl(InputAction.CallbackContext context);
     }
 }

@@ -96,8 +96,10 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
         Instantiate(dustEffect, transform.position, Quaternion.identity);
         GameManager.instance.playerStats.currentHealth --;//-= damage;
         LifesManager.instance.RefreshUI();
-        if(GameManager.instance.playerStats.currentHealth <= 0)
+        if(GameManager.instance.playerStats.currentHealth <= 0){
             Destroy(this.gameObject);
+            InGameUIManager.instance.GameOverPanel();
+        }
     }
 
     void OnCollisionStay2D(Collision2D other) {

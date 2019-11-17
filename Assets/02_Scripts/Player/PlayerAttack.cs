@@ -30,9 +30,10 @@ public class PlayerAttack : MonoBehaviour{
         inputAction.GamePlay.move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         inputAction.GamePlay.move.canceled += ctx => movementInput = Vector2.zero;
         inputAction.GamePlay.MeleeAttack.performed += ctx => MeleeAttack();
-        inputAction.GamePlay.Power.performed += ctx => Power();
-        inputAction.GamePlay.ChangePower.performed += ctx => NextPower();
-        // inputAction.GamePlay.Jump.canceled += ctx => JumpKeyUp();
+        inputAction.GamePlay.RangedAttack.performed += ctx => RangedAttack();
+        inputAction.GamePlay.ColorControl.performed += ctx => ColorControl();
+        inputAction.GamePlay.Dash.performed += ctx => Dash();
+        // inputAction.GamePlay.Pause.performed += ctx => Pause();
     }
 
     void OnEnable() {
@@ -183,45 +184,90 @@ public class PlayerAttack : MonoBehaviour{
         }
     }
 
-    public void Power(){
+    public void RangedAttack(){
         if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
-            switch (GameManager.instance.playerStats.activePower){
-                        case ActivePower.rangedAttack:
-                            GameObject instance;
-                            switch(attackDirection){
-                                case Direction.side:
-                                    crystal.PowerActivated(true);
-                                    instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
-                                    //playerAnim.SetTrigger("attack");
-                                    attackAnim.SetTrigger("Active");
-                                        break;
-                                case Direction.top:
-                                    crystal.PowerActivated(true);
-                                    instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
-                                    playerAnim.SetTrigger("attack");
-                                    attackAnim.SetTrigger("Active");
-                                        break;
-                                case Direction.down:
-                                    crystal.PowerActivated(true);
-                                    instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
-                                    playerAnim.SetTrigger("attack");
-                                    attackAnim.SetTrigger("Active");
-                                        break;
-                            }
-                            rb.velocity = Vector2.zero;
-                            break;
-                        case ActivePower.dash:
-                            GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
-                            Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
-                            dashing = true;
-                            break;
-                        case ActivePower.colorControll:
-                            crystal.PowerActivated(true);
-                            crystal.ColorSearch();
-                            break;
-                    }
-                    
-                    GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
+            GameObject instance;
+            switch(attackDirection){
+                case Direction.side:
+                    crystal.PowerActivated(true);
+                    instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
+                    //playerAnim.SetTrigger("attack");
+                    attackAnim.SetTrigger("Active");
+                        break;
+                case Direction.top:
+                    crystal.PowerActivated(true);
+                    instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
+                    playerAnim.SetTrigger("attack");
+                    attackAnim.SetTrigger("Active");
+                        break;
+                case Direction.down:
+                    crystal.PowerActivated(true);
+                    instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
+                    playerAnim.SetTrigger("attack");
+                    attackAnim.SetTrigger("Active");
+                        break;
+            }
+            rb.velocity = Vector2.zero;
+            GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
         }
     }
+
+    public void Dash(){
+        if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
+            GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
+            Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
+            dashing = true;
+            GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
+        }
+    }
+
+    public void ColorControl(){
+        if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
+            crystal.PowerActivated(true);
+            crystal.ColorSearch();
+            GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
+        }
+    }
+
+    // public void Power(){
+    //     if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
+    //         switch (GameManager.instance.playerStats.activePower){
+    //                     case ActivePower.rangedAttack:
+    //                         GameObject instance;
+    //                         switch(attackDirection){
+    //                             case Direction.side:
+    //                                 crystal.PowerActivated(true);
+    //                                 instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
+    //                                 //playerAnim.SetTrigger("attack");
+    //                                 attackAnim.SetTrigger("Active");
+    //                                     break;
+    //                             case Direction.top:
+    //                                 crystal.PowerActivated(true);
+    //                                 instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
+    //                                 playerAnim.SetTrigger("attack");
+    //                                 attackAnim.SetTrigger("Active");
+    //                                     break;
+    //                             case Direction.down:
+    //                                 crystal.PowerActivated(true);
+    //                                 instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
+    //                                 playerAnim.SetTrigger("attack");
+    //                                 attackAnim.SetTrigger("Active");
+    //                                     break;
+    //                         }
+    //                         rb.velocity = Vector2.zero;
+    //                         break;
+    //                     case ActivePower.dash:
+    //                         GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
+    //                         Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
+    //                         dashing = true;
+    //                         break;
+    //                     case ActivePower.colorControll:
+    //                         crystal.PowerActivated(true);
+    //                         crystal.ColorSearch();
+    //                         break;
+    //                 }
+                    
+    //                 GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
+    //     }
+    // }
 }
