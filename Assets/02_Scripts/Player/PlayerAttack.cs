@@ -15,7 +15,8 @@ public class PlayerAttack : MonoBehaviour{
     public bool dashing = false, facingRight = true;
     public GameObject dashEffect;
     public CrystalController crystal;
-
+    int attackCombo = 0, nextAttackCombo = -1;
+    float timeBtwMeleeAttack2;
     public enum Direction{
         top,
         down,
@@ -83,8 +84,37 @@ public class PlayerAttack : MonoBehaviour{
             else
                 dashDirection = Direction.side;
         }
+        if(timeBtwMeleeAttack2 > 0){
+            timeBtwMeleeAttack2 -= Time.deltaTime;
+            if(timeBtwMeleeAttack2 <= 0){
+                Debug.Log("attackCombo:"+attackCombo+" nextAttackCombo:"+nextAttackCombo);
+                if(nextAttackCombo <= attackCombo){
+                    attackCombo = 0;
+                    nextAttackCombo = -1;
+                }
+                    attackAnim.SetBool("active",false);
+                // else if(nextAttackCombo == attackCombo){
+                //     // attackCombo ++;
+                //     MeleeAttack2();
+                // }
+
+            }
+        }
         if(GameManager.instance.playerStats.timeBtwMeleeAttack > 0){
             GameManager.instance.playerStats.timeBtwMeleeAttack -= Time.deltaTime;
+            if(GameManager.instance.playerStats.timeBtwMeleeAttack <= 0){
+                Debug.Log("attackCombo:"+attackCombo+" nextAttackCombo:"+nextAttackCombo);
+                if(nextAttackCombo <= attackCombo){
+                    attackCombo = 0;
+                    nextAttackCombo = -1;
+                    attackAnim.SetBool("active",false);
+                }
+                else if(nextAttackCombo > attackCombo){
+                    // attackCombo ++;
+                    MeleeAttack2();
+                }
+
+            }
         }
         if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
             crystal.PowerActivated(false);
@@ -107,6 +137,7 @@ public class PlayerAttack : MonoBehaviour{
 
 			GameManager.instance.playerStats.dashTime -= Time.deltaTime;
 			if(GameManager.instance.playerStats.dashTime <= 0){
+                playerAnim.SetBool("Dash",false);
 				GameManager.instance.playerStats.dashTime = 0;
                 //rb.velocity = Vector2.zero;
 				dashing = false;
@@ -139,13 +170,18 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     public void MeleeAttack(){
+        if(attackCombo >= nextAttackCombo && attackCombo <= 3)
+            nextAttackCombo ++;
         if(GameManager.instance.playerStats.timeBtwMeleeAttack <= 0){
+            attackAnim.SetBool("active",true);
             Collider2D[] enemiesToDamage;
             switch(attackDirection){
                 case Direction.side:
                     enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
                     //playerAnim.SetTrigger("attack");
-                    attackAnim.SetTrigger("Active");
+                    // attackAnim.SetTrigger("Active");
+                    attackAnim.SetInteger("combo",attackCombo);
+                    // attackCombo ++;
                     for(int i=0;i<enemiesToDamage.Length;i++){
                         // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
                         ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
@@ -155,9 +191,11 @@ public class PlayerAttack : MonoBehaviour{
                     }
                         break;
                 case Direction.top:
-                    enemiesToDamage=Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+                    enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
                     playerAnim.SetTrigger("attack");
-                    attackAnim.SetTrigger("Active");
+                    // attackAnim.SetTrigger("Active");
+                    attackAnim.SetInteger("combo",attackCombo);
+                    // attackCombo ++;
                     for(int i=0;i<enemiesToDamage.Length;i++){
                         // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
                         ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
@@ -169,8 +207,10 @@ public class PlayerAttack : MonoBehaviour{
                 case Direction.down:
                     enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
                     playerAnim.SetTrigger("attack");
-                    attackAnim.SetTrigger("Active");
-                    for(int i=0;i<enemiesToDamage.Length;i++){
+                    // attackAnim.SetTrigger("Active");
+                    attackAnim.SetInteger("combo",attackCombo);
+                    // attackCombo ++;
+                    for(int i=0; i < enemiesToDamage.Length; i++){
                         // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
                         ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
                         if(takeDamage != null)
@@ -182,6 +222,59 @@ public class PlayerAttack : MonoBehaviour{
             GameManager.instance.playerStats.timeBtwMeleeAttack = GameManager.instance.playerStats.startTimeBtwMeleeAttack;
             rb.velocity = Vector2.zero;
         }
+    }
+
+    public void MeleeAttack2(){
+        attackCombo ++;
+            attackAnim.SetBool("active",true);
+            Collider2D[] enemiesToDamage;
+            switch(attackDirection){
+                case Direction.side:
+                    enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+                    //playerAnim.SetTrigger("attack");
+                    // attackAnim.SetTrigger("Active");
+                    attackAnim.SetInteger("combo",attackCombo);
+                    // attackCombo ++;
+                    for(int i=0;i<enemiesToDamage.Length;i++){
+                        // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
+                        ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                        if(takeDamage != null)
+                            takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
+                        //camAnim.SetTrigger("shake");
+                    }
+                        break;
+                case Direction.top:
+                    enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+                    playerAnim.SetTrigger("attack");
+                    // attackAnim.SetTrigger("Active");
+                    attackAnim.SetInteger("combo",attackCombo);
+                    // attackCombo ++;
+                    for(int i=0;i<enemiesToDamage.Length;i++){
+                        // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
+                        ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                        if(takeDamage != null)
+                            takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
+                        //camAnim.SetTrigger("shake");
+                    }
+                        break;
+                case Direction.down:
+                    enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
+                    playerAnim.SetTrigger("attack");
+                    // attackAnim.SetTrigger("Active");
+                    attackAnim.SetInteger("combo",attackCombo);
+                    // attackCombo ++;
+                    for(int i=0; i < enemiesToDamage.Length; i++){
+                        // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
+                        ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
+                        if(takeDamage != null)
+                            takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
+                        //camAnim.SetTrigger("shake");
+                    }
+                        break;
+            }
+            timeBtwMeleeAttack2 = GameManager.instance.playerStats.startTimeBtwMeleeAttack;
+            rb.velocity = Vector2.zero;
+        
     }
 
     public void RangedAttack(){
@@ -217,6 +310,7 @@ public class PlayerAttack : MonoBehaviour{
             GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
             Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
             dashing = true;
+            playerAnim.SetBool("Dash",true);
             GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
         }
     }
