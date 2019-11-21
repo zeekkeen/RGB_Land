@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
         inputAction.GamePlay.move.canceled += ctx => MoveCanceled();
         inputAction.GamePlay.Jump.performed += ctx => Jump();
         inputAction.GamePlay.Jump.canceled += ctx => JumpKeyUp();
+        transform.position = GameManager.instance.playerData.lastPosition;
+        anim.SetBool("IsDead",false);
     }
 
     void OnEnable() {
@@ -47,7 +49,6 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
         movementInputX = 0;
     }
     void Start(){
-        transform.position = GameManager.instance.playerData.lastPosition;
         rb  = GetComponent<Rigidbody2D>();
         // anim = GetComponentInChildren<Animator>();
     }
@@ -97,7 +98,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
         GameManager.instance.playerStats.currentHealth --;//-= damage;
         LifesManager.instance.RefreshUI();
         if(GameManager.instance.playerStats.currentHealth <= 0){
-            Destroy(this.gameObject);
+            // Destroy(this.gameObject);
+            anim.SetBool("IsDead",true);
             InGameUIManager.instance.GameOverPanel();
         }
     }

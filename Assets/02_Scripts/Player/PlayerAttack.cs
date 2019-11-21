@@ -103,7 +103,7 @@ public class PlayerAttack : MonoBehaviour{
         if(GameManager.instance.playerStats.timeBtwMeleeAttack > 0){
             GameManager.instance.playerStats.timeBtwMeleeAttack -= Time.deltaTime;
             if(GameManager.instance.playerStats.timeBtwMeleeAttack <= 0){
-                Debug.Log("attackCombo:"+attackCombo+" nextAttackCombo:"+nextAttackCombo);
+                // Debug.Log("attackCombo:"+attackCombo+" nextAttackCombo:"+nextAttackCombo);
                 if(nextAttackCombo <= attackCombo){
                     attackCombo = 0;
                     nextAttackCombo = -1;
