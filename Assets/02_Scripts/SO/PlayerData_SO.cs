@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "ScriptableObjects/PlayerData")]
 public class PlayerData_SO : ScriptableObject {
@@ -8,6 +10,7 @@ public class PlayerData_SO : ScriptableObject {
     // public PlayerStats_SO playerInitialStats;
     public Vector3 lastPosition;
     public string lastLevel;
-    // public Vector3 initialPosition;
+    public List<MapPieceInfo> initialAllMapPieces;
+    public List<MapPieceInfo> allMapPieces;
 
 }

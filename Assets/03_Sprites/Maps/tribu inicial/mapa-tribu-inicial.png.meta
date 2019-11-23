@@ -1,0 +1,823 @@
+fileFormatVersion: 2
+guid: c6f1a23aab011ea4a85b9d48cf0f090b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6963946499742581291
+    second: mapa-tribu-inicial_0
+  - first:
+      213: 1603670515934987131
+    second: mapa-tribu-inicial_1
+  - first:
+      213: -867408022157041395
+    second: mapa-tribu-inicial_2
+  - first:
+      213: 7292866251997244591
+    second: mapa-tribu-inicial_3
+  - first:
+      213: -6411708943765912491
+    second: mapa-tribu-inicial_4
+  - first:
+      213: -6697750931459181641
+    second: mapa-tribu-inicial_5
+  - first:
+      213: -710454617443921141
+    second: mapa-tribu-inicial_6
+  - first:
+      213: 6363154389437158173
+    second: mapa-tribu-inicial_7
+  - first:
+      213: 363787969159584066
+    second: mapa-tribu-inicial_8
+  - first:
+      213: 265355785368028495
+    second: mapa-tribu-inicial_9
+  - first:
+      213: -8819278045748951167
+    second: mapa-tribu-inicial_10
+  - first:
+      213: 8120628330292124263
+    second: mapa-tribu-inicial_11
+  - first:
+      213: -8364245361680542166
+    second: mapa-tribu-inicial_12
+  - first:
+      213: 3169756560491464124
+    second: mapa-tribu-inicial_13
+  - first:
+      213: 946704608456699228
+    second: mapa-tribu-inicial_14
+  - first:
+      213: 3220946798933263106
+    second: mapa-tribu-inicial_15
+  - first:
+      213: 3533903609952947786
+    second: mapa-tribu-inicial_16
+  - first:
+      213: 599373928901432976
+    second: mapa-tribu-inicial_17
+  - first:
+      213: 2424858535307480562
+    second: mapa-tribu-inicial_18
+  - first:
+      213: 9058054905649971124
+    second: mapa-tribu-inicial_19
+  - first:
+      213: -6445230664266069119
+    second: mapa-tribu-inicial_20
+  - first:
+      213: -7135817792348616312
+    second: mapa-tribu-inicial_21
+  - first:
+      213: 912148063822061309
+    second: mapa-tribu-inicial_22
+  - first:
+      213: -5008114078363305188
+    second: mapa-tribu-inicial_23
+  - first:
+      213: 135884988542095170
+    second: mapa-tribu-inicial_24
+  - first:
+      213: 8837525235318477323
+    second: mapa-tribu-inicial_25
+  - first:
+      213: -3819056399200969235
+    second: mapa-tribu-inicial_26
+  - first:
+      213: 8080632542773551502
+    second: mapa-tribu-inicial_27
+  - first:
+      213: -2150831057010677391
+    second: mapa-tribu-inicial_28
+  - first:
+      213: -7559966832051969090
+    second: mapa-tribu-inicial_29
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 395
+        width: 919
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55983727868c99047a618e2e1d488ec3
+      internalID: 6963946499742581291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 319
+        width: 142
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26cb0a931e05ed94e8ef11c0007deed1
+      internalID: 1603670515934987131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 319
+        width: 142
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39df42d3cf93bce48bd1d622522b30e9
+      internalID: -867408022157041395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_3
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 319
+        width: 128
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a963cfa717eedb49892a5972c5fc62e
+      internalID: 7292866251997244591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_4
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 149
+        width: 57
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93cb54e66d3c8b449bb2d1b0950bfb8b
+      internalID: -6411708943765912491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_5
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 319
+        width: 128
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d820f3a79ab024c9f6d6ca87d88834
+      internalID: -6697750931459181641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_6
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 319
+        width: 165
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 867a0a74ecd83d04792b96df29146743
+      internalID: -710454617443921141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 319
+        width: 128
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e966f154d79a44297fd33d45de501d
+      internalID: 6363154389437158173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 264
+        width: 142
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c29b86308f8e9847b492527e2f3c701
+      internalID: 363787969159584066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_9
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 264
+        width: 142
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 678f10b9965776b4293456a801b20ff5
+      internalID: 265355785368028495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_10
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 264
+        width: 128
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9942b50a2e10e454f863ee7ce460ec14
+      internalID: -8819278045748951167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_11
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 264
+        width: 128
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e309c7ab8329b246bec15a6b8481023
+      internalID: 8120628330292124263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_12
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 264
+        width: 165
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed736525d7c73c45a5be817500a39e3
+      internalID: -8364245361680542166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_13
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 264
+        width: 128
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3a1ef6a348f194a81691311d761137
+      internalID: 3169756560491464124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 142
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21109625f0b26ac47830436a6536d764
+      internalID: 946704608456699228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_15
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 192
+        width: 142
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4ac6a1072d90a44984d9141f57bb97
+      internalID: 3220946798933263106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_16
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 192
+        width: 128
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea223b7133426594cae11e790d60eb5a
+      internalID: 3533903609952947786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_17
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 192
+        width: 128
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6167e83e9138d394180626bc35ecc3fd
+      internalID: 599373928901432976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_18
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 192
+        width: 165
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e687bfd8fcb6f594ba47e028249df988
+      internalID: 2424858535307480562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_19
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 192
+        width: 128
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17965bb829a54944b8a9a08a1dda132b
+      internalID: 9058054905649971124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 143
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 933007d91f213cc4e9c3cfc2275ce2d0
+      internalID: -6445230664266069119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_21
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 128
+        width: 143
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab6addd3de67f448b6b8c05c6d57998
+      internalID: -7135817792348616312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_22
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 128
+        width: 128
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd1cf3af3477d245bf1fa7df10f09bd
+      internalID: 912148063822061309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_23
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 128
+        width: 128
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a233945916eafe14886819f8231479e7
+      internalID: -5008114078363305188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_24
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 128
+        width: 165
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3495a510c0cadd4abd42370e156e9d6
+      internalID: 135884988542095170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_25
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 128
+        width: 128
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b252064319fb92f4687e77417d715a67
+      internalID: 8837525235318477323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_26
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 334
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf4fdf90c3e1e84c851102e8ff3ef76
+      internalID: -3819056399200969235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_27
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 64
+        width: 294
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc7a7d44f987c94d879f93b4aec00cd
+      internalID: 8080632542773551502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_28
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 334
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1511d0d4e73499429d012fabe498c9a
+      internalID: -2150831057010677391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa-tribu-inicial_29
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 0
+        width: 294
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e88ac511d0ae514e87ed858e8346888
+      internalID: -7559966832051969090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

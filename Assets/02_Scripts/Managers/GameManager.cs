@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour{
         playerStats = Instantiate(playerInitialStats);
         playerData.lastPosition = initialPosition;
         playerData.lastLevel = "TribuInicial";
+        playerData.allMapPieces = playerData.initialAllMapPieces;
     }
 
     public void SaveGame(Vector3 pos, string level){

@@ -105,6 +105,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6125b4a-b48b-465a-97db-a52eef499dbf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -470,6 +478,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Dialog"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""247682fc-22be-4a3c-8e7a-f2a7d7ec46e5"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9cd0ccd1-48a5-4f6d-adb3-2d75495aac9f"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -512,6 +542,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_GamePlay_RangedAttack = m_GamePlay.FindAction("RangedAttack", throwIfNotFound: true);
         m_GamePlay_ColorControl = m_GamePlay.FindAction("ColorControl", throwIfNotFound: true);
         m_GamePlay_Dialog = m_GamePlay.FindAction("Dialog", throwIfNotFound: true);
+        m_GamePlay_Map = m_GamePlay.FindAction("Map", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -572,6 +603,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_GamePlay_RangedAttack;
     private readonly InputAction m_GamePlay_ColorControl;
     private readonly InputAction m_GamePlay_Dialog;
+    private readonly InputAction m_GamePlay_Map;
     public struct GamePlayActions
     {
         private @PlayerControls m_Wrapper;
@@ -587,6 +619,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @RangedAttack => m_Wrapper.m_GamePlay_RangedAttack;
         public InputAction @ColorControl => m_Wrapper.m_GamePlay_ColorControl;
         public InputAction @Dialog => m_Wrapper.m_GamePlay_Dialog;
+        public InputAction @Map => m_Wrapper.m_GamePlay_Map;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -629,6 +662,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Dialog.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDialog;
                 @Dialog.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDialog;
                 @Dialog.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnDialog;
+                @Map.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMap;
+                @Map.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMap;
+                @Map.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMap;
             }
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -666,6 +702,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Dialog.started += instance.OnDialog;
                 @Dialog.performed += instance.OnDialog;
                 @Dialog.canceled += instance.OnDialog;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
             }
         }
     }
@@ -701,5 +740,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRangedAttack(InputAction.CallbackContext context);
         void OnColorControl(InputAction.CallbackContext context);
         void OnDialog(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
     }
 }
