@@ -12,5 +12,6 @@ public class PlayerData_SO : ScriptableObject {
     public string lastLevel;
     public List<MapPieceInfo> initialAllMapPieces;
     public List<MapPieceInfo> allMapPieces;
+    public Vector3 playerPinPosition;
 
 }

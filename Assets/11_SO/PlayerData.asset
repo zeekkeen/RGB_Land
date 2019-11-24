@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5860ae9994196a640b4f519b8570c27f, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  lastPosition: {x: -70, y: 7, z: 0}
+  lastPosition: {x: -94.5246, y: -88.3225, z: 0}
   lastLevel: TribuInicial
   initialAllMapPieces:
   - pieceID: 0
@@ -102,4 +102,92 @@ MonoBehaviour:
   - pieceID: 28
     visible: 0
     mapID: inicial
-  allMapPieces: []
+  allMapPieces:
+  - pieceID: 0
+    visible: 0
+    mapID: inicial
+  - pieceID: 1
+    visible: 0
+    mapID: inicial
+  - pieceID: 2
+    visible: 1
+    mapID: inicial
+  - pieceID: 3
+    visible: 1
+    mapID: inicial
+  - pieceID: 4
+    visible: 1
+    mapID: inicial
+  - pieceID: 5
+    visible: 0
+    mapID: inicial
+  - pieceID: 6
+    visible: 0
+    mapID: inicial
+  - pieceID: 7
+    visible: 0
+    mapID: inicial
+  - pieceID: 8
+    visible: 0
+    mapID: inicial
+  - pieceID: 9
+    visible: 1
+    mapID: inicial
+  - pieceID: 10
+    visible: 1
+    mapID: inicial
+  - pieceID: 11
+    visible: 0
+    mapID: inicial
+  - pieceID: 12
+    visible: 0
+    mapID: inicial
+  - pieceID: 13
+    visible: 0
+    mapID: inicial
+  - pieceID: 14
+    visible: 0
+    mapID: inicial
+  - pieceID: 15
+    visible: 0
+    mapID: inicial
+  - pieceID: 16
+    visible: 1
+    mapID: inicial
+  - pieceID: 17
+    visible: 0
+    mapID: inicial
+  - pieceID: 18
+    visible: 0
+    mapID: inicial
+  - pieceID: 19
+    visible: 0
+    mapID: inicial
+  - pieceID: 20
+    visible: 0
+    mapID: inicial
+  - pieceID: 21
+    visible: 0
+    mapID: inicial
+  - pieceID: 22
+    visible: 1
+    mapID: inicial
+  - pieceID: 23
+    visible: 0
+    mapID: inicial
+  - pieceID: 24
+    visible: 0
+    mapID: inicial
+  - pieceID: 25
+    visible: 1
+    mapID: inicial
+  - pieceID: 26
+    visible: 0
+    mapID: inicial
+  - pieceID: 27
+    visible: 1
+    mapID: inicial
+  - pieceID: 28
+    visible: 0
+    mapID: inicial
+  playerPinPosition: {x: 0, y: 185, z: 0}

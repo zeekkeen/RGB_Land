@@ -27,12 +27,17 @@ public class GameManager : MonoBehaviour{
         playerStats = Instantiate(playerInitialStats);
         playerData.lastPosition = initialPosition;
         playerData.lastLevel = "TribuInicial";
-        playerData.allMapPieces = playerData.initialAllMapPieces;
+        // playerData.allMapPieces = playerData.initialAllMapPieces;
+        playerData.allMapPieces = new List<MapPieceInfo>(playerData.initialAllMapPieces);
+        playerData.playerPinPosition = new Vector3(0,185,0);
     }
 
     public void SaveGame(Vector3 pos, string level){
         playerData.lastPosition = pos;
         playerData.lastLevel = level;
+        playerData.allMapPieces = MapManager.instance.myAllMapPieces;
+        if(MapManager.instance.playerPin != null)
+            playerData.playerPinPosition = MapManager.instance.playerPin.transform.position;
         GameSaveManager.instance.SaveGameSlot();
     }
 

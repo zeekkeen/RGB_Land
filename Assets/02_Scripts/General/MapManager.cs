@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MapManager : MonoBehaviour{
     
-    // public List<MapPieceInfo> allMapPieces;
+    public List<MapPieceInfo> myAllMapPieces;
     public GameObject playerPin;
     public List<GameObject> allMapGameObjectPieces;
     public static MapManager instance;
@@ -16,11 +16,13 @@ public class MapManager : MonoBehaviour{
     }
 
     void Start(){
+        myAllMapPieces = GameManager.instance.playerData.allMapPieces;
         StartMap();
+        playerPin.transform.position = GameManager.instance.playerData.playerPinPosition;
     }
 
     void StartMap(){
-        foreach (MapPieceInfo mapPiece in GameManager.instance.playerData.allMapPieces){
+        foreach (MapPieceInfo mapPiece in myAllMapPieces){
             searchID( mapPiece);
         }
     }
@@ -53,15 +55,32 @@ public class MapManager : MonoBehaviour{
     }
 
     void DiscoveredPieceOfMap(MapPieceInfo mapPieceAux){
-        foreach (MapPieceInfo mapPiece in GameManager.instance.playerData.allMapPieces){
-            if(mapPiece.mapID == mapPieceAux.mapID){
-                if(mapPiece.pieceID == mapPieceAux.pieceID){
-                    mapPiece.SetVisible(true);
+        for (int i = 0; i < myAllMapPieces.Count-1; i++){
+            if(myAllMapPieces[i].mapID == mapPieceAux.mapID){
+                if(myAllMapPieces[i].pieceID == mapPieceAux.pieceID){
+                    // Debug.Log(myAllMapPieces[i].visible);
+                    // myAllMapPieces[i].SetVisible();
+                    myAllMapPieces[i] = mapPieceAux;
+                    // Debug.Log(myAllMapPieces[i].visible);
                     break;
                 }
             }
+            
         }
     }
+
+    // void DiscoveredPieceOfMap(MapPieceInfo mapPieceAux){
+    //     foreach (MapPieceInfo mapPiece in myAllMapPieces){
+    //         if(mapPiece.mapID == mapPieceAux.mapID){
+    //             if(mapPiece.pieceID == mapPieceAux.pieceID){
+    //                 Debug.Log(mapPiece.visible);
+    //                 mapPiece.SetVisible(true);
+    //                 Debug.Log(mapPiece.visible);
+    //                 break;
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 [System.Serializable]
@@ -70,8 +89,8 @@ public struct MapPieceInfo{
     public bool visible;
     public string mapID;
 
-    public void SetVisible(bool aux){
-        visible = aux;
+    public void SetVisible(){
+        visible = true;
     }
 
     // public MapPieceInfo(string mapID,int pieceID, bool visible){
