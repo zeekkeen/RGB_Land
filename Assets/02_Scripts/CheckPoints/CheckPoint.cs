@@ -14,6 +14,7 @@ public class CheckPoint : MonoBehaviour{
 
     void OnTriggerEnter2D(Collider2D other) {
         if(!active && other.gameObject.tag == "Player"){
+            // MapManager.instance.myAllMapPieces = GameManager.instance.playerData.allMapPieces;
             GameManager.instance.SaveGame(transform.position, level);
             anim.SetBool("Active",true);
             active = true;

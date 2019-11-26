@@ -846,7 +846,6 @@ GameObject:
   - component: {fileID: 651196486}
   - component: {fileID: 651196488}
   - component: {fileID: 651196487}
-  - component: {fileID: 651196489}
   m_Layer: 5
   m_Name: Map
   m_TagString: Untagged
@@ -913,50 +912,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &651196489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651196485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fef832d616c32342a666247ea1eb946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myAllMapPieces: []
-  playerPin: {fileID: 6947264017849542571}
-  allMapGameObjectPieces:
-  - {fileID: 1237680310}
-  - {fileID: 1036689058}
-  - {fileID: 501565690}
-  - {fileID: 493851896}
-  - {fileID: 1626715641}
-  - {fileID: 379641554}
-  - {fileID: 1848441476}
-  - {fileID: 1963542987}
-  - {fileID: 652578320}
-  - {fileID: 764017436}
-  - {fileID: 423717449}
-  - {fileID: 34975400}
-  - {fileID: 1142121689}
-  - {fileID: 1575161109}
-  - {fileID: 1841198619}
-  - {fileID: 812270487}
-  - {fileID: 443313965}
-  - {fileID: 1972855493}
-  - {fileID: 710297823}
-  - {fileID: 765042226}
-  - {fileID: 109165770}
-  - {fileID: 327728120}
-  - {fileID: 174234081}
-  - {fileID: 1792871255}
-  - {fileID: 1387662145}
-  - {fileID: 1260169859}
-  - {fileID: 2102730435}
-  - {fileID: 828001346}
-  - {fileID: 762255975}
 --- !u!1 &652578320
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,6 +4352,7 @@ GameObject:
   - component: {fileID: 2599836076113338958}
   - component: {fileID: 2599836076113338959}
   - component: {fileID: 6721866907699545199}
+  - component: {fileID: 2599836076123219300}
   m_Layer: 5
   m_Name: InGameCanvas
   m_TagString: Untagged
@@ -4554,6 +4510,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsText: {fileID: 2599836075974790509}
   deltaTime: 0
+--- !u!114 &2599836076123219300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599836076113338944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fef832d616c32342a666247ea1eb946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAllMapPieces: []
+  playerPin: {fileID: 6947264017849542571}
+  allMapGameObjectPieces:
+  - {fileID: 1237680310}
+  - {fileID: 1036689058}
+  - {fileID: 501565690}
+  - {fileID: 493851896}
+  - {fileID: 1626715641}
+  - {fileID: 379641554}
+  - {fileID: 1848441476}
+  - {fileID: 1963542987}
+  - {fileID: 652578320}
+  - {fileID: 764017436}
+  - {fileID: 423717449}
+  - {fileID: 34975400}
+  - {fileID: 1142121689}
+  - {fileID: 1575161109}
+  - {fileID: 1841198619}
+  - {fileID: 812270487}
+  - {fileID: 443313965}
+  - {fileID: 1972855493}
+  - {fileID: 710297823}
+  - {fileID: 765042226}
+  - {fileID: 109165770}
+  - {fileID: 327728120}
+  - {fileID: 174234081}
+  - {fileID: 1792871255}
+  - {fileID: 1387662145}
+  - {fileID: 1260169859}
+  - {fileID: 2102730435}
+  - {fileID: 828001346}
+  - {fileID: 762255975}
 --- !u!1 &3176052871624631156
 GameObject:
   m_ObjectHideFlags: 0
