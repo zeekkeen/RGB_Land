@@ -41,4 +41,7 @@ MonoBehaviour:
     otorgara un gran poder... utilizalo sabiamente..'
   - "Jefe Esqueleto: Solo me queda desearte \xA1suerte en tu viaje!"
   - "\xA1Jefe Esqueleto: Vuelve a visitarme alguna vez!"
-  index: 8
+  index: -1
+  completed: 0
+  achievementRequired: 0
+  achievement: 1

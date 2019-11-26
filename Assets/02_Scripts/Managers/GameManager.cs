@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour{
         playerData.lastPosition = initialPosition;
         playerData.lastLevel = "TribuInicial";
         // playerData.allMapPieces = playerData.initialAllMapPieces;
+        ResetAchievements();
         playerData.allMapPieces = new List<MapPieceInfo>(playerData.initialAllMapPieces);
         playerData.playerPinPosition = new Vector3(0,185,0);
     }
@@ -45,4 +46,26 @@ public class GameManager : MonoBehaviour{
         GameSaveManager.instance.LoadGameSlot();
         SceneManager.LoadScene(playerData.lastLevel);
     }
+
+    public bool SearchAchievement(Achievement aux){
+        foreach(Achievement achievement in playerData.achievements){
+            if(achievement == aux)
+                return true;
+        }
+        return false;
+    }
+
+    public void AddAchievement(Achievement aux){
+        playerData.achievements.Add(aux);
+    }
+
+    public void ResetAchievements(){
+        playerData.achievements = new List<Achievement>();
+    }
+}
+
+public enum Achievement{
+    NULL,
+    SkullChief_Conversation_1,
+    SkullChief_Conversation_2
 }

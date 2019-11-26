@@ -13,6 +13,7 @@ public class DialogSystem : MonoBehaviour{
     public float typingSpeed = 0.02f;
     PlayerControls inputAction;
     public static DialogSystem instance;
+    ITriggerObject trigger;
 
     void Awake() {
         instance = this;
@@ -33,22 +34,36 @@ public class DialogSystem : MonoBehaviour{
     // }
 
     IEnumerator Type(){
-        foreach(char letter in dialog.sentences[dialog.index].ToCharArray()){
-            if(textDisplay.text != dialog.sentences[dialog.index])
-                textDisplay.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+        if(dialog == null)
+            yield break;
+        else{
+            foreach(char letter in dialog.sentences[dialog.index].ToCharArray()){
+                if(dialog == null)
+                    yield break;
+                if(textDisplay.text != dialog.sentences[dialog.index])
+                    textDisplay.text += letter;
+                yield return new WaitForSeconds(typingSpeed);
+            }
         }
     }
 
     public void NextSentence(){
         if(dialog != null){
             if(((textDisplay.text == dialog.sentences[(dialog.index == -1) ? dialog.index + 1 : dialog.index])) || dialog.index == -1){
-                if(dialog.index < dialog.sentences.Length - 1){
+                if(dialog.index < dialog.sentences.Count - 1){
                     dialog.index++;
                     textDisplay.text = "";
+                    // if(dialog.index == 0 || dialog.index == -1)
+                    //     dialogPanel.SetBool("info",true);
+                    // else
+                    //     dialogPanel.SetBool("info",false);
                     StartCoroutine(Type());
-                }else{
+                }else if(dialog.completed == false){
                     textDisplay.text = "";
+                    dialogPanel.SetBool("active",false);
+                    dialog.completed = true;
+                    trigger.ExitActions();
+
                 }
             }else{
                 textDisplay.text = dialog.sentences[dialog.index];
@@ -56,12 +71,43 @@ public class DialogSystem : MonoBehaviour{
         }
     }
 
-    public void OpenPopUp(Dialog_SO aux){
+    // public void NextSentence(){
+    //     if(dialog != null){
+    //         if(((textDisplay.text == dialog.sentences[(dialog.index == -1) ? dialog.index + 1 : dialog.index])) || dialog.index == -1){
+    //             if(dialog.index < dialog.sentences.Length - 1){
+    //                 dialog.index++;
+    //                 textDisplay.text = "";
+    //                 StartCoroutine(Type());
+    //             }else{
+    //                 textDisplay.text = "";
+    //             }
+    //         }else{
+    //             textDisplay.text = dialog.sentences[dialog.index];
+    //         }
+    //     }
+    // }
+
+    // public void OpenPopUp(Dialog_SO aux){
+    //     if(aux != null){
+    //         if(aux.index != aux.sentences.Length - 1){
+    //             aux.index = -1;
+    //             dialog = aux;
+    //             dialogPanel.SetTrigger("change");
+    //             NextSentence();
+    //         }
+    //     }
+    // }
+    public void OpenPopUp(Dialog_SO aux, ITriggerObject aux2){
         if(aux != null){
-            if(aux.index != aux.sentences.Length - 1){
+            if(aux.index != aux.sentences.Count - 1){
                 aux.index = -1;
                 dialog = aux;
-                dialogPanel.SetTrigger("change");
+                trigger = aux2;
+                // if(dialog.index == -1)
+                //     dialogPanel.SetBool("info",true);
+                // else
+                //     dialogPanel.SetBool("info",false);
+                dialogPanel.SetBool("active",true);
                 NextSentence();
             }
         }
@@ -69,8 +115,15 @@ public class DialogSystem : MonoBehaviour{
 
     public void ClosePopUp(){
         if(dialog != null){
-            dialogPanel.SetTrigger("change");
+            dialogPanel.SetBool("active",false);
             dialog = null;
         }
     }
+
+    // public void ClosePopUp(){
+    //     if(dialog != null){
+    //         dialogPanel.SetTrigger("change");
+    //         dialog = null;
+    //     }
+    // }
 }

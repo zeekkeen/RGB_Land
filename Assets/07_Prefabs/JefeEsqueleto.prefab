@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 6886179641182488253}
   - component: {fileID: 6504410887147147379}
   - component: {fileID: 4345124808999738668}
+  - component: {fileID: 566963417}
   m_Layer: 21
   m_Name: JefeEsqueleto
   m_TagString: Untagged
@@ -224,3 +225,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.371746, y: 6.7631593}
   m_EdgeRadius: 0
+--- !u!114 &566963417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886179641182488248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a89b29c223fc649b1263ff230823b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NewNPCDialog:
+  - {fileID: 11400000, guid: 61bbc287f84b0af4bae96932bff371c8, type: 2}
+  - {fileID: 11400000, guid: a7be9f579d6b1d041a5cee81dbadef70, type: 2}
+  index: -1
