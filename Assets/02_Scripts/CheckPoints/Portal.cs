@@ -7,11 +7,14 @@ public class Portal : MonoBehaviour{
     
     public string destiny;
     public Vector3 newLastPosition;
+    public Achievement achievementRequired;
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player"){
-            GameManager.instance.SaveGame(newLastPosition, destiny);
-            SceneManager.LoadScene(destiny);
+            if(achievementRequired == Achievement.NULL || GameManager.instance.SearchAchievement(achievementRequired)){
+                GameManager.instance.SaveGame(newLastPosition, destiny);
+                SceneManager.LoadScene(destiny);
+            }
         }
     }
 }
