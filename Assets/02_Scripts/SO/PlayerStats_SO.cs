@@ -18,7 +18,7 @@ public class PlayerStats_SO : GeneralStats_SO{
     //player habilities unlocked
     public bool dash;
     public bool stealAndGiveColor;
-    public bool rangedAttack;
+    public bool rangedAttack1,rangedAttack2,rangedAttack3;
     //player attack
     public float timeBtwMeleeAttack,timeBtwPowerUse;
     public float startTimeBtwMeleeAttack = 0.3f,startTimeBtwPowerUse = 0.3f;
@@ -26,6 +26,7 @@ public class PlayerStats_SO : GeneralStats_SO{
     public ActivePower activePower;
     public float dashTime;
     public float dashSpeed, startDashTime;
+    public float verticalDashTime,verticalStartDashTime;
 
 }
 public enum ActivePower{

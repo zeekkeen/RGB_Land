@@ -33,7 +33,7 @@ public class PlayerAttack : MonoBehaviour{
         inputAction.GamePlay.MeleeAttack.performed += ctx => MeleeAttack();
         inputAction.GamePlay.RangedAttack.performed += ctx => RangedAttack();
         inputAction.GamePlay.ColorControl.performed += ctx => ColorControl();
-        inputAction.GamePlay.Dash.performed += ctx => Dash();
+        inputAction.GamePlay.Dash.started += ctx => Dash();
         // inputAction.GamePlay.Pause.performed += ctx => Pause();
     }
 
@@ -62,11 +62,11 @@ public class PlayerAttack : MonoBehaviour{
         //     attackDirection = Direction.side;
         //     playerAnim.SetInteger("Direction",0);
         // }
-        if(movementInput.y < -0.8f && !GameManager.instance.playerStats.isGrounded){
+        if(movementInput.y < -0.7f && !GameManager.instance.playerStats.isGrounded){
             attackDirection = Direction.down;
             playerAnim.SetInteger("Direction",2);
         }
-        else if(movementInput.y > 0.8f){
+        else if(movementInput.y > 0.7f){
             attackDirection = Direction.top;
             playerAnim.SetInteger("Direction",1);
         }else{
@@ -77,9 +77,9 @@ public class PlayerAttack : MonoBehaviour{
         if(!dashing){
             // if(movementInput.y == 0)
             //     dashDirection = Direction.side;
-            if(movementInput.y < -0.8f)
+            if(movementInput.y < -0.7f)
                 dashDirection = Direction.down;
-            else if(movementInput.y > 0.8f)
+            else if(movementInput.y > 0.7f)
                 dashDirection = Direction.top;
             else
                 dashDirection = Direction.side;
@@ -130,8 +130,12 @@ public class PlayerAttack : MonoBehaviour{
         if(dashing){
             if(dashDirection == Direction.side)
                 rb.velocity = ((facingRight) ? Vector2.right * GameManager.instance.playerStats.dashSpeed:Vector2.left * GameManager.instance.playerStats.dashSpeed);
-            else if(dashDirection == Direction.top)
-                rb.velocity = (Vector2.up * (GameManager.instance.playerStats.dashSpeed / 2));
+            else if(dashDirection == Direction.top){
+                if(GameManager.instance.playerStats.verticalDashTime <= 0){
+                    GameManager.instance.playerStats.verticalDashTime = GameManager.instance.playerStats.verticalStartDashTime; 
+                    rb.velocity = (Vector2.up * (GameManager.instance.playerStats.dashSpeed / 2.5f));
+                }
+            }
             else if(dashDirection == Direction.down)
                 rb.velocity = (Vector2.down * (GameManager.instance.playerStats.dashSpeed / 2));
 
@@ -141,8 +145,12 @@ public class PlayerAttack : MonoBehaviour{
 				GameManager.instance.playerStats.dashTime = 0;
                 //rb.velocity = Vector2.zero;
 				dashing = false;
-				Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)), transform.position.y + 1, transform.position.z), Quaternion.identity);
+                if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side)
+				    Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)), transform.position.y + 1, transform.position.z), Quaternion.identity);
 			}
+		}
+        if(GameManager.instance.playerStats.verticalDashTime > 0){
+            GameManager.instance.playerStats.verticalDashTime -= Time.deltaTime;
 		}
     }
 
@@ -306,13 +314,15 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     public void Dash(){
-        if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
-            GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
-            Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
+        // if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
+            if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side){
+                GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
+                Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
+            }
             dashing = true;
             playerAnim.SetBool("Dash",true);
             GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
-        }
+        // }
     }
 
     public void ColorControl(){

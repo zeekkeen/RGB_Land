@@ -26,7 +26,9 @@ MonoBehaviour:
   doubleJump: 1
   dash: 0
   stealAndGiveColor: 0
-  rangedAttack: 0
+  rangedAttack1: 0
+  rangedAttack2: 0
+  rangedAttack3: 0
   timeBtwMeleeAttack: -0.014106702
   timeBtwPowerUse: -0.00228736
   startTimeBtwMeleeAttack: 0.3
@@ -36,3 +38,5 @@ MonoBehaviour:
   dashTime: 0
   dashSpeed: 50
   startDashTime: 0.1
+  verticalDashTime: 0
+  verticalStartDashTime: 0.5
