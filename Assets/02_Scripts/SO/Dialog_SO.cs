@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Dialog", menuName = "ScriptableObjects/Dialog")]
-public class Dialog_SO : ScriptableObject {
+[System.Serializable]
+public class Dialog_SO {
     
     public List<string> sentences;
     public int index = -1;
     // public Quest myQuest;
-    public bool completed = false;
+    // public bool completed = false;
     public Achievement achievementRequired;
     public Achievement achievement;
 }

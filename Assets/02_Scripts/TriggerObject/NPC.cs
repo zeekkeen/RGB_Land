@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour,ITriggerObject{
         index = GetIndex();
         if(index != -1){
             // NewNPCDialog[index].sentences = DialogSystem.GetDialog(NewNPCDialog[index].dialogCode);
-            NewNPCDialog[index].completed = false;
+            // NewNPCDialog[index].completed = false;
             // if(NewNPCDialog[index].index != NewNPCDialog[index].sentences.Count - 1)
             DialogSystem.instance.OpenPopUp(NewNPCDialog[index],this);
         }
@@ -30,8 +30,9 @@ public class NPC : MonoBehaviour,ITriggerObject{
             // QuestsManager.instance.VerifyObjetive(GoalType.conversation,0);
             DialogSystem.instance.ClosePopUp();
             if(NewNPCDialog[index].index == NewNPCDialog[index].sentences.Count - 1){
-                if(NewNPCDialog[index].completed && NewNPCDialog[index].achievement != Achievement.NULL){
+                if(NewNPCDialog[index].achievement != Achievement.NULL){
                     GameManager.instance.AddAchievement(NewNPCDialog[index].achievement);
+                    NewNPCDialog[index].index = -1;
                     // QuestsManager.instance.VerifyAchievement(NewNPCDialog[index].achievement);
                 }
                 // if(NewNPCDialog[index].completed)

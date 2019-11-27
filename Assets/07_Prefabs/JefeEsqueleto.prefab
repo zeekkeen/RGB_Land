@@ -238,6 +238,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NewNPCDialog:
-  - {fileID: 11400000, guid: 61bbc287f84b0af4bae96932bff371c8, type: 2}
-  - {fileID: 11400000, guid: a7be9f579d6b1d041a5cee81dbadef70, type: 2}
+  - sentences:
+    - 'Antiguo jefe: prueba de conversacion 1.0'
+    - 'Antiguo jefe: prueba de conversacion 1.1'
+    - 'Antiguo jefe: prueba de conversacion 1.2'
+    - 'Antiguo jefe: prueba de conversacion 1.3'
+    - 'Antiguo jefe: prueba de conversacion 1.4'
+    index: -1
+    achievementRequired: 0
+    achievement: 1
+  - sentences:
+    - 'Antiguo jefe: prueba de conversacion 2.0'
+    - 'Antiguo jefe: prueba de conversacion 2.1'
+    - 'Antiguo jefe: prueba de conversacion 2.2'
+    - 'Antiguo jefe: prueba de conversacion 2.3'
+    - 'Antiguo jefe: prueba de conversacion 2.4'
+    index: -1
+    achievementRequired: 1
+    achievement: 2
   index: -1
