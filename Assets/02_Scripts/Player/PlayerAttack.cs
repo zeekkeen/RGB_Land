@@ -145,7 +145,7 @@ public class PlayerAttack : MonoBehaviour{
 				GameManager.instance.playerStats.dashTime = 0;
                 //rb.velocity = Vector2.zero;
 				dashing = false;
-                if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side)
+                if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side  || dashDirection == Direction.down)
 				    Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)), transform.position.y + 1, transform.position.z), Quaternion.identity);
 			}
 		}
@@ -315,7 +315,7 @@ public class PlayerAttack : MonoBehaviour{
 
     public void Dash(){
         // if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
-            if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side){
+            if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side || dashDirection == Direction.down){
                 GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
                 Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
             }
