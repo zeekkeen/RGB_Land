@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5860ae9994196a640b4f519b8570c27f, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  lastPosition: {x: -94.5246, y: -88.3225, z: 0}
-  lastLevel: TribuInicial
+  lastPosition: {x: -175, y: 18, z: 0}
+  lastLevel: TribuRed
   initialAllMapPieces:
   - pieceID: 0
     visible: 0
@@ -102,6 +102,285 @@ MonoBehaviour:
   - pieceID: 28
     visible: 0
     mapID: inicial
+  - pieceID: 0
+    visible: 0
+    mapID: red
+  - pieceID: 1
+    visible: 0
+    mapID: red
+  - pieceID: 2
+    visible: 0
+    mapID: red
+  - pieceID: 3
+    visible: 0
+    mapID: red
+  - pieceID: 4
+    visible: 0
+    mapID: red
+  - pieceID: 5
+    visible: 0
+    mapID: red
+  - pieceID: 6
+    visible: 0
+    mapID: red
+  - pieceID: 7
+    visible: 0
+    mapID: red
+  - pieceID: 8
+    visible: 0
+    mapID: red
+  - pieceID: 9
+    visible: 0
+    mapID: red
+  - pieceID: 10
+    visible: 0
+    mapID: red
+  - pieceID: 11
+    visible: 0
+    mapID: red
+  - pieceID: 12
+    visible: 0
+    mapID: red
+  - pieceID: 13
+    visible: 0
+    mapID: red
+  - pieceID: 14
+    visible: 0
+    mapID: red
+  - pieceID: 15
+    visible: 0
+    mapID: red
+  - pieceID: 16
+    visible: 0
+    mapID: red
+  - pieceID: 17
+    visible: 0
+    mapID: red
+  - pieceID: 18
+    visible: 0
+    mapID: red
+  - pieceID: 19
+    visible: 0
+    mapID: red
+  - pieceID: 20
+    visible: 0
+    mapID: red
+  - pieceID: 21
+    visible: 0
+    mapID: red
+  - pieceID: 22
+    visible: 0
+    mapID: red
+  - pieceID: 23
+    visible: 0
+    mapID: red
+  - pieceID: 24
+    visible: 0
+    mapID: red
+  - pieceID: 25
+    visible: 0
+    mapID: red
+  - pieceID: 26
+    visible: 0
+    mapID: red
+  - pieceID: 27
+    visible: 0
+    mapID: red
+  - pieceID: 28
+    visible: 0
+    mapID: red
+  - pieceID: 29
+    visible: 0
+    mapID: red
+  - pieceID: 30
+    visible: 0
+    mapID: red
+  - pieceID: 0
+    visible: 0
+    mapID: green
+  - pieceID: 1
+    visible: 0
+    mapID: green
+  - pieceID: 2
+    visible: 0
+    mapID: green
+  - pieceID: 3
+    visible: 0
+    mapID: green
+  - pieceID: 4
+    visible: 0
+    mapID: green
+  - pieceID: 5
+    visible: 0
+    mapID: green
+  - pieceID: 6
+    visible: 0
+    mapID: green
+  - pieceID: 7
+    visible: 0
+    mapID: green
+  - pieceID: 8
+    visible: 0
+    mapID: green
+  - pieceID: 9
+    visible: 0
+    mapID: green
+  - pieceID: 10
+    visible: 0
+    mapID: green
+  - pieceID: 11
+    visible: 0
+    mapID: green
+  - pieceID: 12
+    visible: 0
+    mapID: green
+  - pieceID: 13
+    visible: 0
+    mapID: green
+  - pieceID: 14
+    visible: 0
+    mapID: green
+  - pieceID: 15
+    visible: 0
+    mapID: green
+  - pieceID: 16
+    visible: 0
+    mapID: green
+  - pieceID: 17
+    visible: 0
+    mapID: green
+  - pieceID: 18
+    visible: 0
+    mapID: green
+  - pieceID: 19
+    visible: 0
+    mapID: green
+  - pieceID: 20
+    visible: 0
+    mapID: green
+  - pieceID: 21
+    visible: 0
+    mapID: green
+  - pieceID: 22
+    visible: 0
+    mapID: green
+  - pieceID: 23
+    visible: 0
+    mapID: green
+  - pieceID: 24
+    visible: 0
+    mapID: green
+  - pieceID: 25
+    visible: 0
+    mapID: green
+  - pieceID: 26
+    visible: 0
+    mapID: green
+  - pieceID: 27
+    visible: 0
+    mapID: green
+  - pieceID: 28
+    visible: 0
+    mapID: green
+  - pieceID: 29
+    visible: 0
+    mapID: green
+  - pieceID: 30
+    visible: 0
+    mapID: green
+  - pieceID: 31
+    visible: 0
+    mapID: green
+  - pieceID: 32
+    visible: 0
+    mapID: green
+  - pieceID: 0
+    visible: 0
+    mapID: blue
+  - pieceID: 1
+    visible: 0
+    mapID: blue
+  - pieceID: 2
+    visible: 0
+    mapID: blue
+  - pieceID: 3
+    visible: 0
+    mapID: blue
+  - pieceID: 4
+    visible: 0
+    mapID: blue
+  - pieceID: 5
+    visible: 0
+    mapID: blue
+  - pieceID: 6
+    visible: 0
+    mapID: blue
+  - pieceID: 7
+    visible: 0
+    mapID: blue
+  - pieceID: 8
+    visible: 0
+    mapID: blue
+  - pieceID: 9
+    visible: 0
+    mapID: blue
+  - pieceID: 10
+    visible: 0
+    mapID: blue
+  - pieceID: 11
+    visible: 0
+    mapID: blue
+  - pieceID: 12
+    visible: 0
+    mapID: blue
+  - pieceID: 13
+    visible: 0
+    mapID: blue
+  - pieceID: 14
+    visible: 0
+    mapID: blue
+  - pieceID: 15
+    visible: 0
+    mapID: blue
+  - pieceID: 16
+    visible: 0
+    mapID: blue
+  - pieceID: 17
+    visible: 0
+    mapID: blue
+  - pieceID: 18
+    visible: 0
+    mapID: blue
+  - pieceID: 19
+    visible: 0
+    mapID: blue
+  - pieceID: 20
+    visible: 0
+    mapID: blue
+  - pieceID: 21
+    visible: 0
+    mapID: blue
+  - pieceID: 22
+    visible: 0
+    mapID: blue
+  - pieceID: 23
+    visible: 0
+    mapID: blue
+  - pieceID: 24
+    visible: 0
+    mapID: blue
+  - pieceID: 25
+    visible: 0
+    mapID: blue
+  - pieceID: 26
+    visible: 0
+    mapID: blue
+  - pieceID: 27
+    visible: 0
+    mapID: blue
+  - pieceID: 28
+    visible: 0
+    mapID: blue
   allMapPieces:
   - pieceID: 0
     visible: 0
@@ -110,13 +389,13 @@ MonoBehaviour:
     visible: 0
     mapID: inicial
   - pieceID: 2
-    visible: 1
+    visible: 0
     mapID: inicial
   - pieceID: 3
     visible: 1
     mapID: inicial
   - pieceID: 4
-    visible: 1
+    visible: 0
     mapID: inicial
   - pieceID: 5
     visible: 0
@@ -131,10 +410,10 @@ MonoBehaviour:
     visible: 0
     mapID: inicial
   - pieceID: 9
-    visible: 1
+    visible: 0
     mapID: inicial
   - pieceID: 10
-    visible: 1
+    visible: 0
     mapID: inicial
   - pieceID: 11
     visible: 0
@@ -143,7 +422,7 @@ MonoBehaviour:
     visible: 0
     mapID: inicial
   - pieceID: 13
-    visible: 0
+    visible: 1
     mapID: inicial
   - pieceID: 14
     visible: 0
@@ -152,7 +431,7 @@ MonoBehaviour:
     visible: 0
     mapID: inicial
   - pieceID: 16
-    visible: 1
+    visible: 0
     mapID: inicial
   - pieceID: 17
     visible: 0
@@ -161,16 +440,16 @@ MonoBehaviour:
     visible: 0
     mapID: inicial
   - pieceID: 19
-    visible: 0
+    visible: 1
     mapID: inicial
   - pieceID: 20
-    visible: 0
+    visible: 1
     mapID: inicial
   - pieceID: 21
     visible: 0
     mapID: inicial
   - pieceID: 22
-    visible: 1
+    visible: 0
     mapID: inicial
   - pieceID: 23
     visible: 0
@@ -191,3 +470,4 @@ MonoBehaviour:
     visible: 0
     mapID: inicial
   playerPinPosition: {x: 0, y: 185, z: 0}
+  achievements: 010000000200000002000000

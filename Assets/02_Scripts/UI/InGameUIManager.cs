@@ -9,7 +9,7 @@ public class InGameUIManager : MonoBehaviour{
     public GameObject gameOverPanel;
     public GameObject inGamePanel;
     public GameObject mapPanel;
-    public bool mapOpened = false;
+    public bool mapOpened = false, pauseOpened = false;
     public ButtonThroughKeySelection[]  buttonsFocus;
     PlayerControls inputAction;
     public static InGameUIManager instance;
@@ -42,21 +42,27 @@ public class InGameUIManager : MonoBehaviour{
     }
 
     public void MapPanel(){
-        mapOpened = !mapOpened;
-        inGamePanel.SetActive(true);
-        pausePanel.SetActive(false);
-        mapPanel.SetActive(mapOpened);
-        gameOverPanel.SetActive(false);
-        Time.timeScale = mapOpened ? 0 : 1;
+        if(!pauseOpened){
+            mapOpened = !mapOpened;
+            inGamePanel.SetActive(true);
+            pausePanel.SetActive(false);
+            mapPanel.SetActive(mapOpened);
+            gameOverPanel.SetActive(false);
+            Time.timeScale = mapOpened ? 0 : 1;
+        }
     }
 
     public void PausePanel(){
-        inGamePanel.SetActive(false);
-        pausePanel.SetActive(true);
-        gameOverPanel.SetActive(false);
-        buttonsFocus[0].ChangeFocus();
-        mapPanel.SetActive(false);
-        Time.timeScale = 0;
+        if(!mapOpened){
+            pauseOpened = !pauseOpened;
+            inGamePanel.SetActive(false);
+            pausePanel.SetActive(pauseOpened);
+            gameOverPanel.SetActive(false);
+            if(pauseOpened)
+                buttonsFocus[0].ChangeFocus();
+            mapPanel.SetActive(false);
+            Time.timeScale = pauseOpened ? 0 : 1;
+        }
     }
 
     public void GameOverPanel(){
