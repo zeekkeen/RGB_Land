@@ -18,7 +18,8 @@ public class MapManager : MonoBehaviour{
     void Start(){
         myAllMapPieces = GameManager.instance.playerData.allMapPieces;
         StartMap();
-        playerPin.transform.position = GameManager.instance.playerData.playerPinPosition;
+        // playerPin.transform.position = GameManager.instance.playerData.playerPinPosition;
+        playerPin.transform.position = new Vector3(0,0,0);
     }
 
     void StartMap(){
