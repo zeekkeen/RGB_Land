@@ -33,7 +33,7 @@ MonoBehaviour:
   timeBtwPowerUse: 0
   startTimeBtwMeleeAttack: 0.3
   startTimeBtwPowerUse: 1
-  attackRange: {x: 2, y: 2}
+  attackRange: {x: 4, y: 2}
   activePower: 0
   dashTime: 0
   dashSpeed: 70
