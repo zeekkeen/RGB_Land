@@ -6089,7 +6089,10 @@ MonoBehaviour:
   playerInitialStats: {fileID: 11400000, guid: 6b02ac61882216c40b7daff8c12a9c07, type: 2}
   initialPosition: {x: -70, y: 7, z: 0}
   allDialogs:
-  - {fileID: 11400000, guid: 61bbc287f84b0af4bae96932bff371c8, type: 2}
+  - sentences: []
+    index: -1
+    achievementRequired: 0
+    achievement: 0
 --- !u!4 &1943062364
 Transform:
   m_ObjectHideFlags: 0
