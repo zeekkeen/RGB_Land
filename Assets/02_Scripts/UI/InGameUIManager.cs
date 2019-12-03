@@ -55,7 +55,7 @@ public class InGameUIManager : MonoBehaviour{
     public void PausePanel(){
         if(!mapOpened){
             pauseOpened = !pauseOpened;
-            inGamePanel.SetActive(false);
+            inGamePanel.SetActive(!pauseOpened);
             pausePanel.SetActive(pauseOpened);
             gameOverPanel.SetActive(false);
             if(pauseOpened)
