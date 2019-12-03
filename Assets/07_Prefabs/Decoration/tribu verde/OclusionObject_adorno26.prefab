@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 68479269099461160}
   - component: {fileID: 891557215686923464}
   m_Layer: 0
-  m_Name: OclusionObject_adorno4
+  m_Name: OclusionObject_adorno26
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0016860962, y: 0.016141891}
+  m_Offset: {x: 0.031232834, y: -0.049938202}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -71,7 +71,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8540726, y: 2.373539}
+  m_Size: {x: 1.2847023, y: 1.5105896}
   m_EdgeRadius: 0
 --- !u!249 &891557215686923464
 AreaEffector2D:
@@ -192,8 +192,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: 9913a336debfaa84d80f5958ed4bf857, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 9f39f17a052e95d4aaed22d27a377473, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
