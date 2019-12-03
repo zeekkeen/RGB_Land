@@ -31,7 +31,7 @@ MonoBehaviour:
   rangedAttack3: 0
   timeBtwMeleeAttack: 0
   timeBtwPowerUse: 0
-  startTimeBtwMeleeAttack: 0.3
+  startTimeBtwMeleeAttack: 0.2
   startTimeBtwPowerUse: 1
   attackRange: {x: 4, y: 2}
   activePower: 0

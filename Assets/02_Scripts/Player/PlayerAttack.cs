@@ -239,48 +239,37 @@ public class PlayerAttack : MonoBehaviour{
             switch(attackDirection){
                 case Direction.side:
                     enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position,GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
-                    //playerAnim.SetTrigger("attack");
-                    // attackAnim.SetTrigger("Active");
                     attackAnim.SetInteger("combo",attackCombo);
-                    // attackCombo ++;
                     for(int i=0;i<enemiesToDamage.Length;i++){
-                        // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
                         ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
                         if(takeDamage != null)
                             takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
-                        //camAnim.SetTrigger("shake");
                     }
                         break;
                 case Direction.top:
                     enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,3f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
                     playerAnim.SetTrigger("attack");
-                    // attackAnim.SetTrigger("Active");
                     attackAnim.SetInteger("combo",attackCombo);
-                    // attackCombo ++;
                     for(int i=0;i<enemiesToDamage.Length;i++){
-                        // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
                         ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
                         if(takeDamage != null)
                             takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
-                        //camAnim.SetTrigger("shake");
                     }
                         break;
                 case Direction.down:
                     enemiesToDamage = Physics2D.OverlapBoxAll(transform.position + new Vector3(0,-1.5f,0),GameManager.instance.playerStats.attackRange,0,whatIsEnemies);
                     playerAnim.SetTrigger("attack");
-                    // attackAnim.SetTrigger("Active");
                     attackAnim.SetInteger("combo",attackCombo);
                     // attackCombo ++;
                     for(int i=0; i < enemiesToDamage.Length; i++){
-                        // enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(GameManager.instance.playerStats.damage);
                         ITakeDamage takeDamage = enemiesToDamage[i].GetComponent<ITakeDamage>();
                         if(takeDamage != null)
                             takeDamage.TakeDamage(GameManager.instance.playerStats.damage);
-                        //camAnim.SetTrigger("shake");
                     }
                         break;
             }
             timeBtwMeleeAttack2 = GameManager.instance.playerStats.startTimeBtwMeleeAttack;
+            // timeBtwMeleeAttack2 = 0.1f;
             rb.velocity = Vector2.zero;
         
     }
