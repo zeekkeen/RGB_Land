@@ -381,6 +381,18 @@ MonoBehaviour:
   - pieceID: 28
     visible: 0
     mapID: blue
+  - pieceID: 100
+    visible: 0
+    mapID: inicial
+  - pieceID: 100
+    visible: 0
+    mapID: red
+  - pieceID: 100
+    visible: 0
+    mapID: green
+  - pieceID: 100
+    visible: 0
+    mapID: blue
   allMapPieces:
   - pieceID: 0
     visible: 0
@@ -467,7 +479,286 @@ MonoBehaviour:
     visible: 1
     mapID: inicial
   - pieceID: 28
-    visible: 0
+    visible: 1
     mapID: inicial
-  playerPinPosition: {x: 0, y: 185, z: 0}
-  achievements: 010000000200000002000000
+  - pieceID: 0
+    visible: 0
+    mapID: red
+  - pieceID: 1
+    visible: 0
+    mapID: red
+  - pieceID: 2
+    visible: 0
+    mapID: red
+  - pieceID: 3
+    visible: 0
+    mapID: red
+  - pieceID: 4
+    visible: 0
+    mapID: red
+  - pieceID: 5
+    visible: 0
+    mapID: red
+  - pieceID: 6
+    visible: 0
+    mapID: red
+  - pieceID: 7
+    visible: 0
+    mapID: red
+  - pieceID: 8
+    visible: 0
+    mapID: red
+  - pieceID: 9
+    visible: 0
+    mapID: red
+  - pieceID: 10
+    visible: 0
+    mapID: red
+  - pieceID: 11
+    visible: 0
+    mapID: red
+  - pieceID: 12
+    visible: 0
+    mapID: red
+  - pieceID: 13
+    visible: 0
+    mapID: red
+  - pieceID: 14
+    visible: 0
+    mapID: red
+  - pieceID: 15
+    visible: 0
+    mapID: red
+  - pieceID: 16
+    visible: 0
+    mapID: red
+  - pieceID: 17
+    visible: 0
+    mapID: red
+  - pieceID: 18
+    visible: 0
+    mapID: red
+  - pieceID: 19
+    visible: 0
+    mapID: red
+  - pieceID: 20
+    visible: 0
+    mapID: red
+  - pieceID: 21
+    visible: 0
+    mapID: red
+  - pieceID: 22
+    visible: 0
+    mapID: red
+  - pieceID: 23
+    visible: 0
+    mapID: red
+  - pieceID: 24
+    visible: 0
+    mapID: red
+  - pieceID: 25
+    visible: 0
+    mapID: red
+  - pieceID: 26
+    visible: 0
+    mapID: red
+  - pieceID: 27
+    visible: 0
+    mapID: red
+  - pieceID: 28
+    visible: 0
+    mapID: red
+  - pieceID: 29
+    visible: 0
+    mapID: red
+  - pieceID: 30
+    visible: 0
+    mapID: red
+  - pieceID: 0
+    visible: 0
+    mapID: green
+  - pieceID: 1
+    visible: 0
+    mapID: green
+  - pieceID: 2
+    visible: 0
+    mapID: green
+  - pieceID: 3
+    visible: 0
+    mapID: green
+  - pieceID: 4
+    visible: 0
+    mapID: green
+  - pieceID: 5
+    visible: 0
+    mapID: green
+  - pieceID: 6
+    visible: 0
+    mapID: green
+  - pieceID: 7
+    visible: 0
+    mapID: green
+  - pieceID: 8
+    visible: 0
+    mapID: green
+  - pieceID: 9
+    visible: 0
+    mapID: green
+  - pieceID: 10
+    visible: 0
+    mapID: green
+  - pieceID: 11
+    visible: 0
+    mapID: green
+  - pieceID: 12
+    visible: 0
+    mapID: green
+  - pieceID: 13
+    visible: 0
+    mapID: green
+  - pieceID: 14
+    visible: 0
+    mapID: green
+  - pieceID: 15
+    visible: 0
+    mapID: green
+  - pieceID: 16
+    visible: 0
+    mapID: green
+  - pieceID: 17
+    visible: 0
+    mapID: green
+  - pieceID: 18
+    visible: 0
+    mapID: green
+  - pieceID: 19
+    visible: 0
+    mapID: green
+  - pieceID: 20
+    visible: 0
+    mapID: green
+  - pieceID: 21
+    visible: 0
+    mapID: green
+  - pieceID: 22
+    visible: 0
+    mapID: green
+  - pieceID: 23
+    visible: 0
+    mapID: green
+  - pieceID: 24
+    visible: 0
+    mapID: green
+  - pieceID: 25
+    visible: 0
+    mapID: green
+  - pieceID: 26
+    visible: 0
+    mapID: green
+  - pieceID: 27
+    visible: 0
+    mapID: green
+  - pieceID: 28
+    visible: 0
+    mapID: green
+  - pieceID: 29
+    visible: 0
+    mapID: green
+  - pieceID: 30
+    visible: 0
+    mapID: green
+  - pieceID: 31
+    visible: 0
+    mapID: green
+  - pieceID: 32
+    visible: 0
+    mapID: green
+  - pieceID: 0
+    visible: 0
+    mapID: blue
+  - pieceID: 1
+    visible: 0
+    mapID: blue
+  - pieceID: 2
+    visible: 0
+    mapID: blue
+  - pieceID: 3
+    visible: 0
+    mapID: blue
+  - pieceID: 4
+    visible: 0
+    mapID: blue
+  - pieceID: 5
+    visible: 0
+    mapID: blue
+  - pieceID: 6
+    visible: 0
+    mapID: blue
+  - pieceID: 7
+    visible: 0
+    mapID: blue
+  - pieceID: 8
+    visible: 0
+    mapID: blue
+  - pieceID: 9
+    visible: 0
+    mapID: blue
+  - pieceID: 10
+    visible: 0
+    mapID: blue
+  - pieceID: 11
+    visible: 0
+    mapID: blue
+  - pieceID: 12
+    visible: 0
+    mapID: blue
+  - pieceID: 13
+    visible: 0
+    mapID: blue
+  - pieceID: 14
+    visible: 0
+    mapID: blue
+  - pieceID: 15
+    visible: 0
+    mapID: blue
+  - pieceID: 16
+    visible: 0
+    mapID: blue
+  - pieceID: 17
+    visible: 0
+    mapID: blue
+  - pieceID: 18
+    visible: 0
+    mapID: blue
+  - pieceID: 19
+    visible: 0
+    mapID: blue
+  - pieceID: 20
+    visible: 0
+    mapID: blue
+  - pieceID: 21
+    visible: 0
+    mapID: blue
+  - pieceID: 22
+    visible: 0
+    mapID: blue
+  - pieceID: 23
+    visible: 0
+    mapID: blue
+  - pieceID: 24
+    visible: 0
+    mapID: blue
+  - pieceID: 25
+    visible: 0
+    mapID: blue
+  - pieceID: 26
+    visible: 0
+    mapID: blue
+  - pieceID: 27
+    visible: 0
+    mapID: blue
+  - pieceID: 28
+    visible: 0
+    mapID: blue
+  playerPinPosition: {x: 757.8, y: 574.35, z: 0}
+  achievements: 0100000002000000

@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour{
         else if(instance != this)    
             Destroy(this);
         DontDestroyOnLoad(this);
+        Cursor.lockState = UnityEngine.CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void RestartValues(){
@@ -30,7 +32,7 @@ public class GameManager : MonoBehaviour{
         // playerData.allMapPieces = playerData.initialAllMapPieces;
         ResetAchievements();
         playerData.allMapPieces = new List<MapPieceInfo>(playerData.initialAllMapPieces);
-        playerData.playerPinPosition = new Vector3(0,185,0);
+        playerData.playerPinPosition = new Vector3(-495,408,0);
     }
 
     public void SaveGame(Vector3 pos, string level){
