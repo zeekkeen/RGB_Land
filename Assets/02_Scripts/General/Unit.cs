@@ -71,7 +71,8 @@ public class Unit: MonoBehaviour, ITakeDamage{
     [Task]
     public bool Rotate(){
         anim.SetInteger("State", 2);
-        transform.up= Vector3.Lerp(transform.up, (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position), 5f);
+        // transform.up = Vector3.Lerp(transform.up, (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position), 5f);
+        noGroundDetection.transform.up = Vector3.Lerp(noGroundDetection.transform.up, (GameObject.FindGameObjectWithTag("Player").transform.position - noGroundDetection.transform.position), 5f);
         return true;
     }
 
@@ -172,7 +173,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
     [Task]
     public bool RangeAttack(){
         anim.SetInteger("State", 3);
-        Instantiate(projectile,noGroundDetection.transform.position,transform.rotation);
+        Instantiate(projectile,noGroundDetection.transform.position,noGroundDetection.transform.rotation);
         // anim.SetInteger("State", 2);
         enemyStats.attackSpeedTimer = enemyStats.attackSpeed;
         return true;
