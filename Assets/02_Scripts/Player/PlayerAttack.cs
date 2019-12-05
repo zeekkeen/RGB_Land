@@ -293,7 +293,6 @@ public class PlayerAttack : MonoBehaviour{
     public void Dash(){
         if(InGameUIManager.instance.energyProgressBar.current >= GameManager.instance.playerStats.dashCost){
             InGameUIManager.instance.energyProgressBar.current -= GameManager.instance.playerStats.dashCost;
-            Debug.Log(InGameUIManager.instance.energyProgressBar.current);
             InGameUIManager.instance.UpdateCurrentFill();
             if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side || dashDirection == Direction.down){
                 GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;

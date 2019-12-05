@@ -7,11 +7,13 @@ public class DoorObj : ColorObject{
     public Animator anim;
 
     public override void PaintedAction(){
+        base.PaintedAction();
         anim.SetBool("painted",true);
         GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     public override void UnPaintedAction(){
+        base.UnPaintedAction();
         anim.SetBool("painted",false);
         GetComponent<BoxCollider2D>().isTrigger = false;
     }

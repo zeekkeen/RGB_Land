@@ -76,27 +76,32 @@ public class ColorObject : MonoBehaviour{
     }
 
     public void SwitchColor(){
-        if(painted || (GameManager.instance.playerStats.colorSphereCount > 0)){
-            GameManager.instance.playerStats.colorSphereCount --;
+        if(painted){
             crystal = GameObject.FindGameObjectWithTag("Crystal");
             GameObject trail = (GameObject)Instantiate(particlesTrail,(painted?transform.position:crystal.transform.position),Quaternion.identity);
             if(trail != null){
                 trail.GetComponent<TrailMovement>().StartMovement((painted?crystal.transform:transform),gradient);
                 changeColor = true;
-                if(painted)
-                    GameManager.instance.playerStats.colorSphereCount--;
-                else
-                    GameManager.instance.playerStats.colorSphereCount++;
-                ColorSphereManager.instance.RefreshUI();
+            }
+        }else if(!painted && (GameManager.instance.playerStats.colorSphereCount > 0)){
+            crystal = GameObject.FindGameObjectWithTag("Crystal");
+            GameObject trail = (GameObject)Instantiate(particlesTrail,(painted?transform.position:crystal.transform.position),Quaternion.identity);
+            if(trail != null){
+                trail.GetComponent<TrailMovement>().StartMovement((painted?crystal.transform:transform),gradient);
+                changeColor = true;
             }
         }
     }
 
     public virtual void PaintedAction(){
-
+        GameManager.instance.playerStats.colorSphereCount--;
+        ColorSphereManager.instance.RefreshUI();
+        Debug.Log("pinto + "+GameManager.instance.playerStats.colorSphereCount);
     }
 
     public virtual void UnPaintedAction(){
-        
+        GameManager.instance.playerStats.colorSphereCount++;
+        ColorSphereManager.instance.RefreshUI();
+        Debug.Log("despinto + "+GameManager.instance.playerStats.colorSphereCount);
     }
 }

@@ -27,8 +27,10 @@ public class Platform : ColorObject {
 	}
 
 	public override void PaintedAction(){
+		base.PaintedAction();
     }
 
     public override void UnPaintedAction(){
+		base.UnPaintedAction();
     }
 }
