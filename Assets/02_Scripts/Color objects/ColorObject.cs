@@ -76,11 +76,18 @@ public class ColorObject : MonoBehaviour{
     }
 
     public void SwitchColor(){
-        crystal = GameObject.FindGameObjectWithTag("Crystal");
-        GameObject trail = (GameObject)Instantiate(particlesTrail,(painted?transform.position:crystal.transform.position),Quaternion.identity);
-        if(trail != null){
-            trail.GetComponent<TrailMovement>().StartMovement((painted?crystal.transform:transform),gradient);
-            changeColor = true;
+        if(painted || (GameManager.instance.playerStats.colorSphereCount > 0)){
+            GameManager.instance.playerStats.colorSphereCount --;
+            crystal = GameObject.FindGameObjectWithTag("Crystal");
+            GameObject trail = (GameObject)Instantiate(particlesTrail,(painted?transform.position:crystal.transform.position),Quaternion.identity);
+            if(trail != null){
+                trail.GetComponent<TrailMovement>().StartMovement((painted?crystal.transform:transform),gradient);
+                changeColor = true;
+                if(painted)
+                    GameManager.instance.playerStats.colorSphereCount--;
+                else
+                    GameManager.instance.playerStats.colorSphereCount++;
+            }
         }
     }
 

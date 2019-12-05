@@ -27,7 +27,12 @@ public class PlayerStats_SO : GeneralStats_SO{
     public float dashTime;
     public float dashSpeed, startDashTime;
     public float verticalDashTime,verticalStartDashTime;
-
+    //player energy
+    public float energyGain;
+    public float rangedAttackCost;
+    public float dashCost;
+    //player colorSphereCount
+    public int colorSphereCount;
 }
 public enum ActivePower{
     rangedAttack = 0,

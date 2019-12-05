@@ -56,12 +56,6 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     void Update(){
-        // float moveInput = movementInput.x;
-        // Debug.Log(movementInput.x + " : "+ movementInput.y);
-        // if(movementInput.y == 0){
-        //     attackDirection = Direction.side;
-        //     playerAnim.SetInteger("Direction",0);
-        // }
         if(movementInput.y < -0.7f && !GameManager.instance.playerStats.isGrounded){
             attackDirection = Direction.down;
             playerAnim.SetInteger("Direction",2);
@@ -75,8 +69,6 @@ public class PlayerAttack : MonoBehaviour{
         }
 
         if(!dashing){
-            // if(movementInput.y == 0)
-            //     dashDirection = Direction.side;
             if(movementInput.y < -0.7f)
                 dashDirection = Direction.down;
             else if(movementInput.y > 0.7f)
@@ -93,11 +85,6 @@ public class PlayerAttack : MonoBehaviour{
                     nextAttackCombo = -1;
                 }
                     attackAnim.SetBool("active",false);
-                // else if(nextAttackCombo == attackCombo){
-                //     // attackCombo ++;
-                //     MeleeAttack2();
-                // }
-
             }
         }
         if(GameManager.instance.playerStats.timeBtwMeleeAttack > 0){
@@ -110,7 +97,6 @@ public class PlayerAttack : MonoBehaviour{
                     attackAnim.SetBool("active",false);
                 }
                 else if(nextAttackCombo > attackCombo){
-                    // attackCombo ++;
                     MeleeAttack2();
                 }
 
@@ -275,7 +261,9 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     public void RangedAttack(){
-        if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
+        if(GameManager.instance.playerStats.timeBtwPowerUse <= 0 && InGameUIManager.instance.energyProgressBar.current >= GameManager.instance.playerStats.rangedAttackCost){
+            InGameUIManager.instance.energyProgressBar.current -= GameManager.instance.playerStats.rangedAttackCost;
+            InGameUIManager.instance.UpdateCurrentFill();
             GameObject instance;
             switch(attackDirection){
                 case Direction.side:
@@ -303,7 +291,9 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     public void Dash(){
-        // if(GameManager.instance.playerStats.timeBtwPowerUse <= 0){
+        if(InGameUIManager.instance.energyProgressBar.current >= GameManager.instance.playerStats.dashCost){
+            InGameUIManager.instance.energyProgressBar.current -= GameManager.instance.playerStats.dashCost;
+            InGameUIManager.instance.UpdateCurrentFill();
             if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side || dashDirection == Direction.down){
                 GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
                 Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
@@ -311,7 +301,7 @@ public class PlayerAttack : MonoBehaviour{
             dashing = true;
             playerAnim.SetBool("Dash",true);
             GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
-        // }
+        }
     }
 
     public void ColorControl(){

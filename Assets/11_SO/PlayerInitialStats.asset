@@ -40,3 +40,7 @@ MonoBehaviour:
   startDashTime: 0.1
   verticalDashTime: 0
   verticalStartDashTime: 1
+  energyGain: 1
+  rangedAttackCost: 25
+  dashCost: 50
+  colorSphereCount: 0

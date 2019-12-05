@@ -12,6 +12,7 @@ public class InGameUIManager : MonoBehaviour{
     public bool mapOpened = false, pauseOpened = false;
     public ButtonThroughKeySelection[]  buttonsFocus;
     PlayerControls inputAction;
+    public LinearProgressBar energyProgressBar;
     public static InGameUIManager instance;
 
     void Awake() {
@@ -21,6 +22,14 @@ public class InGameUIManager : MonoBehaviour{
         inputAction.GamePlay.Map.performed += ctx => MapPanel();
     }
 
+    void Update() {
+        if(energyProgressBar.current < energyProgressBar.maximum)
+            energyProgressBar.current += (Time.deltaTime * GameManager.instance.playerStats.energyGain);
+    }
+
+    public void UpdateCurrentFill(){
+        energyProgressBar.GetCurrentFill();
+    }
     void OnEnable() {
         inputAction.Enable();
     }
