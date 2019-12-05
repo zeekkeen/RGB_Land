@@ -87,6 +87,7 @@ public class ColorObject : MonoBehaviour{
                     GameManager.instance.playerStats.colorSphereCount--;
                 else
                     GameManager.instance.playerStats.colorSphereCount++;
+                ColorSphereManager.instance.RefreshUI();
             }
         }
     }
