@@ -6759,7 +6759,7 @@ MonoBehaviour:
   buttonsFocus:
   - {fileID: 5010887515492834407}
   - {fileID: 2599836074303203571}
-  energyProgressBar: {fileID: 0}
+  energyProgressBar: {fileID: 4376670784504095201}
 --- !u!114 &2599836076113338959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15021,9 +15021,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44edff50a6c4ef41a6a969e350edf0d, type: 3}
---- !u!224 &3667173451371821437 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1652842992196792045, guid: f44edff50a6c4ef41a6a969e350edf0d,
+--- !u!1 &2214912587732954776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4226780403160955144, guid: f44edff50a6c4ef41a6a969e350edf0d,
     type: 3}
   m_PrefabInstance: {fileID: 2599836074681341840}
   m_PrefabAsset: {fileID: 0}
@@ -15033,9 +15033,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2599836074681341840}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2214912587732954776 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4226780403160955144, guid: f44edff50a6c4ef41a6a969e350edf0d,
+--- !u!224 &3667173451371821437 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1652842992196792045, guid: f44edff50a6c4ef41a6a969e350edf0d,
     type: 3}
   m_PrefabInstance: {fileID: 2599836074681341840}
   m_PrefabAsset: {fileID: 0}
@@ -15169,3 +15169,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7976990092242679138}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4376670784504095201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5912936977209824387, guid: 8ca55ac06642ba2478471f2ae4c7c252,
+    type: 3}
+  m_PrefabInstance: {fileID: 7976990092242679138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4523e841fb9b946aefb2dbafacebe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
