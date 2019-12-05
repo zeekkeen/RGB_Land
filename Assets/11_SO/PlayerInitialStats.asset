@@ -34,7 +34,7 @@ MonoBehaviour:
   startTimeBtwMeleeAttack: 0.2
   startTimeBtwPowerUse: 1
   attackRange: {x: 4, y: 2}
-  activePower: 0
+  activeRangePower: 0
   dashTime: 0
   dashSpeed: 70
   startDashTime: 0.1
@@ -42,5 +42,5 @@ MonoBehaviour:
   verticalStartDashTime: 1
   energyGain: 20
   rangedAttackCost: 25
-  dashCost: 50
+  dashCost: 20
   colorSphereCount: 0
