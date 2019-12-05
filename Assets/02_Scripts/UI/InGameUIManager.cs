@@ -23,8 +23,10 @@ public class InGameUIManager : MonoBehaviour{
     }
 
     void Update() {
-        if(energyProgressBar.current < energyProgressBar.maximum)
+        if(energyProgressBar.current < energyProgressBar.maximum){
             energyProgressBar.current += (Time.deltaTime * GameManager.instance.playerStats.energyGain);
+            energyProgressBar.GetCurrentFill();
+        }
     }
 
     public void UpdateCurrentFill(){

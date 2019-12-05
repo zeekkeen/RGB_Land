@@ -15161,6 +15161,11 @@ PrefabInstance:
       propertyPath: current
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1968165362604288298, guid: 8ca55ac06642ba2478471f2ae4c7c252,
+        type: 3}
+      propertyPath: m_ShowMaskGraphic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ca55ac06642ba2478471f2ae4c7c252, type: 3}
 --- !u!224 &8709310857991112439 stripped
