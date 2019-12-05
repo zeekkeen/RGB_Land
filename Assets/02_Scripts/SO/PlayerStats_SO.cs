@@ -23,7 +23,7 @@ public class PlayerStats_SO : GeneralStats_SO{
     public float timeBtwMeleeAttack,timeBtwPowerUse;
     public float startTimeBtwMeleeAttack = 0.3f,startTimeBtwPowerUse = 0.3f;
     public Vector2 attackRange;
-    public ActivePower activePower;
+    public int activeRangePower;
     public float dashTime;
     public float dashSpeed, startDashTime;
     public float verticalDashTime,verticalStartDashTime;
@@ -33,10 +33,4 @@ public class PlayerStats_SO : GeneralStats_SO{
     public float dashCost;
     //player colorSphereCount
     public int colorSphereCount;
-}
-public enum ActivePower{
-    rangedAttack = 0,
-    dash = 1,
-    colorControll = 2,
-    none = 3
 }

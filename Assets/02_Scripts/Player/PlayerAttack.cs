@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour{
     public LayerMask whatIsEnemies;
     Animator camAnim, playerAnim;
     public Animator attackAnim;
-    public GameObject proyectile;
+    public List<GameObject> proyectiles;
     public Direction attackDirection, dashDirection;
     [HideInInspector]
     public bool dashing = false, facingRight = true;
@@ -33,6 +33,8 @@ public class PlayerAttack : MonoBehaviour{
         inputAction.GamePlay.MeleeAttack.performed += ctx => MeleeAttack();
         inputAction.GamePlay.RangedAttack.performed += ctx => RangedAttack();
         inputAction.GamePlay.ColorControl.performed += ctx => ColorControl();
+        inputAction.GamePlay.NextRangedPower.performed += ctx => NextPower();
+        inputAction.GamePlay.PreviousRangedPower.performed += ctx => PreviousPower();
         inputAction.GamePlay.Dash.started += ctx => Dash();
         // inputAction.GamePlay.Pause.performed += ctx => Pause();
     }
@@ -51,7 +53,7 @@ public class PlayerAttack : MonoBehaviour{
         playerAnim = GetComponentInChildren<Animator>();
         attackDirection = Direction.side;
         dashDirection = Direction.side;
-        GameManager.instance.playerStats.activePower = 0;
+        GameManager.instance.playerStats.activeRangePower = 0;
         crystal = GameObject.FindGameObjectWithTag("Crystal").GetComponent<CrystalController>();
     }
 
@@ -141,9 +143,15 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     void NextPower(){
-        GameManager.instance.playerStats.activePower ++;
-        if(GameManager.instance.playerStats.activePower == ActivePower.none)
-            GameManager.instance.playerStats.activePower = ActivePower.rangedAttack;
+        GameManager.instance.playerStats.activeRangePower ++;
+        if(GameManager.instance.playerStats.activeRangePower == 3)
+            GameManager.instance.playerStats.activeRangePower = 0;
+    }
+
+    void PreviousPower(){
+        GameManager.instance.playerStats.activeRangePower --;
+        if(GameManager.instance.playerStats.activeRangePower == -1)
+            GameManager.instance.playerStats.activeRangePower = 2;
     }
 
     void OnDrawGizmosSelected(){
@@ -261,26 +269,27 @@ public class PlayerAttack : MonoBehaviour{
     }
 
     public void RangedAttack(){
-        if(GameManager.instance.playerStats.timeBtwPowerUse <= 0 && InGameUIManager.instance.energyProgressBar.current >= GameManager.instance.playerStats.rangedAttackCost){
+        // if(GameManager.instance.playerStats.timeBtwPowerUse <= 0 && InGameUIManager.instance.energyProgressBar.current >= GameManager.instance.playerStats.rangedAttackCost){
+        if(InGameUIManager.instance.energyProgressBar.current >= GameManager.instance.playerStats.rangedAttackCost){
             InGameUIManager.instance.energyProgressBar.current -= GameManager.instance.playerStats.rangedAttackCost;
             InGameUIManager.instance.UpdateCurrentFill();
             GameObject instance;
             switch(attackDirection){
                 case Direction.side:
                     crystal.PowerActivated(true);
-                    instance = (GameObject) Instantiate(proyectile,attackPos.position,transform.rotation);
+                    instance = (GameObject) Instantiate(proyectiles[GameManager.instance.playerStats.activeRangePower],attackPos.position,transform.rotation);
                     //playerAnim.SetTrigger("attack");
                     attackAnim.SetTrigger("Active");
                         break;
                 case Direction.top:
                     crystal.PowerActivated(true);
-                    instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
+                    instance = (GameObject) Instantiate(proyectiles[GameManager.instance.playerStats.activeRangePower],transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
                     playerAnim.SetTrigger("attack");
                     attackAnim.SetTrigger("Active");
                         break;
                 case Direction.down:
                     crystal.PowerActivated(true);
-                    instance = (GameObject) Instantiate(proyectile,transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
+                    instance = (GameObject) Instantiate(proyectiles[GameManager.instance.playerStats.activeRangePower],transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
                     playerAnim.SetTrigger("attack");
                     attackAnim.SetTrigger("Active");
                         break;

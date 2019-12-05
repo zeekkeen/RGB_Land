@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 890794326209915488}
   - component: {fileID: 813970136760041219}
   m_Layer: 16
-  m_Name: SwordProyectil
+  m_Name: SwordProyectil1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ea526e1c252394bb0f1d20724c7f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damageMultiplier: 0.5
   destroyEffect: {fileID: 8990843590016243783, guid: 1f42d1ee51583ad4dbd377b04a23eb03,
     type: 3}
   startTime: 1

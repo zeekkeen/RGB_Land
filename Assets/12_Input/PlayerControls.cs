@@ -113,6 +113,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""NextRangedPower"",
+                    ""type"": ""Button"",
+                    ""id"": ""8046b765-66e5-4885-8f84-183ea5cd1d8c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""PreviousRangedPower"",
+                    ""type"": ""Button"",
+                    ""id"": ""29954626-e51d-4515-b8fc-01557ae5ec8b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -500,6 +516,50 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8dc2d19c-9c36-4fe0-86df-b28ca76026d5"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""NextRangedPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea48a095-9fee-483a-83e9-6a79fbf9a190"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""NextRangedPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a48ce34f-a377-47c4-a6c7-95af636d5480"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""PreviousRangedPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17b59f0b-bd7c-4f81-a674-4689159f789f"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PreviousRangedPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -543,6 +603,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_GamePlay_ColorControl = m_GamePlay.FindAction("ColorControl", throwIfNotFound: true);
         m_GamePlay_Dialog = m_GamePlay.FindAction("Dialog", throwIfNotFound: true);
         m_GamePlay_Map = m_GamePlay.FindAction("Map", throwIfNotFound: true);
+        m_GamePlay_NextRangedPower = m_GamePlay.FindAction("NextRangedPower", throwIfNotFound: true);
+        m_GamePlay_PreviousRangedPower = m_GamePlay.FindAction("PreviousRangedPower", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -604,6 +666,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_GamePlay_ColorControl;
     private readonly InputAction m_GamePlay_Dialog;
     private readonly InputAction m_GamePlay_Map;
+    private readonly InputAction m_GamePlay_NextRangedPower;
+    private readonly InputAction m_GamePlay_PreviousRangedPower;
     public struct GamePlayActions
     {
         private @PlayerControls m_Wrapper;
@@ -620,6 +684,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @ColorControl => m_Wrapper.m_GamePlay_ColorControl;
         public InputAction @Dialog => m_Wrapper.m_GamePlay_Dialog;
         public InputAction @Map => m_Wrapper.m_GamePlay_Map;
+        public InputAction @NextRangedPower => m_Wrapper.m_GamePlay_NextRangedPower;
+        public InputAction @PreviousRangedPower => m_Wrapper.m_GamePlay_PreviousRangedPower;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -665,6 +731,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Map.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMap;
                 @Map.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMap;
                 @Map.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMap;
+                @NextRangedPower.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnNextRangedPower;
+                @NextRangedPower.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnNextRangedPower;
+                @NextRangedPower.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnNextRangedPower;
+                @PreviousRangedPower.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPreviousRangedPower;
+                @PreviousRangedPower.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPreviousRangedPower;
+                @PreviousRangedPower.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPreviousRangedPower;
             }
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -705,6 +777,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Map.started += instance.OnMap;
                 @Map.performed += instance.OnMap;
                 @Map.canceled += instance.OnMap;
+                @NextRangedPower.started += instance.OnNextRangedPower;
+                @NextRangedPower.performed += instance.OnNextRangedPower;
+                @NextRangedPower.canceled += instance.OnNextRangedPower;
+                @PreviousRangedPower.started += instance.OnPreviousRangedPower;
+                @PreviousRangedPower.performed += instance.OnPreviousRangedPower;
+                @PreviousRangedPower.canceled += instance.OnPreviousRangedPower;
             }
         }
     }
@@ -741,5 +819,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnColorControl(InputAction.CallbackContext context);
         void OnDialog(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);
+        void OnNextRangedPower(InputAction.CallbackContext context);
+        void OnPreviousRangedPower(InputAction.CallbackContext context);
     }
 }

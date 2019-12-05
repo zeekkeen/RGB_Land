@@ -4478,8 +4478,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   attackAnim: {fileID: 6164804242273386982}
-  proyectile: {fileID: 3781503640603159667, guid: 30ca579c431638c4d933085b556e44c8,
-    type: 3}
+  proyectiles:
+  - {fileID: 3781503640603159667, guid: 30ca579c431638c4d933085b556e44c8, type: 3}
+  - {fileID: 3781503640603159667, guid: 41dec21116de8434cbf076854e6a098d, type: 3}
+  - {fileID: 3781503640603159667, guid: 1ac2f95c7acda4f44b8d6cd39a70c258, type: 3}
   attackDirection: 2
   dashDirection: 2
   dashing: 0
