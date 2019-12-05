@@ -183,7 +183,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
     public bool RedPillar(){
         anim.SetInteger("State", 3);
         GameObject aux = Instantiate(projectile,noGroundDetection.transform.position,Quaternion.identity);
-        aux.GetComponent<RedPillar>().damage = enemyStats.damage;
+        aux.GetComponentInChildren<RedPillar>().damage = enemyStats.damage;
         // anim.SetInteger("State", 2);
         enemyStats.attackSpeedTimer = enemyStats.attackSpeed;
         return true;
@@ -192,6 +192,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
     [Task]
     public bool RedPillarPosition(){
         anim.SetInteger("State", 2);
+        noGroundDetection.transform.parent = null;
         noGroundDetection.transform.position = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x,noGroundDetection.transform.position.y,0);
         return true;
     }
