@@ -18,7 +18,7 @@ public class SoundManager: MonoBehaviour{
         // DontDestroyOnLoad(this);
     }
     void Start() {
-        SoundManager.instance.PlaySound(music);
+        PlaySound(music);
     }
     void Initialize(){
         soundTimerDictionary = new Dictionary<Sound, float>();
@@ -82,7 +82,10 @@ public enum Sound{
     EnemyCornerGreenDead,
     EnemyCornerBlueHit,
     EnemyCornerBlueAttack,
-    EnemyCornerBlueDead
+    EnemyCornerBlueDead,
+    BtnAcceptUI,
+    BtnUpUI,
+    BtnDownUI
 }
 
 [System.Serializable]
