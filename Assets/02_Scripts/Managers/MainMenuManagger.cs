@@ -14,7 +14,7 @@ public class MainMenuManagger : MonoBehaviour{
     public GameObject exitPanel;
     public static MainMenuManagger instance;
     public ButtonThroughKeySelection[]  buttonsFocus;
-    public Sound acceptSound;
+    public string acceptSound;
 
     void Awake() {
         if(instance == null)
