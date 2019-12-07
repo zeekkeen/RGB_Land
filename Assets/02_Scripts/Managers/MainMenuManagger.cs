@@ -14,6 +14,9 @@ public class MainMenuManagger : MonoBehaviour{
     public GameObject exitPanel;
     public static MainMenuManagger instance;
     public ButtonThroughKeySelection[]  buttonsFocus;
+    PlayerControls inputAction;
+    Vector2 movementInput;
+    
 
     void Awake() {
         if(instance == null)
@@ -21,14 +24,27 @@ public class MainMenuManagger : MonoBehaviour{
         else if(instance != this)    
             Destroy(this);
         // DontDestroyOnLoad(this);
+        inputAction = new PlayerControls();
+        inputAction.GamePlay.move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        inputAction.GamePlay.move.canceled += ctx => movementInput = Vector2.zero;
+        inputAction.GamePlay.RangedAttack.performed += ctx => BackBtnPressed();
+    }
+
+    void OnEnable() {
+        inputAction.Enable();
+    }
+
+    void OnDisable() {
+        inputAction.Disable();
     }
 
     void Start(){
-        Back();
-        // if(GameSaveManager.instance.IsSaveFile())
-        //     continueButton.SetActive(true);
-        // else
-        //     continueButton.SetActive(false);
+        mainPanel.SetActive(true);
+        newGamePanel.SetActive(false);
+        loadGamePanel.SetActive(false);
+        optionsPanel.SetActive(false);
+        exitPanel.SetActive(false);
+        buttonsFocus[0].ChangeFocus();
         if (PlayerPrefs.GetInt("gameSlot", -1) != -1){ //el -1 es el valor por defecto que nos da si no encontra nada
             GameSaveManager.instance.gameSlot = PlayerPrefs.GetInt("gameSlot");
             continueButton.SetActive(true);
@@ -36,15 +52,21 @@ public class MainMenuManagger : MonoBehaviour{
             continueButton.SetActive(false);
             GameSaveManager.instance.gameSlot = 0;
         }
-        // if (PlayerPrefs.GetInt("sound", -1) != -1) 
-        //     GameSaveManager.instance.gameSlot = PlayerPrefs.GetInt("sound");
-        // if (PlayerPrefs.GetInt("effects", -1) != -1) 
-        //     GameSaveManager.instance.gameSlot = PlayerPrefs.GetInt("effects");
     }
 
-    // void Update(){
-        
-    // }
+    void Update() {
+        if(movementInput.y < 0f)
+            SoundManager.instance.PlaySound("DownBtn");
+        else if(movementInput.y > 0)
+            SoundManager.instance.PlaySound("UpBtn");
+    }
+
+    void BackBtnPressed(){
+        if(!mainPanel.activeSelf)
+            Back();
+        else
+            Exit();
+    }
 
     public void Back(){
         SoundManager.instance.PlaySound("AcceptBtn");

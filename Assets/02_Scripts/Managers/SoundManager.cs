@@ -30,6 +30,8 @@ public class SoundManager: MonoBehaviour{
     void Initialize(){
         soundTimerDictionary = new Dictionary<string, float>();
         soundTimerDictionary["PlayerMove"] = 0f;
+        soundTimerDictionary["UpBtn"] = 0f;
+        soundTimerDictionary["DownBtn"] = 0f;
     } 
 
     public void PlaySound(string name){
@@ -70,6 +72,28 @@ public class SoundManager: MonoBehaviour{
             default:
                 return true;
             case "PlayerMove":
+                if(soundTimerDictionary.ContainsKey(name)){
+                    float lastTimePlayed = soundTimerDictionary[name];
+                    float playerMoveTimerMax = 0.05f;
+                    if(lastTimePlayed + playerMoveTimerMax < Time.time){
+                        soundTimerDictionary[name] = Time.time;
+                        return true;
+                    }else
+                        return false;
+                }else
+                    return false;
+            case "UpBtn":
+                if(soundTimerDictionary.ContainsKey(name)){
+                    float lastTimePlayed = soundTimerDictionary[name];
+                    float playerMoveTimerMax = 0.05f;
+                    if(lastTimePlayed + playerMoveTimerMax < Time.time){
+                        soundTimerDictionary[name] = Time.time;
+                        return true;
+                    }else
+                        return false;
+                }else
+                    return false;
+            case "DownBtn":
                 if(soundTimerDictionary.ContainsKey(name)){
                     float lastTimePlayed = soundTimerDictionary[name];
                     float playerMoveTimerMax = 0.05f;
