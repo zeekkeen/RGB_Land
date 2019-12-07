@@ -298,7 +298,18 @@
                 {
                     "name": "",
                     "id": "f29b6582-40ee-45f9-ab37-806283a01efc",
-                    "path": "<Keyboard>/leftCtrl",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d582b2f-a688-49d9-9be3-f599395f3a3e",
+                    "path": "<Keyboard>/rightShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -496,7 +507,7 @@
                 {
                     "name": "",
                     "id": "9cd0ccd1-48a5-4f6d-adb3-2d75495aac9f",
-                    "path": "<Keyboard>/m",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -506,8 +517,8 @@
                 },
                 {
                     "name": "",
-                    "id": "8dc2d19c-9c36-4fe0-86df-b28ca76026d5",
-                    "path": "<Keyboard>/d",
+                    "id": "a48ce34f-a377-47c4-a6c7-95af636d5480",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -528,8 +539,8 @@
                 },
                 {
                     "name": "",
-                    "id": "a48ce34f-a377-47c4-a6c7-95af636d5480",
-                    "path": "<Keyboard>/a",
+                    "id": "8dc2d19c-9c36-4fe0-86df-b28ca76026d5",
+                    "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
