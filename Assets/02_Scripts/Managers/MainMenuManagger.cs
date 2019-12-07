@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,8 @@ public class MainMenuManagger : MonoBehaviour{
     public ButtonThroughKeySelection[]  buttonsFocus;
     PlayerControls inputAction;
     Vector2 movementInput;
-    
+    public GameObject controlsPanel;
+    public Animator controlsAnim;
 
     void Awake() {
         if(instance == null)
@@ -42,6 +44,7 @@ public class MainMenuManagger : MonoBehaviour{
         mainPanel.SetActive(true);
         newGamePanel.SetActive(false);
         loadGamePanel.SetActive(false);
+        controlsPanel.SetActive(false);
         optionsPanel.SetActive(false);
         exitPanel.SetActive(false);
         buttonsFocus[0].ChangeFocus();
@@ -70,6 +73,7 @@ public class MainMenuManagger : MonoBehaviour{
 
     public void Back(){
         SoundManager.instance.PlaySound("AcceptBtn");
+        controlsPanel.SetActive(false);
         mainPanel.SetActive(true);
         newGamePanel.SetActive(false);
         loadGamePanel.SetActive(false);
@@ -86,6 +90,7 @@ public class MainMenuManagger : MonoBehaviour{
 
     public void NewGame(){
         SoundManager.instance.PlaySound("AcceptBtn");
+        controlsPanel.SetActive(false);
         mainPanel.SetActive(false);
         newGamePanel.SetActive(true);
         loadGamePanel.SetActive(false);
@@ -108,6 +113,7 @@ public class MainMenuManagger : MonoBehaviour{
         newGamePanel.SetActive(false);
         loadGamePanel.SetActive(true);
         optionsPanel.SetActive(false);
+        controlsPanel.SetActive(false);
         exitPanel.SetActive(false);
         buttonsFocus[2].ChangeFocus();
     }
@@ -115,6 +121,7 @@ public class MainMenuManagger : MonoBehaviour{
     public void Options(){
         SoundManager.instance.PlaySound("AcceptBtn");
         mainPanel.SetActive(false);
+        controlsPanel.SetActive(false);
         newGamePanel.SetActive(false);
         loadGamePanel.SetActive(false);
         optionsPanel.SetActive(true);
@@ -122,9 +129,31 @@ public class MainMenuManagger : MonoBehaviour{
         buttonsFocus[3].ChangeFocus();
     }
 
+    public void ControlsPanel(){
+        // string[] names = Input.GetJoystickNames();
+        // Debug.Log(names.Length);
+        // if(names.Length > 0){
+        //     joystickControls.SetActive(true);
+        //     keyboarControls.SetActive(false);
+        // }else{
+        //     joystickControls.SetActive(false);
+        //     keyboarControls.SetActive(true);
+        // }
+        // ControllerCheck();
+        SoundManager.instance.PlaySound("AcceptBtn");
+        mainPanel.SetActive(false);
+        controlsPanel.SetActive(true);
+        newGamePanel.SetActive(false);
+        loadGamePanel.SetActive(false);
+        optionsPanel.SetActive(false);
+        exitPanel.SetActive(false);
+        buttonsFocus[5].ChangeFocus();
+    }
+
     public void Exit(){
         SoundManager.instance.PlaySound("AcceptBtn");
         mainPanel.SetActive(false);
+        controlsPanel.SetActive(false);
         newGamePanel.SetActive(false);
         loadGamePanel.SetActive(false);
         optionsPanel.SetActive(false);
@@ -148,5 +177,15 @@ public class MainMenuManagger : MonoBehaviour{
 
     public void ChangeIdiom( int n){
         
+    }
+
+    public void KeyboardControls(){
+        controlsAnim.SetBool("keyboard",true);
+        controlsAnim.SetBool("Joystick",false);
+    }
+
+    public void JoystickControls(){
+        controlsAnim.SetBool("Joystick",true);
+        controlsAnim.SetBool("keyboard",false);
     }
 }
