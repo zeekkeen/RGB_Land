@@ -130,16 +130,6 @@ public class MainMenuManagger : MonoBehaviour{
     }
 
     public void ControlsPanel(){
-        // string[] names = Input.GetJoystickNames();
-        // Debug.Log(names.Length);
-        // if(names.Length > 0){
-        //     joystickControls.SetActive(true);
-        //     keyboarControls.SetActive(false);
-        // }else{
-        //     joystickControls.SetActive(false);
-        //     keyboarControls.SetActive(true);
-        // }
-        // ControllerCheck();
         SoundManager.instance.PlaySound("AcceptBtn");
         mainPanel.SetActive(false);
         controlsPanel.SetActive(true);
