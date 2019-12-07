@@ -15051,6 +15051,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProgressBar
       objectReference: {fileID: 0}
+    - target: {fileID: 5912936977209824387, guid: 8ca55ac06642ba2478471f2ae4c7c252,
+        type: 3}
+      propertyPath: current
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1616306476466058133, guid: 8ca55ac06642ba2478471f2ae4c7c252,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15155,11 +15160,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912936977209824387, guid: 8ca55ac06642ba2478471f2ae4c7c252,
-        type: 3}
-      propertyPath: current
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1968165362604288298, guid: 8ca55ac06642ba2478471f2ae4c7c252,
         type: 3}

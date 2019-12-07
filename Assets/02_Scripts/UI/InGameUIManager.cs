@@ -87,10 +87,13 @@ public class InGameUIManager : MonoBehaviour{
 
     public void Reiniciar(){
         GameSaveManager.instance.LoadGameSlot();
-        SceneManager.LoadScene(GameManager.instance.playerData.lastLevel);
+        // SceneManager.LoadScene(GameManager.instance.playerData.lastLevel);
+        TransitionManager.instance.LoadSceneWithTransition(GameManager.instance.playerData.lastLevel);
     }
 
     public void MainMenu(){
-        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
+        TransitionManager.instance.LoadSceneWithTransition("MainMenu");
+        // SceneManager.LoadScene("MainMenu");
     }
 }

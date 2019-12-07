@@ -14,7 +14,6 @@ public class MainMenuManagger : MonoBehaviour{
     public GameObject exitPanel;
     public static MainMenuManagger instance;
     public ButtonThroughKeySelection[]  buttonsFocus;
-    public string acceptSound;
 
     void Awake() {
         if(instance == null)
@@ -48,7 +47,7 @@ public class MainMenuManagger : MonoBehaviour{
     // }
 
     public void Back(){
-        SoundManager.instance.PlaySound(acceptSound);
+        SoundManager.instance.PlaySound("acceptBtn");
         mainPanel.SetActive(true);
         newGamePanel.SetActive(false);
         loadGamePanel.SetActive(false);
@@ -58,13 +57,13 @@ public class MainMenuManagger : MonoBehaviour{
     }
 
     public void Continue(){
-        SoundManager.instance.PlaySound(acceptSound);
+        SoundManager.instance.PlaySound("acceptBtn");
         GameSaveManager.instance.LoadGameSlot();
-        SceneManager.LoadScene(GameManager.instance.playerData.lastLevel);
+        TransitionManager.instance.LoadSceneWithTransition(GameManager.instance.playerData.lastLevel);
     }
 
     public void NewGame(){
-        SoundManager.instance.PlaySound(acceptSound);
+        SoundManager.instance.PlaySound("acceptBtn");
         mainPanel.SetActive(false);
         newGamePanel.SetActive(true);
         loadGamePanel.SetActive(false);
@@ -74,15 +73,15 @@ public class MainMenuManagger : MonoBehaviour{
     }
 
     public void NewGameSlot(int n){
-        SoundManager.instance.PlaySound(acceptSound);
+        SoundManager.instance.PlaySound("acceptBtn");
         GameManager.instance.RestartValues();
         GameSaveManager.instance.SaveGameSlot(n);
         PlayerPrefs.SetInt("gameSlot", n);
-        SceneManager.LoadScene(GameManager.instance.playerData.lastLevel);
+        TransitionManager.instance.LoadSceneWithTransition(GameManager.instance.playerData.lastLevel);
     }
 
     public void LoadGame(){
-        SoundManager.instance.PlaySound(acceptSound);
+        SoundManager.instance.PlaySound("acceptBtn");
         mainPanel.SetActive(false);
         newGamePanel.SetActive(false);
         loadGamePanel.SetActive(true);
@@ -92,7 +91,7 @@ public class MainMenuManagger : MonoBehaviour{
     }
 
     public void Options(){
-        SoundManager.instance.PlaySound(acceptSound);
+        SoundManager.instance.PlaySound("acceptBtn");
         mainPanel.SetActive(false);
         newGamePanel.SetActive(false);
         loadGamePanel.SetActive(false);
@@ -102,7 +101,7 @@ public class MainMenuManagger : MonoBehaviour{
     }
 
     public void Exit(){
-        SoundManager.instance.PlaySound(acceptSound);
+        SoundManager.instance.PlaySound("acceptBtn");
         mainPanel.SetActive(false);
         newGamePanel.SetActive(false);
         loadGamePanel.SetActive(false);
@@ -112,7 +111,7 @@ public class MainMenuManagger : MonoBehaviour{
     }
 
     public void ExitCompleted( bool r){
-        SoundManager.instance.PlaySound(acceptSound);
+        SoundManager.instance.PlaySound("acceptBtn");
         if(r)
             Application.Quit();
         else
@@ -122,7 +121,7 @@ public class MainMenuManagger : MonoBehaviour{
     public void LoadSlot( int n){
         GameSaveManager.instance.LoadGameSlot(n);
         PlayerPrefs.SetInt("gameSlot", n);
-        SceneManager.LoadScene(GameManager.instance.playerData.lastLevel);
+        TransitionManager.instance.LoadSceneWithTransition(GameManager.instance.playerData.lastLevel);
     }
 
     public void ChangeIdiom( int n){

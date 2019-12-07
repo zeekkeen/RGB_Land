@@ -13,7 +13,7 @@ public class Portal : MonoBehaviour{
         if(other.gameObject.tag == "Player"){
             if(achievementRequired == Achievement.NULL || GameManager.instance.SearchAchievement(achievementRequired)){
                 GameManager.instance.SaveGame(newLastPosition, destiny);
-                SceneManager.LoadScene(destiny);
+                TransitionManager.instance.LoadSceneWithTransition(destiny);
             }
         }
     }

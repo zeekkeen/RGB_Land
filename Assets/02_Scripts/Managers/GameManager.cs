@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour{
         if(instance == null)
             instance = this;
         else if(instance != this)    
-            Destroy(this);
+            Destroy(this.gameObject);
         DontDestroyOnLoad(this);
         Cursor.lockState = UnityEngine.CursorLockMode.Locked;
         Cursor.visible = false;

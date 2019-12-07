@@ -56,40 +56,40 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - Name: tribuInicial
+  - Name: TribuInicial
     audioClip: {fileID: 8300000, guid: 5764d46a4c3e21849816940f556b7dd7, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - Name: 
+  - Name: TribuGreen
     audioClip: {fileID: 8300000, guid: 363c5a919a7929147b57fb74f02e09be, type: 3}
-    volume: 0
-    pitch: 0
-    loop: 0
+    volume: 0.5
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
-  - Name: 
+  - Name: TribuBlue
     audioClip: {fileID: 8300000, guid: 535f8a277c57bfb45936c8d75945f876, type: 3}
-    volume: 0
-    pitch: 0
-    loop: 0
+    volume: 0.5
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
-  - Name: 
+  - Name: AcceptBtn
     audioClip: {fileID: 8300000, guid: 0a75823ef47156449844568ef545d6d2, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - Name: 
+  - Name: UpBtn
     audioClip: {fileID: 8300000, guid: b2bd7d519f556e94c842864c977146fb, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - Name: 
+  - Name: DownBtn
     audioClip: {fileID: 8300000, guid: 4cbc78308fd8e514a89c40224cc103f5, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  music: 0
+  music: 
