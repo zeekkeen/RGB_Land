@@ -874,21 +874,21 @@ MonoBehaviour:
   - sentences:
     - 'Antiguo jefe: prueba de conversacion 1.0'
     - 'Antiguo jefe: prueba de conversacion 1.1'
-    - 'Antiguo jefe: prueba de conversacion 1.2'
-    - 'Antiguo jefe: prueba de conversacion 1.3'
-    - 'Antiguo jefe: prueba de conversacion 1.4'
     index: -1
     achievementRequired: 0
-    achievement: 1
+    achievement: 3
   - sentences:
     - 'Antiguo jefe: prueba de conversacion 2.0'
     - 'Antiguo jefe: prueba de conversacion 2.1'
-    - 'Antiguo jefe: prueba de conversacion 2.2'
-    - 'Antiguo jefe: prueba de conversacion 2.3'
-    - 'Antiguo jefe: prueba de conversacion 2.4'
     index: -1
-    achievementRequired: 1
+    achievementRequired: 3
     achievement: 2
+  - sentences:
+    - 'Antiguo jefe: prueba de conversacion 3.0'
+    - 'Antiguo jefe: prueba de conversacion 3.1'
+    index: -1
+    achievementRequired: 2
+    achievement: 0
   index: -1
 --- !u!1 &7018234449299290711
 GameObject:

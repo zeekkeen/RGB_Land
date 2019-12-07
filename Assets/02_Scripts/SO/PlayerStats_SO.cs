@@ -16,7 +16,6 @@ public class PlayerStats_SO : GeneralStats_SO{
     public bool isJumping;
     public bool doubleJump;
     //player habilities unlocked
-    public bool dash;
     public bool stealAndGiveColor;
     public bool rangedAttack1,rangedAttack2,rangedAttack3;
     //player attack

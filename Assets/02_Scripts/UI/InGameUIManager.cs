@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InGameUIManager : MonoBehaviour{
 
@@ -13,6 +14,7 @@ public class InGameUIManager : MonoBehaviour{
     public ButtonThroughKeySelection[]  buttonsFocus;
     PlayerControls inputAction;
     public LinearProgressBar energyProgressBar;
+    public Image circleImage;
     public static InGameUIManager instance;
 
     void Awake() {
@@ -26,6 +28,23 @@ public class InGameUIManager : MonoBehaviour{
         if(energyProgressBar.current < energyProgressBar.maximum){
             energyProgressBar.current += (Time.deltaTime * GameManager.instance.playerStats.energyGain);
             energyProgressBar.GetCurrentFill();
+        }
+    }
+
+    public void UpdateCircleColor(){
+        switch(GameManager.instance.playerStats.activeRangePower){
+            // case -1:
+            //     circleImage.color = Color.white;
+            // break;
+            case 0:
+                circleImage.color = Color.red;
+            break;
+            case 1:
+                circleImage.color = Color.green;
+            break;
+            case 2:
+                circleImage.color = Color.blue;
+            break;
         }
     }
 
@@ -49,7 +68,8 @@ public class InGameUIManager : MonoBehaviour{
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
         mapPanel.SetActive(false);
-        Time.timeScale = 1;
+        // Time.timeScale = 1;
+        GameManager.instance.playerData.inPause = false;
     }
 
     public void MapPanel(){
@@ -59,7 +79,8 @@ public class InGameUIManager : MonoBehaviour{
             pausePanel.SetActive(false);
             mapPanel.SetActive(mapOpened);
             gameOverPanel.SetActive(false);
-            Time.timeScale = mapOpened ? 0 : 1;
+            // Time.timeScale = mapOpened ? 0 : 1;
+            GameManager.instance.playerData.inPause = mapOpened ? true : false;
         }
     }
 
@@ -72,17 +93,19 @@ public class InGameUIManager : MonoBehaviour{
             if(pauseOpened)
                 buttonsFocus[0].ChangeFocus();
             mapPanel.SetActive(false);
-            Time.timeScale = pauseOpened ? 0 : 1;
+            // Time.timeScale = pauseOpened ? 0 : 1;
+            GameManager.instance.playerData.inPause = pauseOpened ? true : false;
         }
     }
 
     public void GameOverPanel(){
+        GameManager.instance.playerData.inPause = true;
         inGamePanel.SetActive(false);
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(true);
         buttonsFocus[1].ChangeFocus();
         mapPanel.SetActive(false);
-        Time.timeScale = 0;
+        // Time.timeScale = 0;
     }
 
     public void Reiniciar(){

@@ -15,12 +15,12 @@ public class CrystalController : MonoBehaviour{
     Animator anim;
     bool powerActivated = false;
 
-    void Start(){
-        transform.position = startPosition.transform.position;
-        gemRenderer = GetComponentInChildren<SpriteRenderer>();
-        anim = GetComponentInChildren<Animator>();
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-    }
+    // void Start(){
+    //     transform.position = startPosition.transform.position;
+    //     gemRenderer = GetComponentInChildren<SpriteRenderer>();
+    //     anim = GetComponentInChildren<Animator>();
+    //     playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    // }
 
     void Update(){
         if(playerController != null){
@@ -33,6 +33,15 @@ public class CrystalController : MonoBehaviour{
             else 
                 transform.position = Vector2.MoveTowards(transform.position,startPosition.transform.position, moveSpeed * 3 * Time.deltaTime);
         }
+    }
+
+    public void InitializeCrystal(GameObject sP1, GameObject sP2){
+        gemRenderer = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        startPosition = sP1;
+        startPosition2 = sP2;
+        transform.position = startPosition.transform.position;
     }
 
     void RotateAround(){

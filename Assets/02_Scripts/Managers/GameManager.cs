@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour{
         foreach (Dialog_SO dialog in allDialogs){
             dialog.index = -1;
         }
+        playerData.inPause = false;
         playerStats = Instantiate(playerInitialStats);
         playerData.lastPosition = initialPosition;
         playerData.lastLevel = "TribuInicial";
@@ -59,6 +60,22 @@ public class GameManager : MonoBehaviour{
 
     public void AddAchievement(Achievement aux){
         playerData.achievements.Add(aux);
+        switch(aux){
+            case Achievement.ColorControll:
+                playerStats.stealAndGiveColor = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>().SpawnCrystal();
+            break;
+            case Achievement.RangeAttack1:
+                playerStats.rangedAttack1 = true;
+            break;
+            case Achievement.RangeAttack2:
+                playerStats.rangedAttack2 = true;
+            break;
+            case Achievement.RangeAttack3:
+                playerStats.rangedAttack3 = true;
+            break;
+
+        }
     }
 
     public void ResetAchievements(){
@@ -69,5 +86,9 @@ public class GameManager : MonoBehaviour{
 public enum Achievement{
     NULL,
     SkullChief_Conversation_1,
-    SkullChief_Conversation_2
+    SkullChief_Conversation_2,
+    ColorControll,
+    RangeAttack1,
+    RangeAttack2,
+    RangeAttack3
 }

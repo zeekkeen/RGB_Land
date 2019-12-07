@@ -42,7 +42,7 @@ public class DialogSystem : MonoBehaviour{
     }
 
     public void NextSentence(){
-        if(dialog != null){
+        if(dialog != null && trigger != null){
             if(((textDisplay.text == dialog.sentences[(dialog.index == -1) ? dialog.index + 1 : dialog.index])) || dialog.index == -1){
                 if(dialog.index < dialog.sentences.Count - 1){
                     dialog.index++;
@@ -62,7 +62,7 @@ public class DialogSystem : MonoBehaviour{
         }
     }
     public void OpenPopUp(Dialog_SO aux, ITriggerObject aux2){
-        if(aux != null){
+        if(aux != null && aux2 != null){
             if(aux.index != aux.sentences.Count - 1){
                 aux.index = -1;
                 dialog = aux;

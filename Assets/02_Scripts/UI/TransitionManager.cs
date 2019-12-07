@@ -27,8 +27,10 @@ public class TransitionManager : MonoBehaviour{
     }
     
     IEnumerator LoadScene(){
+        GameManager.instance.playerData.inPause = true;
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(1.5f);
+        GameManager.instance.playerData.inPause = false;
         SceneManager.LoadScene(sceneNameToLoad);
     }
 }
