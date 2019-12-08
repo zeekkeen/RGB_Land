@@ -155,6 +155,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""e8d7e6b1-ec05-4e05-bfac-d97725700d65"",
+                    ""path"": ""<HID::Twin USB Joystick>/button3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""WASD"",
                     ""id"": ""25a6e99f-e2fe-4829-8288-721a74a7f110"",
                     ""path"": ""2DVector"",
@@ -221,6 +232,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""f454c677-47e5-42a0-b0ce-0bc32f7e9d8c"",
+                    ""path"": ""<HID::Twin USB Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""GamePadArrows"",
                     ""id"": ""b623efb2-1476-4a53-b897-0dd6ce11c9a1"",
                     ""path"": ""2DVector"",
@@ -276,6 +298,61 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""GamePadArrows"",
+                    ""id"": ""d5e4b6e0-4cc5-4a5b-b49f-5851cd6dbe3a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a399b5a8-1403-47cc-8fda-2313f6d17f0c"",
+                    ""path"": ""<HID::Twin USB Joystick>/hat/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""5724232e-7cd1-4e2c-ae1a-39d7691f3000"",
+                    ""path"": ""<HID::Twin USB Joystick>/hat/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ad8fe3f5-2be7-4c91-b68a-2e50e791ba6c"",
+                    ""path"": ""<HID::Twin USB Joystick>/hat/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ebae1782-44cc-4ca9-87b9-7fee10323290"",
+                    ""path"": ""<HID::Twin USB Joystick>/hat/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""84dd54b9-524b-4535-9404-caaf52ba0b14"",
                     ""path"": ""<Keyboard>/escape"",
@@ -299,6 +376,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""bec0f92d-77f0-4318-87cb-735d1871fb0d"",
+                    ""path"": ""<HID::Twin USB Joystick>/button10"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""1b64c2bc-4bef-4676-9c85-8049aabecabd"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
@@ -311,10 +399,32 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f29b6582-40ee-45f9-ab37-806283a01efc"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d582b2f-a688-49d9-9be3-f599395f3a3e"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b63fb9ba-097e-4d1c-a8d3-cc49ce7b49bf"",
+                    ""path"": ""<HID::Twin USB Joystick>/button6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -343,6 +453,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c6648ce4-0fa9-4220-af8a-4973273a081d"",
+                    ""path"": ""<HID::Twin USB Joystick>/button4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""cc5bc211-4442-40ce-bc92-cae0b2076166"",
                     ""path"": ""<Keyboard>/anyKey"",
                     ""interactions"": """",
@@ -356,6 +477,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""59b6a7e5-bbc5-426b-b8a2-b2ef837aaa96"",
                     ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""anykey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e86645d4-5d6f-41c7-8db6-3ab6dd182ad7"",
+                    ""path"": ""<HID::Twin USB Joystick>/hat"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -398,6 +530,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9b6187f1-5de8-4f46-9ea9-1e358859447d"",
+                    ""path"": ""<HID::Twin USB Joystick>/hat/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MoveLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b27dd1d8-e996-499d-ac96-85832ac9396e"",
+                    ""path"": ""<Joystick>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MoveLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b5dcbf6f-e59e-4335-a7e5-464683c8d63c"",
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
@@ -409,8 +563,30 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3af7f794-ba7c-4b5e-a478-e7c40464404f"",
+                    ""path"": ""<HID::Twin USB Joystick>/hat/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MoveRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""058e7019-0f6c-48fc-8af0-67d87f9d35bf"",
                     ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MoveRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7297a5ab-3f4d-45fa-b167-e8026be320b9"",
+                    ""path"": ""<Joystick>/stick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -433,6 +609,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""575e605d-9495-47a8-84a7-786b760148d5"",
                     ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RangedAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c885be79-a45b-4f1d-b184-cc5fd05a79f9"",
+                    ""path"": ""<HID::Twin USB Joystick>/button2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -475,6 +662,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""0794a70c-459d-4eac-a076-39ed9e85fa78"",
+                    ""path"": ""<HID::Twin USB Joystick>/button5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ColorControl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9cbd9c3e-b153-49c6-8b73-149e58df4e05"",
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
@@ -497,6 +695,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""b1ab2d95-ea13-4a32-a611-a68b4450ede6"",
+                    ""path"": ""<HID::Twin USB Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""247682fc-22be-4a3c-8e7a-f2a7d7ec46e5"",
                     ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
@@ -508,8 +717,19 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ebc9e2f0-c14a-4e39-9609-970a34139f75"",
+                    ""path"": ""<HID::Twin USB Joystick>/button9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9cd0ccd1-48a5-4f6d-adb3-2d75495aac9f"",
-                    ""path"": ""<Keyboard>/m"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -519,8 +739,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8dc2d19c-9c36-4fe0-86df-b28ca76026d5"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""id"": ""a48ce34f-a377-47c4-a6c7-95af636d5480"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -541,8 +761,19 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a48ce34f-a377-47c4-a6c7-95af636d5480"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""id"": ""78250e4f-91ec-4892-862b-9db4abe88fc4"",
+                    ""path"": ""<HID::Twin USB Joystick>/button8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""NextRangedPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8dc2d19c-9c36-4fe0-86df-b28ca76026d5"",
+                    ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -554,6 +785,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""17b59f0b-bd7c-4f81-a674-4689159f789f"",
                     ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PreviousRangedPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""084d1797-a944-420e-bf1a-53f6e546d23a"",
+                    ""path"": ""<HID::Twin USB Joystick>/button7"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",

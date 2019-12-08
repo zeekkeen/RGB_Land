@@ -96,12 +96,12 @@ public class ColorObject : MonoBehaviour{
     public virtual void PaintedAction(){
         GameManager.instance.playerStats.colorSphereCount--;
         ColorSphereManager.instance.RefreshUI();
-        Debug.Log("pinto + "+GameManager.instance.playerStats.colorSphereCount);
+        // Debug.Log("pinto + "+GameManager.instance.playerStats.colorSphereCount);
     }
 
     public virtual void UnPaintedAction(){
         GameManager.instance.playerStats.colorSphereCount++;
         ColorSphereManager.instance.RefreshUI();
-        Debug.Log("despinto + "+GameManager.instance.playerStats.colorSphereCount);
+        // Debug.Log("despinto + "+GameManager.instance.playerStats.colorSphereCount);
     }
 }
