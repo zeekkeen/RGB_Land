@@ -228,6 +228,8 @@ public class PlayerAttack : MonoBehaviour{
                 nextAttackCombo ++;
             if(GameManager.instance.playerStats.timeBtwMeleeAttack <= 0){
                 attackAnim.SetBool("active",true);
+                // SoundManager.instance.PlaySound("VoiceAttac1");
+                SoundManager.instance.PlaySound("AttacPlayer1(Sword)");
                 Collider2D[] enemiesToDamage;
                 switch(attackDirection){
                     case Direction.side:
@@ -282,6 +284,8 @@ public class PlayerAttack : MonoBehaviour{
     public void MeleeAttack2(){
         attackCombo ++;
             attackAnim.SetBool("active",true);
+            SoundManager.instance.PlaySound("VoiceAttac1");
+            SoundManager.instance.PlaySound("AttacPlayer2(Sword)");
             Collider2D[] enemiesToDamage;
             switch(attackDirection){
                 case Direction.side:
@@ -328,6 +332,7 @@ public class PlayerAttack : MonoBehaviour{
             if(InGameUIManager.instance.energyProgressBar.current >= GameManager.instance.playerStats.rangedAttackCost){
                 InGameUIManager.instance.energyProgressBar.current -= GameManager.instance.playerStats.rangedAttackCost;
                 InGameUIManager.instance.UpdateCurrentFill();
+                SoundManager.instance.PlaySound("AttacPlayerF");
                 GameObject instance;
                 switch(attackDirection){
                     case Direction.side:
@@ -364,6 +369,7 @@ public class PlayerAttack : MonoBehaviour{
                     GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime;
                     Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
                 }
+                SoundManager.instance.PlaySound("AttacPlayer1(Sword)");
                 dashing = true;
                 playerAnim.SetBool("Dash",true);
                 GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
