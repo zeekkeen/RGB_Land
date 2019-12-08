@@ -1327,19 +1327,16 @@ MonoBehaviour:
   enemyStats: {fileID: 0}
   unitTypeOfColor: 2
   lifeRender:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6452251026943466459}
+  - {fileID: 2623640935955813083}
+  - {fileID: 8409870219155709443}
+  - {fileID: 2793371669291219049}
+  - {fileID: 1830172501779916857}
+  - {fileID: 4598602533787864988}
+  - {fileID: 210626229080957235}
+  - {fileID: 8274139430070075117}
+  - {fileID: 3823790473269019192}
+  - {fileID: 8379838910415485965}
   bloodEffect: {fileID: 8990843590016243783, guid: d5cd413b3b4f1a249aba2851a6430d0a,
     type: 3}
   deathEffect: {fileID: 8990843590016243783, guid: d08aa58738e9bd644a350b20a6e02a89,
