@@ -14,4 +14,5 @@ public class PlayerData_SO : ScriptableObject {
     public List<MapPieceInfo> allMapPieces;
     public Vector3 playerPinPosition;
     public List<Achievement> achievements = new List<Achievement>();
+    public bool inPause;
 }

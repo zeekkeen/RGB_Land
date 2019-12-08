@@ -4474,6 +4474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPos: {fileID: 8212746029141779355}
+  attackPos2: {fileID: 8212746029656648405}
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 512
@@ -4487,6 +4488,8 @@ MonoBehaviour:
   dashing: 0
   facingRight: 1
   dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
+    type: 3}
+  crystalPrefab: {fileID: 4737655087148058126, guid: b373533de13dd324b9b4d7527afe17c6,
     type: 3}
   crystal: {fileID: 0}
 --- !u!70 &8212746029264478202

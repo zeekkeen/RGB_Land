@@ -58,38 +58,40 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
     }
 
     void Update(){
-        GameManager.instance.playerStats.isGrounded = Physics2D.OverlapCircle(groundPos.position, GameManager.instance.playerStats.checkRadius, whatIsGround);
+        if(!GameManager.instance.playerData.inPause){
+            GameManager.instance.playerStats.isGrounded = Physics2D.OverlapCircle(groundPos.position, GameManager.instance.playerStats.checkRadius, whatIsGround);
 
-        if(GameManager.instance.playerStats.isGrounded){
-            rb.sharedMaterial.friction = 0.4f;
-            // rb.gravityScale = 1;
-        }
-        else{
-            rb.sharedMaterial.friction = 0;
-            // rb.gravityScale = 5;
-        }
+            if(GameManager.instance.playerStats.isGrounded){
+                rb.sharedMaterial.friction = 0.4f;
+                // rb.gravityScale = 1;
+            }
+            else{
+                rb.sharedMaterial.friction = 0;
+                // rb.gravityScale = 5;
+            }
 
-        if(GameManager.instance.playerStats.isGrounded){
-            GameManager.instance.playerStats.doubleJump = false;
-            anim.SetBool("IsJumping", false);
-        }
-        else
-            anim.SetBool("IsJumping", true);
-        // float moveInput = movementInputX.x;
-        if(!GetComponent<PlayerAttack>().dashing)
-            rb.velocity = new Vector2(movementInputX * GameManager.instance.playerStats.moveSpeed, rb.velocity.y);
-        if(movementInputX == 0)
-            anim.SetBool("IsRunning",false);
-        else 
-            anim.SetBool("IsRunning",true);
+            if(GameManager.instance.playerStats.isGrounded){
+                GameManager.instance.playerStats.doubleJump = false;
+                anim.SetBool("IsJumping", false);
+            }
+            else
+                anim.SetBool("IsJumping", true);
+            // float moveInput = movementInputX.x;
+            if(!GetComponent<PlayerAttack>().dashing)
+                rb.velocity = new Vector2(movementInputX * GameManager.instance.playerStats.moveSpeed, rb.velocity.y);
+            if(movementInputX == 0)
+                anim.SetBool("IsRunning",false);
+            else 
+                anim.SetBool("IsRunning",true);
 
-        if(movementInputX < 0){
-            transform.eulerAngles = new Vector3(0,180,0);
-            facingRight = false;
-        }
-        else if(movementInputX > 0){
-            transform.eulerAngles = new Vector3(0,0,0);
-            facingRight = true;
+            if(movementInputX < 0){
+                transform.eulerAngles = new Vector3(0,180,0);
+                facingRight = false;
+            }
+            else if(movementInputX > 0){
+                transform.eulerAngles = new Vector3(0,0,0);
+                facingRight = true;
+            }
         }
     }
 
@@ -106,53 +108,47 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
 
     void OnCollisionStay2D(Collision2D other) {
         if(other.gameObject.tag == "platform"){
-            transform.parent = other.transform;
+            // transform.parent = other.transform;
+            transform.SetParent(other.transform);
              GameManager.instance.playerStats.isGrounded = true;
         }
     }
 
     void OnCollisionExit2D(Collision2D other) {
         if(other.gameObject.tag == "platform"){
-            transform.parent = null;
+            // transform.parent = null;
+            transform.SetParent(null);
              GameManager.instance.playerStats.isGrounded = false;
         }
     }
 
-    // void OnTriggerEnter2D(Collider2D other){
-    //     if(other.gameObject.GetComponent<ITriggerObject>() != null)
-    //         other.gameObject.GetComponent<ITriggerObject>().EnterActions();
-    // }
-
-    // void OnTriggerExit2D(Collider2D other){
-    //     if(other.gameObject.GetComponent<ITriggerObject>() != null)
-    //         other.gameObject.GetComponent<ITriggerObject>().ExitActions();
-    // }
-
     public void Jump(){
-        if(GameManager.instance.playerStats.isGrounded){
-            anim.SetTrigger("takeOf");
-            GameManager.instance.playerStats.isJumping = true;
-            GameManager.instance.playerStats.jumpTimeCounter = GameManager.instance.playerStats.jumpTime;
-            rb.velocity = Vector2.up * GameManager.instance.playerStats.jumpForce;
-            Instantiate(dustEffect,transform.position,Quaternion.identity);
-        }
-        //
-        if(GameManager.instance.playerStats.isJumping){
-            if(GameManager.instance.playerStats.jumpTimeCounter > 0){
+        if(!GameManager.instance.playerData.inPause){
+            if(GameManager.instance.playerStats.isGrounded){
+                anim.SetTrigger("takeOf");
+                GameManager.instance.playerStats.isJumping = true;
+                GameManager.instance.playerStats.jumpTimeCounter = GameManager.instance.playerStats.jumpTime;
                 rb.velocity = Vector2.up * GameManager.instance.playerStats.jumpForce;
                 Instantiate(dustEffect,transform.position,Quaternion.identity);
-                GameManager.instance.playerStats.jumpTimeCounter -= Time.deltaTime;
             }
-            else
-                GameManager.instance.playerStats.isJumping = false;
-        }
-        //
-        if(!GameManager.instance.playerStats.isGrounded && !GameManager.instance.playerStats.doubleJump){
-            GameManager.instance.playerStats.doubleJump = true;
-            GameManager.instance.playerStats.isJumping = true;
-            GameManager.instance.playerStats.jumpTimeCounter = GameManager.instance.playerStats.jumpTime;
-            rb.velocity = Vector2.up * GameManager.instance.playerStats.jumpForce;
-            Instantiate(dustEffect,transform.position,Quaternion.identity);
+            //
+            if(GameManager.instance.playerStats.isJumping){
+                if(GameManager.instance.playerStats.jumpTimeCounter > 0){
+                    rb.velocity = Vector2.up * GameManager.instance.playerStats.jumpForce;
+                    Instantiate(dustEffect,transform.position,Quaternion.identity);
+                    GameManager.instance.playerStats.jumpTimeCounter -= Time.deltaTime;
+                }
+                else
+                    GameManager.instance.playerStats.isJumping = false;
+            }
+            //
+            if(!GameManager.instance.playerStats.isGrounded && !GameManager.instance.playerStats.doubleJump){
+                GameManager.instance.playerStats.doubleJump = true;
+                GameManager.instance.playerStats.isJumping = true;
+                GameManager.instance.playerStats.jumpTimeCounter = GameManager.instance.playerStats.jumpTime;
+                rb.velocity = Vector2.up * GameManager.instance.playerStats.jumpForce;
+                Instantiate(dustEffect,transform.position,Quaternion.identity);
+            }
         }
     }
     
