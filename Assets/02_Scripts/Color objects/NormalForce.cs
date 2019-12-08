@@ -5,6 +5,7 @@ using UnityEngine;
 public class NormalForce : MonoBehaviour{
 
     public float force;
+	public bool destroyable;
 
     void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.tag == "Player" ){
@@ -16,5 +17,12 @@ public class NormalForce : MonoBehaviour{
             if(takeDamage != null)
                 takeDamage.TakeDamage(1);
 		}
+			if(destroyable)
+				StartCoroutine(Destroyer());
 	}
+
+	IEnumerator Destroyer(){
+        yield return new WaitForSeconds(1.0f);
+        Destroy(this.gameObject);
+    }
 }
