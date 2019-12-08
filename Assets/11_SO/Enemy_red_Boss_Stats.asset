@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c29b9341b697346abd66037faa43f1, type: 3}
   m_Name: Enemy_red_Boss_Stats
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  currentHealth: 1000
+  maxHealth: 2000
+  currentHealth: 2000
   damage: 1
   moveSpeed: 5
   attackSpeed: 1.5
