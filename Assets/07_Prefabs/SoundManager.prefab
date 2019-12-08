@@ -92,4 +92,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - Name: DownBtn
+    audioClip: {fileID: 8300000, guid: 4cbc78308fd8e514a89c40224cc103f5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   music: 
