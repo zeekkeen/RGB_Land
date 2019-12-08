@@ -180,6 +180,19 @@ public class Unit: MonoBehaviour, ITakeDamage{
     }
 
     [Task]
+    public bool MultipleRangeAttack(int modifier){
+        anim.SetInteger("State", 3);
+        GameObject aux = Instantiate(projectile,noGroundDetection.transform.position,noGroundDetection.transform.rotation);
+        aux.transform.Rotate(0,0,Random.Range(5,modifier));
+        Instantiate(projectile,noGroundDetection.transform.position,noGroundDetection.transform.rotation);
+        GameObject aux2 = Instantiate(projectile,noGroundDetection.transform.position,noGroundDetection.transform.rotation);
+        aux2.transform.Rotate(0,0,-Random.Range(5,modifier));
+        // anim.SetInteger("State", 2);
+        enemyStats.attackSpeedTimer = enemyStats.attackSpeed;
+        return true;
+    }
+
+    [Task]
     public bool RedPillar(){
         anim.SetInteger("State", 3);
         GameObject aux = Instantiate(projectile,noGroundDetection.transform.position,Quaternion.identity);
