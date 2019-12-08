@@ -4477,7 +4477,7 @@ MonoBehaviour:
   attackPos2: {fileID: 8212746029656648405}
   whatIsEnemies:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4194816
   attackAnim: {fileID: 6164804242273386982}
   proyectiles:
   - {fileID: 3781503640603159667, guid: 30ca579c431638c4d933085b556e44c8, type: 3}
@@ -4520,7 +4520,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 3804160
+    m_Bits: 7998464
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 10
