@@ -1361,7 +1361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc37c6817b0b245bb638e73467ea60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statsTemplate: {fileID: 11400000, guid: 1e3516781ffca3845a2617e3e23b9f24, type: 2}
+  statsTemplate: {fileID: 11400000, guid: 147956f6971247341914e1b40f7005cf, type: 2}
   enemyStats: {fileID: 0}
   unitTypeOfColor: 1
   lifeRender:
