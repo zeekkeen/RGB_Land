@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minTime: 0.5
   maxTime: 1.5
-  minDistance: 16
+  minDistance: 20
 --- !u!1102 &-6025925729621415844
 AnimatorState:
   serializedVersion: 5
