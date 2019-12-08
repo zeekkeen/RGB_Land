@@ -92,10 +92,70 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - Name: DownBtn
-    audioClip: {fileID: 8300000, guid: 4cbc78308fd8e514a89c40224cc103f5, type: 3}
+  - Name: AttacPlayer1(Sword)
+    audioClip: {fileID: 8300000, guid: 881ab88178c819c4ab9bebbfd40aa834, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - Name: AttacPlayer2(Sword)
+    audioClip: {fileID: 8300000, guid: 48a0270462acccd459e4bde42f59485b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - Name: AttacPlayerF(Sword)
+    audioClip: {fileID: 8300000, guid: bebae61bd41b786448d19966a66435f2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - Name: VoiceAttac1
+    audioClip: {fileID: 8300000, guid: b4b8e8bf8c99ca449b80fcc00e55e26e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - Name: VoiceAttac2
+    audioClip: {fileID: 8300000, guid: 194a065181d1e0c4f978bcadb4da8a06, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - Name: DeadPlayer
+    audioClip: {fileID: 8300000, guid: 94a3abbae836dbf4e9fb434de89e3405, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - Name: JumpPlayer
+    audioClip: {fileID: 8300000, guid: 4737ce6340a3e8347932c4a5fe1e6bb4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - Name: WalkPlayer
+    audioClip: {fileID: 8300000, guid: e87dca5b5069b114196267b140e71456, type: 3}
+    volume: 0.438
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - Name: FallenPlayer
+    audioClip: {fileID: 8300000, guid: 2eacc0f8d3033324ea17f4a41f3314ed, type: 3}
+    volume: 0.438
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - Name: HitEnemi
+    audioClip: {fileID: 8300000, guid: d2056434c5fad524f8f2bac86b9f5db3, type: 3}
+    volume: 0.438
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - Name: HitPlayer
+    audioClip: {fileID: 8300000, guid: d11ee992cebd5ed43aadbc2c268bec96, type: 3}
+    volume: 0.438
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
   music: 
