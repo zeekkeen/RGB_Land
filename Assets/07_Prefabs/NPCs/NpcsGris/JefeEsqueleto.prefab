@@ -872,23 +872,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NewNPCDialog:
   - sentences:
-    - 'Antiguo jefe: prueba de conversacion 1.0'
-    - 'Antiguo jefe: prueba de conversacion 1.1'
+    - "Alg\xFAn d\xEDa el destino nos iba a encontrar, Hola soy el GUARDI\xC1N DE
+      LAS CAVERNAS Y PROTECTOR DEL CRISTAL.... Me imagino que vienes por una encomienda\u2026
+      bueno d\xE9jame que te explique que es este lugar."
+    - "Este lugar antes era un lugar tranquilo los colores eran arm\xF3nicos y ninguno
+      se odiaba hasta que llego la oscuridad y usurp\xF3 en el coraz\xF3n de las tribus
+      haci\xE9ndoles m\xE1s fuerte y m\xE1s malos, y un d\xEDa 3 caballeros con los
+      cristales del destino restauraron la paz y los colores hasta el d\xEDa del hoy
+      que el pueblo que controlaba los colores lo perdi\xF3 todo y las dem\xE1s tribus
+      infectadas da\xF1aron y eliminaron toda relaci\xF3n con las otras."
+    - "Sera mejor que est\xE9s en buenas manos, toma te entrego mi mejor compa\xF1\xEDa
+      EL CRISTAL DE LOS COLORES, con el podr\xE1s controlar los colores y usarlos
+      a tu beneficio."
+    - "Te dir\xE9 que este cristal es muy antiguo e importante para cumplir y restaurar
+      el orden de los colores."
+    - "Para usar es muy f\xE1cil solo encuentra un objeto con un color poco com\xFAn
+      y el cristal har\xE1 lo suyo por sustraer y usarlo y otro lado que te liberar\xE1
+      varios caminos."
+    - "Solo te encomendare una cosa que es traer un objeto para que te pueda ense\xF1ar
+      a abrir las puertas de las otras tribus, es una especie de talism\xE1n, lo perd\xED
+      entre la cueva si lo encuentras, tr\xE1elo conmigo para que te ense\xF1e y cumplas
+      con tu destino."
     index: -1
     achievementRequired: 0
     achievement: 3
   - sentences:
-    - 'Antiguo jefe: prueba de conversacion 2.0'
-    - 'Antiguo jefe: prueba de conversacion 2.1'
+    - "Vaya pudiste encontrarla, jajaj donde estaba seguro por ah\xED tirado junto
+      esos Gramblajs."
+    - "Bueno ya que me ayudaste te ayudare tambi\xE9n...."
+    - "Listo ya est\xE1 para abrir cualquier puerta solo si tiene el respectivo color
+      obviamente."
+    - "Buena suerte, compa\xF1ero por que la necesitara si quieres recuperar el color
+      y restaurar el destino"
     index: -1
     achievementRequired: 3
     achievement: 2
-  - sentences:
-    - 'Antiguo jefe: prueba de conversacion 3.0'
-    - 'Antiguo jefe: prueba de conversacion 3.1'
-    index: -1
-    achievementRequired: 2
-    achievement: 0
   index: -1
 --- !u!1 &7018234449299290711
 GameObject:

@@ -146,8 +146,14 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - Name: HitPlayer
+  - Name: HitEnemi
     audioClip: {fileID: 8300000, guid: d2056434c5fad524f8f2bac86b9f5db3, type: 3}
+    volume: 0.438
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - Name: HitPlayer
+    audioClip: {fileID: 8300000, guid: d11ee992cebd5ed43aadbc2c268bec96, type: 3}
     volume: 0.438
     pitch: 1
     loop: 1
