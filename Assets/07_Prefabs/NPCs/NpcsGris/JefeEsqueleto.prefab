@@ -907,6 +907,12 @@ MonoBehaviour:
     index: -1
     achievementRequired: 3
     achievement: 2
+  - sentences:
+    - "Buena suerte, compa\U000E7CEF por que la necesitara si quieres recuperar el
+      color y restaurar el destino"
+    index: -1
+    achievementRequired: 2
+    achievement: 0
   index: -1
 --- !u!1 &7018234449299290711
 GameObject:
