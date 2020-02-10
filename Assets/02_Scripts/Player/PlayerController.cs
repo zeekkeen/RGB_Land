@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
     void MoveCanceled(){
         movementInputX = 0;
     }
+    
     void Start(){
         rb  = GetComponent<Rigidbody2D>();
         // anim = GetComponentInChildren<Animator>();
