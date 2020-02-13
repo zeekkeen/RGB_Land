@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour{
     public List<GameObject> proyectiles;
     public Direction attackDirection, dashDirection;
     [HideInInspector]
-    public bool dashing = false, facingRight = true;
+    public bool dashing = false, facingRight = true, slashing = false;
     public GameObject dashEffect;
     public GameObject crystalPrefab;
     public CrystalController crystal;
@@ -143,6 +143,7 @@ public class PlayerAttack : MonoBehaviour{
                     GameManager.instance.playerStats.dashTime = 0;
                     //rb.velocity = Vector2.zero;
                     dashing = false;
+                    slashing = false;
                     if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side  || dashDirection == Direction.down)
                         Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)), transform.position.y + 1, transform.position.z), Quaternion.identity);
                 }
@@ -337,26 +338,59 @@ public class PlayerAttack : MonoBehaviour{
                 switch(attackDirection){
                     case Direction.side:
                         crystal.PowerActivated(true);
-                        instance = (GameObject) Instantiate(proyectiles[GameManager.instance.playerStats.activeRangePower],attackPos.position,transform.rotation);
-                        //playerAnim.SetTrigger("attack");
+                        if(GameManager.instance.playerStats.activeRangePower != 1){
+                            instance = (GameObject) Instantiate(proyectiles[GameManager.instance.playerStats.activeRangePower], attackPos.position, transform.rotation);
                         attackAnim.SetTrigger("Active");
+                        rb.velocity = Vector2.zero;
+                        }
+                        else{
+                            Slash();
+                        }
+                        //playerAnim.SetTrigger("attack");
                             break;
                     case Direction.top:
                         crystal.PowerActivated(true);
-                        instance = (GameObject) Instantiate(proyectiles[GameManager.instance.playerStats.activeRangePower],transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
-                        playerAnim.SetTrigger("attack");
-                        attackAnim.SetTrigger("Active");
+                        if(GameManager.instance.playerStats.activeRangePower != 1){
+                            instance = (GameObject) Instantiate(proyectiles[GameManager.instance.playerStats.activeRangePower],transform.position + new Vector3(0,3f,0), Quaternion.Euler(0,0,90));
+                            playerAnim.SetTrigger("attack");
+                            attackAnim.SetTrigger("Active");
+                            rb.velocity = Vector2.zero;
+                        }
+                        else{
+                            InGameUIManager.instance.energyProgressBar.current -= GameManager.instance.playerStats.rangedAttackCost;
+                            InGameUIManager.instance.UpdateCurrentFill();
+                            Slash();
+                        }
                             break;
                     case Direction.down:
                         crystal.PowerActivated(true);
-                        instance = (GameObject) Instantiate(proyectiles[GameManager.instance.playerStats.activeRangePower],transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
-                        playerAnim.SetTrigger("attack");
-                        attackAnim.SetTrigger("Active");
+                        if(GameManager.instance.playerStats.activeRangePower != 1){
+                            instance = (GameObject) Instantiate(proyectiles[GameManager.instance.playerStats.activeRangePower],transform.position + new Vector3(0,-1.5f,0), Quaternion.Euler(0,0,-90));
+                            playerAnim.SetTrigger("attack");
+                            attackAnim.SetTrigger("Active");
+                            rb.velocity = Vector2.zero;
+                        }
+                        else{
+                            Slash();
+                        }
                             break;
                 }
-                rb.velocity = Vector2.zero;
                 GameManager.instance.playerStats.timeBtwPowerUse = GameManager.instance.playerStats.startTimeBtwPowerUse;
             }
+        }
+    }
+
+    public void Slash(){
+        if(!GameManager.instance.playerData.inPause){
+                InGameUIManager.instance.UpdateCurrentFill();
+                if((dashDirection == Direction.top && GameManager.instance.playerStats.verticalDashTime <= 0) || dashDirection == Direction.side || dashDirection == Direction.down){
+                    GameManager.instance.playerStats.dashTime = GameManager.instance.playerStats.startDashTime * 2f;
+                    Instantiate(dashEffect,new Vector3(transform.position.x + ((facingRight?-0.5f:0.5f)),transform.position.y + 1,transform.position.z),Quaternion.identity);
+                }
+                SoundManager.instance.PlaySound("AttacPlayer1(Sword)");
+                dashing = true;
+                slashing = true;
+                playerAnim.SetBool("Dash",true);
         }
     }
 

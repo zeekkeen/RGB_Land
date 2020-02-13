@@ -17,7 +17,7 @@ public class PlayerStats_SO : GeneralStats_SO{
     public bool doubleJump;
     //player habilities unlocked
     public bool stealAndGiveColor;
-    public bool rangedAttack1,rangedAttack2,rangedAttack3;
+    public bool rangedAttack1, rangedAttack2, rangedAttack3;
     //player attack
     public float timeBtwMeleeAttack,timeBtwPowerUse;
     public float startTimeBtwMeleeAttack = 0.3f,startTimeBtwPowerUse = 0.3f;

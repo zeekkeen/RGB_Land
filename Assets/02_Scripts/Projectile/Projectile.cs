@@ -7,13 +7,13 @@ public class Projectile : MonoBehaviour
     public float damageMultiplier;
     public GameObject destroyEffect;
 	Rigidbody2D rb;
-	bool facingRight=true;
-	float moveTime=0f;
-	public float startTime=1f,speed=10f;
+	bool facingRight = true;
+	float moveTime = 0f;
+	public float startTime = 1f, speed = 10f;
 
 	void Start() {
 		rb = GetComponent<Rigidbody2D> ();
-        moveTime=startTime;
+        moveTime = startTime;
 	}
 
 	void Update() {
@@ -47,8 +47,7 @@ public class Projectile : MonoBehaviour
 		DestroyProjectil();
 	}
 
-    void DestroyProjectil()
-    {
+    void DestroyProjectil(){
         Instantiate(destroyEffect,transform.position,Quaternion.identity);
         Destroy(gameObject);
     }

@@ -715,7 +715,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.19362628, y: 0.85947084}
@@ -748,7 +748,9 @@ MonoBehaviour:
   bloodSplash: {fileID: 3600589744553738000, guid: f5d400b3978cfa944b0cdd624bbf5342,
     type: 3}
   corpse: {fileID: 5065116810720009504, guid: 344d09fc829d5494395e7733717428e9, type: 3}
+  projectile: {fileID: 0}
   previousHealth: 0
+  anim: {fileID: 3446794386025319229}
   facingRigth: 1
   dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
     type: 3}
@@ -760,6 +762,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8192
+  rb: {fileID: 0}
+  attackRange: 2
 --- !u!114 &6168921600110235164
 MonoBehaviour:
   m_ObjectHideFlags: 0
