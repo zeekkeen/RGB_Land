@@ -101,6 +101,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
 
     [Task]
     public bool Reload(){
+        anim.SetInteger("State", 0);
         enemyStats.attackSpeedTimer -= Time.deltaTime;
         rb.velocity = Vector2.zero;
         if(enemyStats.attackSpeedTimer <= 0)
@@ -201,6 +202,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
 
     [Task]
     public bool MeleeAttack(){
+        anim.SetInteger("State", 2);
         Collider2D[] enemiesToDamage;
         enemiesToDamage = Physics2D.OverlapBoxAll(noGroundDetection.transform.position,new Vector2(enemyStats.attackRange, enemyStats.attackRange),0,playerLayer);
         if (enemiesToDamage != null){
