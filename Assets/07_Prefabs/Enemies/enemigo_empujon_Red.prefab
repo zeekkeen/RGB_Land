@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsTemplate: {fileID: 11400000, guid: 4d90a4325412d774aa6c5c9846674496, type: 2}
   enemyStats: {fileID: 0}
-  unitTypeOfColor: 2
+  unitTypeOfColor: 0
   lifeRender:
   - {fileID: 2604635333008067658}
   - {fileID: 2572912791750635913}
@@ -1211,11 +1211,11 @@ MonoBehaviour:
   - {fileID: 7199849913910374659}
   - {fileID: 8423310478083430308}
   - {fileID: 9186045892859787760}
-  bloodEffect: {fileID: 8990843590016243783, guid: d5cd413b3b4f1a249aba2851a6430d0a,
+  bloodEffect: {fileID: 8990843590016243783, guid: 525c2761dcc52d14cbdea923a3570530,
     type: 3}
-  deathEffect: {fileID: 8990843590016243783, guid: d08aa58738e9bd644a350b20a6e02a89,
+  deathEffect: {fileID: 8990843590016243783, guid: 4d6efcb4bbdde9749ab7b55108ac09f5,
     type: 3}
-  bloodSplash: {fileID: 3600589744553738000, guid: 165586814447d96408d0e8aaab80e3fe,
+  bloodSplash: {fileID: 3600589744553738000, guid: ab1ec05465749ba4ca8bbd8a63e09e44,
     type: 3}
   corpse: {fileID: 5065116810720009504, guid: 344d09fc829d5494395e7733717428e9, type: 3}
   projectile: {fileID: 3781503640603159667, guid: 0d602dcd77ef6d84d8c7c6b4aef65cc1,
@@ -1248,7 +1248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scripts:
-  - {fileID: 4900000, guid: 4620b82904ea517469206d8e7cedea7c, type: 3}
+  - {fileID: 4900000, guid: 50d4099aba50c5c4590b9f98d99f1d8d, type: 3}
   autoReset: 1
   tickOn: 0
   sourceInfos:

@@ -24,10 +24,10 @@ MonoBehaviour:
   jumpTimeCounter: 0
   isJumping: 0
   doubleJump: 0
-  stealAndGiveColor: 0
-  rangedAttack1: 0
-  rangedAttack2: 0
-  rangedAttack3: 0
+  stealAndGiveColor: 1
+  rangedAttack1: 1
+  rangedAttack2: 1
+  rangedAttack3: 1
   timeBtwMeleeAttack: 0
   timeBtwPowerUse: 0
   startTimeBtwMeleeAttack: 0.2

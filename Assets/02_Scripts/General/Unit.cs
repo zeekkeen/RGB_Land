@@ -21,6 +21,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
     [HideInInspector]
 	public Rigidbody2D rb;
     public float attackRange = 2f;
+    GameObject player;
 
     void Start(){
         enemyStats = Instantiate(statsTemplate);
@@ -32,6 +33,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
 		rb = GetComponent<Rigidbody2D>();
         camRipple = Camera.main.GetComponent<RipplePostProcessor>();
         enemyStats.attackRange = attackRange;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update(){
@@ -266,6 +268,13 @@ public class Unit: MonoBehaviour, ITakeDamage{
         }
         else 
             return false;
+    }
+
+    [Task]
+    public bool FlipDamage(){
+        if((player.transform.position.x < transform.position.x && facingRigth) || (player.transform.position.x > transform.position.x && !facingRigth))
+            Flip();
+        return true;
     }
 
     [Task]
