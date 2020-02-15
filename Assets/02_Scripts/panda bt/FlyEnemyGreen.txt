@@ -8,12 +8,20 @@ tree("Root")
 tree("BeAlive")
 	fallback
 		while not EnemyInShootRange
-			tree("Idle")
+			tree("Patrol")
 		tree("Attack")
 
 tree("Idle")
 	repeat
 		Idle
+
+tree("Patrol")
+	fallback
+		while 
+			GroundDetected
+			repeat
+				Move
+		Flip
 
 tree("Attack")
 	fallback
