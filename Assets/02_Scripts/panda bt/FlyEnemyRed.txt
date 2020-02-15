@@ -1,0 +1,39 @@
+tree("Root")
+	//Root behaviour for all unit: Be alive or die.
+	parallel
+		repeat mute tree("BeAlive")
+		repeat mute tree("Dazed")
+		repeat mute tree("Die")
+
+tree("BeAlive")
+	fallback
+		while not EnemyInShootRange
+			tree("Idle")
+		tree("Attack")
+
+tree("Idle")
+	repeat
+		Idle
+
+tree("Attack")
+	fallback
+		while EnemyVisibleInRange
+			sequence
+				RedPillarPosition
+				while not Reload
+					RedPillar
+			//Rotate
+		//while not Reload
+			//RangeAttack
+
+tree("Die")
+	sequence
+		IsNoHealth
+		Dead
+
+tree("Dazed")
+	//Die by exploding if no more HP.
+	sequence
+		IsHealthLessThanPrevious
+		ChangeColor1
+		WaitRandom(0.8, 1.0)

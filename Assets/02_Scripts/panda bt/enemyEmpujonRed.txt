@@ -6,10 +6,12 @@ tree("Root")
 		repeat mute tree("Die")
 
 tree("BeAlive")
-	fallback
-		while not EnemyDetected
-			tree("Patrol")
-		tree("Attack")
+	sequence
+		Wait(1.0)
+		fallback
+			while not EnemyDetected
+				tree("Patrol")
+			tree("Attack")
 
 tree("Patrol")
 	fallback
