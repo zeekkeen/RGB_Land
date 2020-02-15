@@ -64,6 +64,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
     
     [Task]
     public bool Move(){
+        anim.SetInteger("State", 1);
         rb.velocity = ((facingRigth) ? Vector2.right * enemyStats.moveSpeed : Vector2.left * enemyStats.moveSpeed);
         return true;
     }
@@ -93,12 +94,24 @@ public class Unit: MonoBehaviour, ITakeDamage{
     }
 
     [Task]
-    public bool NoGroundDetected(){
-        RaycastHit2D groundInfo = Physics2D.Raycast(noGroundDetection.transform.position, Vector2.down, enemyStats.distance, groundLayer);
-        if (!groundInfo.collider)
-            return true;
-        else 
+    public bool Reload2(){
+        anim.SetInteger("State", 1);
+        enemyStats.attackSpeedTimer -= Time.deltaTime;
+        // rb.velocity = Vector2.zero;
+        if(enemyStats.attackSpeedTimer <= 0)
             return false;
+        else 
+            return true;
+    }
+
+    [Task]
+    public bool GroundDetected(){
+        RaycastHit2D groundInfo = Physics2D.Raycast(noGroundDetection.transform.position, Vector2.down, enemyStats.distance, groundLayer);
+        if (groundInfo.collider)
+            Debug.Log(groundInfo.collider.gameObject.name);
+        //     return true;
+        // else 
+            return groundInfo.collider;
     }
 
     [Task]
@@ -151,6 +164,22 @@ public class Unit: MonoBehaviour, ITakeDamage{
         }
         }}
         return false;
+    }
+
+     [Task]
+    public bool ChargeAttack(){
+        anim.SetInteger("State", 2);
+        StartCoroutine(WaitForChargeAttack(1));
+        // rb.AddForce((facingRigth ? Vector2.right : Vector2.left) * 2000 + Vector2.up * 1000);
+        // anim.SetInteger("State", 2);
+        enemyStats.attackSpeedTimer = enemyStats.attackSpeed;
+        return true;
+    }
+
+    IEnumerator WaitForChargeAttack(float s){
+        rb.velocity = Vector2.zero;
+        yield return new WaitForSeconds(s);
+        rb.AddForce((facingRigth ? Vector2.right : Vector2.left) * 2000 + Vector2.up * 1000);
     }
 
     [Task]
@@ -279,4 +308,13 @@ public class Unit: MonoBehaviour, ITakeDamage{
 
     
     #endregion
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("entro + " + other.gameObject.name);
+        if(other.gameObject.tag == "Player"){
+            ITakeDamage takeDamage = other.gameObject.GetComponent<ITakeDamage>();
+                            if(takeDamage != null)
+                                takeDamage.TakeDamage(enemyStats.damage);
+        }
+    }
 }
