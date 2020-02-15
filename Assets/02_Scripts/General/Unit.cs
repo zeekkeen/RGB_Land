@@ -22,6 +22,8 @@ public class Unit: MonoBehaviour, ITakeDamage{
 	public Rigidbody2D rb;
     public float attackRange = 2f;
     GameObject player;
+    public Collider2D damageCollider;
+    public bool invulnerable = false;
 
     void Start(){
         enemyStats = Instantiate(statsTemplate);
@@ -45,9 +47,11 @@ public class Unit: MonoBehaviour, ITakeDamage{
         }
     }
     public void TakeDamage(int damage){
-        Instantiate(bloodEffect, transform.position, Quaternion.identity);
-        enemyStats.dazedTime = enemyStats.StartDazedTime;
-        enemyStats.currentHealth -= damage;
+        if(!invulnerable){
+            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            enemyStats.dazedTime = enemyStats.StartDazedTime;
+            enemyStats.currentHealth -= damage;
+        }
     }
 
     #region navigation tasks
@@ -89,6 +93,9 @@ public class Unit: MonoBehaviour, ITakeDamage{
     [Task]
     public bool Idle(){
         anim.SetInteger("State", 0);
+        if(damageCollider != null)
+            damageCollider.enabled = false;
+        invulnerable = false;
         return true;
     }
 
@@ -161,7 +168,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
 
     [Task]
     public bool EnemyVisibleInRange(){
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        // GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(player != null){
         // float dist = Vector2.Distance(transform.position,player.transform.position);
         Vector2 dir = player.transform.position - transform.position;
@@ -169,7 +176,7 @@ public class Unit: MonoBehaviour, ITakeDamage{
         RaycastHit2D colliderInfo = Physics2D.Raycast(transform.position, dir, enemyStats.visionDistance, playerLayer);
         if (colliderInfo.collider){
             if (colliderInfo.collider.gameObject.tag == "Player"){
-            anim.SetInteger("State", 3);
+                anim.SetInteger("State", 3);
             return true;
         }
         }}
@@ -305,6 +312,16 @@ public class Unit: MonoBehaviour, ITakeDamage{
             return true;
         else 
             return false;
+    }
+
+    [Task]
+    public bool Shield(){
+        if(damageCollider != null)
+            damageCollider.enabled = true;
+        rb.velocity = Vector2.zero;
+        invulnerable = true;
+        anim.SetInteger("State", 2);
+        return true;
     }
 
     [Task]
