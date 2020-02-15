@@ -70,6 +70,13 @@ public class Unit: MonoBehaviour, ITakeDamage{
     }
 
     [Task]
+    public bool FastMove(){
+        anim.SetInteger("State", 2);
+        rb.velocity = ((facingRigth) ? Vector2.right * enemyStats.moveSpeed : Vector2.left * enemyStats.moveSpeed) * 2;
+        return true;
+    }
+
+    [Task]
     public bool Rotate(){
         anim.SetInteger("State", 2);
         // transform.up = Vector3.Lerp(transform.up, (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position), 5f);
@@ -107,11 +114,12 @@ public class Unit: MonoBehaviour, ITakeDamage{
     [Task]
     public bool GroundDetected(){
         RaycastHit2D groundInfo = Physics2D.Raycast(noGroundDetection.transform.position, Vector2.down, enemyStats.distance, groundLayer);
+        RaycastHit2D groundInfo2 = Physics2D.Raycast(noGroundDetection.transform.position, (facingRigth ? Vector2.right : Vector2.left), 2f, groundLayer);
         if (groundInfo.collider)
             Debug.Log(groundInfo.collider.gameObject.name);
         //     return true;
         // else 
-            return groundInfo.collider;
+            return groundInfo.collider && !groundInfo2.collider;
     }
 
     [Task]

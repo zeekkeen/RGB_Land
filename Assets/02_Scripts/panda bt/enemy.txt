@@ -14,7 +14,7 @@ tree("BeAlive")
 tree("Patrol")
 	fallback
 		while 
-			not NoGroundDetected
+			GroundDetected
 			repeat
 				Move
 		Flip
