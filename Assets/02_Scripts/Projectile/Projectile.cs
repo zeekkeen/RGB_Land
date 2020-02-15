@@ -34,18 +34,19 @@ public class Projectile : MonoBehaviour
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log("proyectil vs "+ other.tag);
 		ITakeDamage takeDamage = other.gameObject.GetComponent<ITakeDamage>();
-		if(takeDamage != null)
+		if(takeDamage != null && other.tag != "shield")
 			takeDamage.TakeDamage((int)(GameManager.instance.playerStats.damage * damageMultiplier));
 		DestroyProjectil();
 	}
 
-	private void OnCollisionEnter2D(Collision2D other) {
-		ITakeDamage takeDamage = other.gameObject.GetComponent<ITakeDamage>();
-		if(takeDamage != null)
-			takeDamage.TakeDamage((int)(GameManager.instance.playerStats.damage * damageMultiplier));
-		DestroyProjectil();
-	}
+	// private void OnCollisionEnter2D(Collision2D other) {
+	// 	ITakeDamage takeDamage = other.gameObject.GetComponent<ITakeDamage>();
+	// 	if(takeDamage != null && other.collider.tag != "shield")
+	// 		takeDamage.TakeDamage((int)(GameManager.instance.playerStats.damage * damageMultiplier));
+	// 	DestroyProjectil();
+	// }
 
     void DestroyProjectil(){
         Instantiate(destroyEffect,transform.position,Quaternion.identity);

@@ -327,7 +327,6 @@ public class Unit: MonoBehaviour, ITakeDamage{
     #endregion
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("entro + " + other.gameObject.name);
         if(other.gameObject.tag == "Player"){
             ITakeDamage takeDamage = other.gameObject.GetComponent<ITakeDamage>();
                             if(takeDamage != null)
