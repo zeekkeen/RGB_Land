@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour{
         playerData.lastPosition = pos;
         playerData.lastLevel = level;
         playerData.allMapPieces = MapManager.instance.myAllMapPieces;
-        if(MapManager.instance.playerPin != null)
-            playerData.playerPinPosition = MapManager.instance.playerPin.transform.position;
+        // if(MapManager.instance.playerPin != null)
+        //     playerData.playerPinPosition = MapManager.instance.playerPin.transform.position;
         GameSaveManager.instance.SaveGameSlot();
     }
 

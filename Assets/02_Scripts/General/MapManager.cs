@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class MapManager : MonoBehaviour{
     
     public List<MapPieceInfo> myAllMapPieces;
-    public GameObject playerPin;
+    // public GameObject playerPin;
     public List<GameObject> allMapGameObjectPieces;
     public static MapManager instance;
+    public GameObject pinPosition;
 
     void Awake() {
         if(instance == null)
@@ -18,7 +19,7 @@ public class MapManager : MonoBehaviour{
     void Start(){
         myAllMapPieces = GameManager.instance.playerData.allMapPieces;
         StartMap();
-        playerPin.transform.localPosition = GameManager.instance.playerData.playerPinPosition;
+        // playerPin.transform.localPosition = GameManager.instance.playerData.playerPinPosition;
         // playerPin.transform.localPosition.Set(0,0,0);
     }
 
@@ -33,8 +34,11 @@ public class MapManager : MonoBehaviour{
             if(pieceGO.GetComponent<MapPiece>().mapPieceInfo.mapID == mapPieceAux.mapID){
                 if(pieceGO.GetComponent<MapPiece>().mapPieceInfo.pieceID == mapPieceAux.pieceID){
                     if(mapPieceAux.visible)
-                        pieceGO.SetActive(false);
-                        // pieceGO.GetComponent<Image>().color = new Color(0,0,0,0);
+                        // pieceGO.SetActive(false);
+                        // pinPosition = pieceGO;
+                        pieceGO.GetComponent<Animator>().SetInteger("State", 1);
+                        if(pinPosition == pieceGO)
+                            pieceGO.GetComponent<Animator>().SetInteger("State", 2);
                     break;
                 }
             }
@@ -45,8 +49,13 @@ public class MapManager : MonoBehaviour{
         foreach (GameObject pieceGO in allMapGameObjectPieces){
             if(pieceGO.GetComponent<MapPiece>().mapPieceInfo.mapID == mapPieceAux.mapID){
                 if(pieceGO.GetComponent<MapPiece>().mapPieceInfo.pieceID == mapPieceAux.pieceID){
-                    playerPin.transform.position = pieceGO.transform.position;
-                    pieceGO.SetActive(false);
+                    // playerPin.transform.position = pieceGO.transform.position;
+                    // pieceGO.SetActive(false);
+                    // if(pinPosition != pieceGO && pinPosition != null)
+                    //     pinPosition.GetComponent<Animator>().SetInteger("State", 1);
+                    Debug.Log(pieceGO.GetComponent<Animator>());
+                    pieceGO.GetComponent<Animator>().SetInteger("State", 2);
+                    pinPosition = pieceGO;
                     DiscoveredPieceOfMap(mapPieceAux);
                     StartMap();
                     break;
