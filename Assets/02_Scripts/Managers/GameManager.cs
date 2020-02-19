@@ -33,15 +33,18 @@ public class GameManager : MonoBehaviour{
         // playerData.allMapPieces = playerData.initialAllMapPieces;
         ResetAchievements();
         playerData.allMapPieces = new List<MapPieceInfo>(playerData.initialAllMapPieces);
-        playerData.playerPinPosition = new Vector3(-495,408,0);
+        playerData.playerPosition.mapID = "inicial";
+        playerData.playerPosition.pieceID = 100;
+        playerData.playerPosition.state = 2;
     }
 
     public void SaveGame(Vector3 pos, string level){
         playerData.lastPosition = pos;
         playerData.lastLevel = level;
         playerData.allMapPieces = MapManager.instance.myAllMapPieces;
-        // if(MapManager.instance.playerPin != null)
-        //     playerData.playerPinPosition = MapManager.instance.playerPin.transform.position;
+        playerData.playerPosition.mapID = MapManager.instance.pinPosition.GetComponent<MapPiece>().mapPieceInfo.mapID;
+        playerData.playerPosition.pieceID = MapManager.instance.pinPosition.GetComponent<MapPiece>().mapPieceInfo.pieceID;
+        playerData.playerPosition.state = 2;
         GameSaveManager.instance.SaveGameSlot();
     }
 

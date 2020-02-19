@@ -33,12 +33,16 @@ public class MapManager : MonoBehaviour{
         foreach (GameObject pieceGO in allMapGameObjectPieces){
             if(pieceGO.GetComponent<MapPiece>().mapPieceInfo.mapID == mapPieceAux.mapID){
                 if(pieceGO.GetComponent<MapPiece>().mapPieceInfo.pieceID == mapPieceAux.pieceID){
-                    if(mapPieceAux.visible)
+                    if(mapPieceAux.visible){
                         // pieceGO.SetActive(false);
                         // pinPosition = pieceGO;
-                        pieceGO.GetComponent<Animator>().SetInteger("State", 1);
+                        // pieceGO.GetComponent<Animator>().SetInteger("State", 1);
                         if(pinPosition == pieceGO)
-                            pieceGO.GetComponent<Animator>().SetInteger("State", 2);
+                            pieceGO.GetComponent<MapPiece>().mapPieceInfo.state = 2;
+                        else
+                            pieceGO.GetComponent<MapPiece>().mapPieceInfo.state = 1;
+                    }else
+                        pieceGO.GetComponent<MapPiece>().mapPieceInfo.state = 0;
                     break;
                 }
             }
@@ -53,9 +57,12 @@ public class MapManager : MonoBehaviour{
                     // pieceGO.SetActive(false);
                     // if(pinPosition != pieceGO && pinPosition != null)
                     //     pinPosition.GetComponent<Animator>().SetInteger("State", 1);
-                    Debug.Log(pieceGO.GetComponent<Animator>());
-                    pieceGO.GetComponent<Animator>().SetInteger("State", 2);
+                    // Debug.Log(pieceGO.GetComponent<Animator>());
+                    // pieceGO.GetComponent<Animator>().SetInteger("State", 2);
+                    if(pinPosition != null)
+                        pinPosition.GetComponent<MapPiece>().mapPieceInfo.state = 1;
                     pinPosition = pieceGO;
+                    pieceGO.GetComponent<MapPiece>().mapPieceInfo.state = 2;
                     DiscoveredPieceOfMap(mapPieceAux);
                     StartMap();
                     break;
@@ -98,6 +105,7 @@ public struct MapPieceInfo{
     public int pieceID;
     public bool visible;
     public string mapID;
+    public int state;
 
     public void SetVisible(){
         visible = true;

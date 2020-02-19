@@ -12,7 +12,7 @@ public class PlayerData_SO : ScriptableObject {
     public string lastLevel;
     public List<MapPieceInfo> initialAllMapPieces;
     public List<MapPieceInfo> allMapPieces;
-    public Vector3 playerPinPosition;
+    public MapPieceInfo playerPosition;
     public List<Achievement> achievements = new List<Achievement>();
     public bool inPause;
 }

@@ -6,4 +6,8 @@ using UnityEngine;
 public class MapPiece : MonoBehaviour{
     
     public MapPieceInfo mapPieceInfo;
+
+    void OnEnable() {
+        GetComponent<Animator>().SetInteger("State", mapPieceInfo.state);
+    }
 }
