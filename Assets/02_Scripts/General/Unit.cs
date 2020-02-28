@@ -133,6 +133,17 @@ public class Unit: MonoBehaviour, ITakeDamage{
     }
 
     [Task]
+    public bool GroundDetected2(){
+        // RaycastHit2D groundInfo = Physics2D.Raycast(noGroundDetection.transform.position, Vector2.down, enemyStats.distance, groundLayer);
+        RaycastHit2D groundInfo2 = Physics2D.Raycast(noGroundDetection.transform.position, (facingRigth ? Vector2.right : Vector2.left), 2f, groundLayer);
+        if (groundInfo2.collider)
+            Debug.Log(groundInfo2.collider.gameObject.name);
+        //     return true;
+        // else 
+        return !groundInfo2.collider;
+    }
+
+    [Task]
     public bool EnemyInShootRange(){
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(player != null){

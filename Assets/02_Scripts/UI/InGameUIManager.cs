@@ -73,7 +73,7 @@ public class InGameUIManager : MonoBehaviour{
     }
 
     public void MapPanel(){
-        if(!pauseOpened && !gameOverPanel.active){
+        if(!pauseOpened && !gameOverPanel.activeSelf){
             mapOpened = !mapOpened;
             inGamePanel.SetActive(true);
             pausePanel.SetActive(false);
@@ -85,7 +85,7 @@ public class InGameUIManager : MonoBehaviour{
     }
 
     public void PausePanel(){
-        if(!mapOpened && !gameOverPanel.active){
+        if(!mapOpened && !gameOverPanel.activeSelf){
             pauseOpened = !pauseOpened;
             inGamePanel.SetActive(!pauseOpened);
             pausePanel.SetActive(pauseOpened);
