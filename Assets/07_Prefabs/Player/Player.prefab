@@ -4519,7 +4519,7 @@ AreaEffector2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8212746029264478194}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 7998464

@@ -39,7 +39,7 @@ public class WalkBehavior : StateMachineBehaviour{
         else
             animator.transform.localScale = new Vector2(-1,1);
         Vector2 target = new Vector2(playerPos.position.x, animator.transform.position.y);
-        animator.transform.position = Vector2.MoveTowards(animator.transform.position, target, speed * Time.deltaTime);
+        //animator.transform.position = Vector2.MoveTowards(animator.transform.position, target, speed * Time.deltaTime);
         animator.gameObject.GetComponentInParent<Rigidbody2D>().velocity = (animator.transform.localScale.x > 0 ? Vector2.right * speed: Vector2.left * speed);
 	}
 

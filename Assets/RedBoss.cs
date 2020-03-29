@@ -37,6 +37,7 @@ public class RedBoss : MonoBehaviour,ITakeDamage{
 		if(enemyStats.currentHealth <= 0)
 			Dead();
     }
+    
     public void Dead(){
         camRipple.RippleEffect();
         Instantiate(corpse,transform.position, Quaternion.identity);
@@ -65,7 +66,6 @@ public class RedBoss : MonoBehaviour,ITakeDamage{
                 }
         }
     }
-
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player"){
             ITakeDamage takeDamage = other.gameObject.GetComponent<ITakeDamage>();

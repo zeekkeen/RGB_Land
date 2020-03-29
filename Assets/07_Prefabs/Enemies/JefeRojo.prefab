@@ -1171,7 +1171,7 @@ GameObject:
   - component: {fileID: 2782164638596991249}
   - component: {fileID: 2590976072491143219}
   - component: {fileID: 1441067681289237005}
-  - component: {fileID: 6725778082132738037}
+  - component: {fileID: 4751473987873173814}
   m_Layer: 22
   m_Name: JefeRojo
   m_TagString: Untagged
@@ -1253,7 +1253,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.18853045, y: 2.5089}
   m_Size: {x: 4.0675716, y: 6.0178}
   m_Direction: 0
---- !u!50 &6725778082132738037
+--- !u!50 &4751473987873173814
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -1261,14 +1261,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4802840787370613969}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

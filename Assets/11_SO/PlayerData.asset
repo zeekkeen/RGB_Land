@@ -12,753 +12,1022 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5860ae9994196a640b4f519b8570c27f, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  lastPosition: {x: -175, y: 18, z: 0}
-  lastLevel: TribuRed
+  lastPosition: {x: -70, y: 7, z: 0}
+  lastLevel: TribuInicial
   initialAllMapPieces:
   - pieceID: 0
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 1
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 2
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 3
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 4
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 5
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 6
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 7
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 8
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 9
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 10
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 11
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 12
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 13
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 14
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 15
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 16
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 17
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 18
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 19
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 20
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 21
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 22
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 23
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 24
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 25
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 26
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 27
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 28
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 0
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 1
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 2
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 3
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 4
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 5
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 6
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 7
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 8
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 9
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 10
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 11
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 12
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 13
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 14
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 15
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 16
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 17
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 18
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 19
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 20
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 21
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 22
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 23
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 24
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 25
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 26
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 27
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 28
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 29
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 30
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 0
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 1
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 2
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 3
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 4
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 5
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 6
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 7
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 8
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 9
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 10
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 11
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 12
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 13
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 14
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 15
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 16
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 17
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 18
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 19
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 20
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 21
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 22
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 23
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 24
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 25
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 26
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 27
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 28
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 29
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 30
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 31
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 32
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 0
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 1
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 2
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 3
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 4
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 5
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 6
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 7
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 8
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 9
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 10
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 11
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 12
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 13
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 14
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 15
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 16
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 17
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 18
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 19
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 20
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 21
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 22
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 23
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 24
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 25
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 26
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 27
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 28
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 100
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 100
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 100
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 100
     visible: 0
     mapID: blue
+    state: 0
   allMapPieces:
   - pieceID: 0
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 1
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 2
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 3
-    visible: 1
+    visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 4
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 5
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 6
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 7
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 8
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 9
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 10
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 11
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 12
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 13
-    visible: 1
+    visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 14
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 15
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 16
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 17
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 18
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 19
-    visible: 1
+    visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 20
-    visible: 1
+    visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 21
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 22
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 23
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 24
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 25
-    visible: 1
+    visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 26
     visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 27
-    visible: 1
+    visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 28
-    visible: 1
+    visible: 0
     mapID: inicial
+    state: 0
   - pieceID: 0
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 1
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 2
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 3
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 4
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 5
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 6
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 7
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 8
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 9
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 10
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 11
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 12
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 13
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 14
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 15
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 16
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 17
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 18
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 19
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 20
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 21
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 22
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 23
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 24
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 25
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 26
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 27
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 28
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 29
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 30
     visible: 0
     mapID: red
+    state: 0
   - pieceID: 0
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 1
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 2
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 3
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 4
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 5
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 6
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 7
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 8
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 9
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 10
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 11
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 12
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 13
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 14
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 15
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 16
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 17
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 18
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 19
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 20
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 21
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 22
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 23
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 24
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 25
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 26
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 27
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 28
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 29
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 30
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 31
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 32
     visible: 0
     mapID: green
+    state: 0
   - pieceID: 0
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 1
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 2
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 3
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 4
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 5
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 6
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 7
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 8
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 9
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 10
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 11
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 12
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 13
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 14
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 15
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 16
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 17
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 18
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 19
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 20
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 21
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 22
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 23
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 24
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 25
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 26
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 27
     visible: 0
     mapID: blue
+    state: 0
   - pieceID: 28
     visible: 0
     mapID: blue
-  playerPinPosition: {x: 757.8, y: 574.35, z: 0}
-  achievements: 0100000002000000
+    state: 0
+  - pieceID: 100
+    visible: 1
+    mapID: inicial
+    state: 0
+  - pieceID: 100
+    visible: 0
+    mapID: red
+    state: 0
+  - pieceID: 100
+    visible: 0
+    mapID: green
+    state: 0
+  - pieceID: 100
+    visible: 0
+    mapID: blue
+    state: 0
+  playerPosition:
+    pieceID: 100
+    visible: 0
+    mapID: inicial
+    state: 2
+  achievements: 
+  inPause: 1

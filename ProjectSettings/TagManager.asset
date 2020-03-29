@@ -9,6 +9,7 @@ TagManager:
   - PlayerCollider
   - platform
   - shield
+  - waypoint
   layers:
   - Default
   - TransparentFX
