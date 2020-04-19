@@ -11,7 +11,8 @@ public class WalkBehavior : StateMachineBehaviour{
 
     private Transform playerPos;
     public float speed;
-    private int rand;
+
+    public float distanceTacleada;
 
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -20,8 +21,7 @@ public class WalkBehavior : StateMachineBehaviour{
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         if (timer <= 0){
-            rand = Random.Range(0, 2);
-            if (rand == 0)
+            if (Vector2.Distance(animator.transform.position,playerPos.position) > distanceTacleada )
             {
                 animator.SetTrigger("tacleada");
             }

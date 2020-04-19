@@ -186,8 +186,8 @@ GameObject:
   - component: {fileID: 1780122011449389138}
   - component: {fileID: 3162138611345059663}
   - component: {fileID: 3619125920192602537}
-  - component: {fileID: 6023134242354344056}
-  - component: {fileID: 8775894669994931989}
+  - component: {fileID: 730952970157487278}
+  - component: {fileID: 686374893213429975}
   m_Layer: 0
   m_Name: ManoFefe
   m_TagString: Untagged
@@ -266,8 +266,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 2.8}
   serializedVersion: 2
-  m_Radius: 40
---- !u!50 &6023134242354344056
+  m_Radius: 1.4
+--- !u!50 &730952970157487278
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8775894669994931989
+--- !u!114 &686374893213429975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,16 +300,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5c94c11171ab74bacbfd9fb88e6423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statsTemplate: {fileID: 11400000, guid: 091f6962cb594d74982f654dab4d0f59, type: 2}
+  enemyStats: {fileID: 0}
   player: {fileID: 0}
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
+  lifeRender: []
+  torsolifeRender: []
   dPosition: {fileID: 0}
   returnAtack: 0
-  dir: -1
+  puedeAtacar: 0
+  dir: 0
+  torsoAnim: {fileID: 0}
 --- !u!1 &980228812091917089
 GameObject:
   m_ObjectHideFlags: 0

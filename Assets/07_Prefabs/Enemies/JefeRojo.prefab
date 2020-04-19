@@ -1231,7 +1231,7 @@ MonoBehaviour:
   corpse: {fileID: 5065116810720009504, guid: 344d09fc829d5494395e7733717428e9, type: 3}
   dashEffect: {fileID: 8990843590016243783, guid: a25c353feb54f644bae1ff8ec3e08fa1,
     type: 3}
-  groundDetection: {fileID: 0}
+  groundDetection: {fileID: 748996761982065070}
   noGroundDetection: {fileID: 0}
   groundLayer:
     serializedVersion: 2
@@ -1250,8 +1250,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18853045, y: 2.5089}
-  m_Size: {x: 4.0675716, y: 6.0178}
+  m_Offset: {x: -0.16913319, y: 2.3630378}
+  m_Size: {x: 3.6020346, y: 4.7965255}
   m_Direction: 0
 --- !u!50 &4751473987873173814
 Rigidbody2D:

@@ -45,7 +45,7 @@ public class RedBoss : MonoBehaviour,ITakeDamage{
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         anim.SetBool("death",true);
         GameManager.instance.AddAchievement(Achievement.RangeAttack1);
-        // Destroy(gameObject);
+        Destroy(gameObject,1.7f);
     }
 
     public void ChangeColor1(){
