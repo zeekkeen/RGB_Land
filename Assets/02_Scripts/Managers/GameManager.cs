@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour{
         playerData.lastLevel = "TribuInicial";
         // playerData.allMapPieces = playerData.initialAllMapPieces;
         ResetAchievements();
+        playerStats.colorSphereCount = 0;
         playerData.allMapPieces = new List<MapPieceInfo>(playerData.initialAllMapPieces);
         playerData.playerPosition.mapID = "inicial";
         playerData.playerPosition.pieceID = 100;
