@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour{
     public Vector3 initialPosition;
     public static GameManager instance;
     public Dialog_SO[] allDialogs;
+    public CheckPoint nearCheckPoint;
 
     void Awake() {
         if(instance == null)
