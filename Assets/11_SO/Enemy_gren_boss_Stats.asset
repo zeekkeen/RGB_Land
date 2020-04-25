@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c29b9341b697346abd66037faa43f1, type: 3}
   m_Name: Enemy_gren_boss_Stats
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  currentHealth: 1000
+  maxHealth: 750
+  currentHealth: 750
   damage: 1
   moveSpeed: 0
   attackSpeed: 0.5

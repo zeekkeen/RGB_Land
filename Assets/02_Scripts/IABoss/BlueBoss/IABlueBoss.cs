@@ -19,6 +19,9 @@ public class IABlueBoss : MonoBehaviour, ITakeDamage
     List<List<int>> patron= new List<List<int>>(){new List<int>(){1,2},new List<int>{4},new List<int>{6,7}};
     public bool canHit=true;
     public int countHit=2;
+
+
+    public GameObject portal;
     void Start()
     {
         enemyStats = Instantiate(statsTemplate);
@@ -90,6 +93,9 @@ public class IABlueBoss : MonoBehaviour, ITakeDamage
     void Dead()
     {
         anim.SetBool("Dead",true);
+        GameManager.instance.AddAchievement(Achievement.RangeAttack3);
+        GameObject.FindObjectOfType<SpawnBoss>().DestroyWalls();
+        portal.SetActive(true);
         Destroy(manager.gameObject,2f);
     }
     public void UntimoAtaque()

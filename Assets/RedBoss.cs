@@ -17,6 +17,7 @@ public class RedBoss : MonoBehaviour,ITakeDamage{
 	Rigidbody2D rb;
     public float force;
     
+    public GameObject portal;
     void Start(){
         enemyStats = Instantiate(statsTemplate);
         enemyStats.maxHealth = enemyStats.currentHealth;
@@ -45,6 +46,7 @@ public class RedBoss : MonoBehaviour,ITakeDamage{
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         anim.SetBool("death",true);
         GameManager.instance.AddAchievement(Achievement.RangeAttack1);
+        portal.SetActive(true);
         Destroy(gameObject,1.7f);
     }
 

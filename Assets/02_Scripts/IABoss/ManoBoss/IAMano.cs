@@ -117,8 +117,9 @@ public class IAMano : MonoBehaviour {
         Instantiate(deathEffect, transform.position, Quaternion.identity); */
         anim.SetBool("death",true);
         torsoAnim.SetBool("Morir"+dir,true);
-        GameManager.instance.AddAchievement(Achievement.RangeAttack1);
+       
         Destroy(gameObject,1.7f);
+        
     }
 
     public void TakeDamage(int damage)
@@ -136,8 +137,11 @@ public class IAMano : MonoBehaviour {
             element.color+=new Color(0.5f,0,0.5f);
             }
             torsoAnim.SetBool("Morrir"+dir,true);
-            if(torsoAnim.GetBool("Morir-1")&&torsoAnim.GetBool("Morir1")){
+            if(torsoAnim.GetBool("Morir-1")&&torsoAnim.GetBool("Morir1"))
+            {
                 Destroy(torsoAnim.transform.parent.gameObject,3f);
+                GameManager.instance.AddAchievement(Achievement.RangeAttack2);
+                GameObject.FindObjectOfType<SpawnBoss>().DestroyWalls();
             }
 
         }
