@@ -16,12 +16,15 @@ public class InGameUIManager : MonoBehaviour{
     public LinearProgressBar energyProgressBar;
     public Image circleImage;
     public static InGameUIManager instance;
+    bool openCheckPoint = false;
+    public GameObject checkPointPanel;
 
     void Awake() {
         instance = this;
         inputAction = new PlayerControls();
         inputAction.GamePlay.Pause.performed += ctx => PausePanel();
         inputAction.GamePlay.Map.performed += ctx => MapPanel();
+        inputAction.GamePlay.Dialog.performed += ctx => OpenCheckPointMenu();
     }
 
     void Update() {
@@ -45,6 +48,30 @@ public class InGameUIManager : MonoBehaviour{
             case 2:
                 circleImage.color = Color.blue;
             break;
+        }
+    }
+
+    public void OpenCheckPointMenu(){
+        if(!pauseOpened && !gameOverPanel.activeSelf && !mapOpened && GameManager.instance.nearCheckPoint != null){
+            openCheckPoint = !openCheckPoint;
+            GameManager.instance.nearCheckPoint.ActivateAnim(openCheckPoint);
+            checkPointPanel.SetActive(openCheckPoint);
+            GameManager.instance.playerData.inPause = openCheckPoint;
+        }
+    }
+
+    public void BuyLifes(){
+        if(GameManager.instance.playerStats.colorSphereCount >= 4){
+            ColorSphereManager.instance.RefreshUI(-4);
+            GameManager.instance.playerStats.currentHealth --;
+            LifesManager.instance.RefreshUI();
+        }
+    }
+
+    public void BuySaveGame(){
+        if(GameManager.instance.playerStats.colorSphereCount >= 2){
+            ColorSphereManager.instance.RefreshUI(-2);
+            GameManager.instance.nearCheckPoint.SaveGame();
         }
     }
 

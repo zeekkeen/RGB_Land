@@ -7513,6 +7513,7 @@ MonoBehaviour:
     index: -1
     achievementRequired: 0
     achievement: 0
+  nearCheckPoint: {fileID: 0}
 --- !u!4 &1943062364
 Transform:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour{
     public Vector3 initialPosition;
     public static GameManager instance;
     public Dialog_SO[] allDialogs;
+    public CheckPoint nearCheckPoint;
 
     void Awake() {
         if(instance == null)
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour{
         playerData.lastLevel = "TribuInicial";
         // playerData.allMapPieces = playerData.initialAllMapPieces;
         ResetAchievements();
+        playerStats.colorSphereCount = 0;
         playerData.allMapPieces = new List<MapPieceInfo>(playerData.initialAllMapPieces);
         playerData.playerPosition.mapID = "inicial";
         playerData.playerPosition.pieceID = 100;

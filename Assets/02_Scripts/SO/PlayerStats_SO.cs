@@ -31,5 +31,5 @@ public class PlayerStats_SO : GeneralStats_SO{
     public float rangedAttackCost;
     public float dashCost;
     //player colorSphereCount
-    public int colorSphereCount;
+    public float colorSphereCount;
 }

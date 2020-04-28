@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
         inputAction.GamePlay.Jump.performed += ctx => Jump();
         inputAction.GamePlay.Jump.canceled += ctx => JumpKeyUp();
         transform.position = GameManager.instance.playerData.lastPosition;
-        anim.SetBool("IsDead",false);
+        anim.SetBool("IsDead", false);
     }
 
     void OnEnable() {
@@ -52,10 +52,6 @@ public class PlayerController : MonoBehaviour, ITakeDamage{
     void Start(){
         rb  = GetComponent<Rigidbody2D>();
         // anim = GetComponentInChildren<Animator>();
-    }
-
-    void FixedUpdate() {
-        
     }
 
     void Update(){
