@@ -3246,7 +3246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dynamicRatio: 1
-  stiffnessForce: 0.8
+  stiffnessForce: 0.12
   stiffnessCurve:
     serializedVersion: 2
     m_Curve:
@@ -4507,8 +4507,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.046710968, y: 1.0188007}
-  m_Size: {x: 0.81005096, y: 2.2418756}
+  m_Offset: {x: 0.046710968, y: 1.0298121}
+  m_Size: {x: 0.81005096, y: 2.219853}
   m_Direction: 0
 --- !u!249 &8212746029264478201
 AreaEffector2D:
@@ -4545,7 +4545,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8212746029337919561
 Transform:
   m_ObjectHideFlags: 0
@@ -4554,7 +4554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8212746029337919562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -0.085, z: 0}
+  m_LocalPosition: {x: 0.08, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8212746029264478192}
